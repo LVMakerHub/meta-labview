@@ -1,0 +1,34 @@
+<?XML Version="1.0">
+<nidocument>
+<nicomment>
+<nifamily familyname="NI-Reports" displayname="NI-Reports">
+</nifamily>
+</nicomment>
+<nierror code="-41007">
+NI-Reports:  You must have the LabVIEW Report Generation Toolkit for Microsoft Office installed to create this type of report.  The toolkit must also have an activated license or be in evaluation mode.
+</nierror>
+<nierror code="-41006">
+NI-Reports:  This type of report is not supported on this platform.
+</nierror>
+<nierror code="-41005">
+NI-Reports:  Invalid margins.
+</nierror>
+<nierror code="-41004">
+NI-Reports:  Print error
+</nierror>
+<nierror code="-41003">
+NI-Reports:  File open error.
+</nierror>
+<nierror code="-41002">
+NI-Reports:  Invalid printer name
+</nierror>
+<nierror code="-41001">
+NI-Reports:  Out of memory.
+</nierror>
+<nierror code="-41000">
+NI-Reports:  An unknown error has occurred.
+</nierror>
+<nierror code="41000">
+NI-Reports:  You attempted to use a function that has no effect with the current report type.
+</nierror>
+</nidocument>
