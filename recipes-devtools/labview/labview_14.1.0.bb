@@ -80,9 +80,10 @@ do_install() {
 
 	# copy ini file
 	install -m 0755 ${S}/ni-rt.ini ${D}${STAGE_SHARE_DIR}/ni-rt.ini
-
-	# add /usr/local/natinst/lib to ld.cache
-	printf "/usr/local/natinst/lib\n" >> /etc/ld.so.conf
-	ldconfig
 }
 
+pkg_postinst_${PN} () {
+#!/bin/sh -e
+# add /usr/local/natinst/lib to ld.cache
+printf "/usr/local/natinst/lib\n" >> ${D}${sysconfdir}/ld.so.conf
+}
