@@ -42,14 +42,14 @@ INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 
 # various path constants
 #PROC_DIR=armv7-a
-LV_LANGUAGE=English
-SRC_ERROR_DIR=/Errors/${LV_LANGUAGE}
-STAGE_LIB_DIR=/usr/local/natinst/lib
-STAGE_LV_DIR=/usr/local/natinst/labview
-STAGE_LV_VAR_DIR=/var/local/natinst/labview
-STAGE_NATINST_DIR=/etc/natinst
-STAGE_SHARE_DIR=${STAGE_NATINST_DIR}/share
-STAGE_LV_INITD_DIR=/usr/local/natinst/etc/init.d
+LV_LANGUAGE="English"
+SRC_ERROR_DIR="/Errors/${LV_LANGUAGE}"
+STAGE_LIB_DIR="/usr/local/natinst/lib"
+STAGE_LV_DIR="/usr/local/natinst/labview"
+STAGE_LV_VAR_DIR="/var/local/natinst/labview"
+STAGE_NATINST_DIR="/etc/natinst"
+STAGE_SHARE_DIR="${STAGE_NATINST_DIR}/share"
+STAGE_LV_INITD_DIR="/usr/local/natinst/etc/init.d"
 
 do_install() {
 	install -d ${D}${STAGE_LIB_DIR}
