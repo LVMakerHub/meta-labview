@@ -35,54 +35,51 @@ SRC_URI[sha256sum] = ""
 # various path constants
 #PROC_DIR=armv7-a
 LV_LANGUAGE=English
-SRC_DIR=./
-SRC_ERROR_DIR=$SRC_DIR/Errors/$LV_LANGUAGE
+SRC_ERROR_DIR=/Errors/${LV_LANGUAGE}
 STAGE_LIB_DIR=/usr/local/natinst/lib
 STAGE_LV_DIR=/usr/local/natinst/labview
 STAGE_LV_VAR_DIR=/var/local/natinst/labview
-STAGE_INITD_DIR=/etc/init.d
 STAGE_NATINST_DIR=/etc/natinst
-STAGE_SHARE_DIR=$STAGE_NATINST_DIR/share
+STAGE_SHARE_DIR=${STAGE_NATINST_DIR}/share
 STAGE_LV_INITD_DIR=/usr/local/natinst/etc/init.d
 
 do_install() {
-	mkdir -p $STAGE_LIB_DIR
-	mkdir -p $STAGE_LV_DIR
-	mkdir -p $STAGE_SHARE_DIR
-	mkdir -p $STAGE_INITD_DIR
-	mkdir -p $STAGE_LV_INITD_DIR
-	mkdir -p $STAGE_LV_DIR/english
+	install -d ${D}${STAGE_LIB_DIR}
+	install -d ${D}${STAGE_LV_DIR}
+	install -d ${D}${STAGE_SHARE_DIR}
+	install -d ${D}${STAGE_LV_INITD_DIR}
+	install -d ${D}${STAGE_LV_DIR}/english
 
-	cp -f $SRC_DIR/$PROC_DIR/lvrt $STAGE_LV_DIR
-	cp -f $SRC_DIR/$PROC_DIR/liblvrt* $STAGE_LV_DIR
-	ln -sf liblvrt.so.14.0.1 $STAGE_LV_DIR/liblvrt.so.14.0
-	cp -f $SRC_DIR/$PROC_DIR/lvanlys.so $STAGE_LV_DIR
-	cp -f $SRC_DIR/$PROC_DIR/lvblas.so $STAGE_LV_DIR
-	cp -f $SRC_DIR/rtapp.rsc $STAGE_LV_DIR/english
-	cp -f $SRC_DIR/labview.dir $STAGE_NATINST_DIR
-	cp -f $SRC_DIR/$PROC_DIR/liblvalarms.so.7.10.0 $STAGE_LV_DIR
-	ln -sf liblvalarms.so.7.10.0 $STAGE_LV_DIR/liblvalarms.so.7
-	ln -sf liblvalarms.so.7 $STAGE_LV_DIR/liblvalarms.so
-	cp -f $SRC_DIR/$PROC_DIR/libni_emb.so.7.10.0 $STAGE_LIB_DIR
-	ln -sf libni_emb.so.7.10.0 $STAGE_LIB_DIR/libni_emb.so.6
-	ln -sf libni_emb.so.6 $STAGE_LIB_DIR/libni_emb.so
-	cp -f $SRC_DIR/$PROC_DIR/libni_rtlog.so.2.3.0 $STAGE_LIB_DIR
-	ln -sf libni_rtlog.so.2.3.0 $STAGE_LIB_DIR/libni_rtlog.so.2
-	cp -f $SRC_DIR/$PROC_DIR/libniCPULib.so.14.0.0 $STAGE_LV_DIR
-	ln -sf libniCPULib.so.14.0.0 $STAGE_LV_DIR/libniCPULib.so.14
-	ln -sf libniCPULib.so.14 $STAGE_LV_DIR/libniCPULib.so
-	cp -f $SRC_DIR/tdtable.tdr $STAGE_LV_DIR
+	install -m 0755 ${S}/${LV_ARCH}/lvrt ${D}${STAGE_LV_DIR}
+	install -m 0755 ${S}/${LV_ARCH}/liblvrt* ${D}${STAGE_LV_DIR}
+	ln -s liblvrt.so.14.0.1 ${D}${STAGE_LV_DIR}/liblvrt.so.14.0
+	install -m 0755 ${S}/${LV_ARCH}/lvanlys.so ${D}${STAGE_LV_DIR}
+	install -m 0755 ${S}/${LV_ARCH}/lvblas.so ${D}${STAGE_LV_DIR}
+	install -m 0755 ${S}/rtapp.rsc ${D}${STAGE_LV_DIR}/english
+	install -m 0755 ${S}/labview.dir ${D}${STAGE_NATINST_DIR}
+	install -m 0755 ${S}/${LV_ARCH}/liblvalarms.so.7.10.0 ${D}${STAGE_LV_DIR}
+	ln -s liblvalarms.so.7.10.0 ${D}${STAGE_LV_DIR}/liblvalarms.so.7
+	ln -s liblvalarms.so.7 ${D}${STAGE_LV_DIR}/liblvalarms.so
+	install -m 0755 ${S}/${LV_ARCH}/libni_emb.so.7.10.0 ${D}${STAGE_LIB_DIR}
+	ln -s libni_emb.so.7.10.0 ${D}${STAGE_LIB_DIR}/libni_emb.so.6
+	ln -s libni_emb.so.6 ${D}${STAGE_LIB_DIR}/libni_emb.so
+	install -m 0755 ${S}/${LV_ARCH}/libni_rtlog.so.2.3.0 ${D}${STAGE_LIB_DIR}
+	ln -s libni_rtlog.so.2.3.0 ${D}${STAGE_LIB_DIR}/libni_rtlog.so.2
+	install -m 0755 ${S}/${LV_ARCH}/libniCPULib.so.14.0.0 ${D}${STAGE_LV_DIR}
+	ln -s libniCPULib.so.14.0.0 ${D}${STAGE_LV_DIR}/libniCPULib.so.14
+	ln -s libniCPULib.so.14 ${D}${STAGE_LV_DIR}/libniCPULib.so
+	install -m 0755 ${S}/tdtable.tdr ${D}${STAGE_LV_DIR}
 
 	# install error files
-	mkdir -p $STAGE_LV_DIR/errors/English
-	cp -f $SRC_ERROR_DIR/LabVIEW-errors.txt $STAGE_LV_DIR/errors/$LV_LANGUAGE/labview.err
-	cp -f $SRC_ERROR_DIR/Analysis-errors.txt $STAGE_LV_DIR/errors/$LV_LANGUAGE/analysis.err
-	cp -f $SRC_ERROR_DIR/Measure-errors.txt $STAGE_LV_DIR/errors/$LV_LANGUAGE/measure.err
-	cp -f $SRC_ERROR_DIR/NI-Reports-errors.txt $STAGE_LV_DIR/errors/$LV_LANGUAGE/reports.err
-	cp -f "$SRC_ERROR_DIR/OS and Network Services-errors.txt" $STAGE_LV_DIR/errors/$LV_LANGUAGE/Services.err
+	install -d ${D}${STAGE_LV_DIR}/errors/${LV_LANGUAGE}
+	install -m 0755 ${S}${SRC_ERROR_DIR}/LabVIEW-errors.txt ${D}${STAGE_LV_DIR}/errors/${LV_LANGUAGE}/labview.err
+	install -m 0755 ${S}${SRC_ERROR_DIR}/Analysis-errors.txt ${D}${STAGE_LV_DIR}/errors/${LV_LANGUAGE}/analysis.err
+	install -m 0755 ${S}${SRC_ERROR_DIR}/Measure-errors.txt ${D}${STAGE_LV_DIR}/errors/${LV_LANGUAGE}/measure.err
+	install -m 0755 ${S}${SRC_ERROR_DIR}/NI-Reports-errors.txt ${D}${STAGE_LV_DIR}/errors/${LV_LANGUAGE}/reports.err
+	install -m 0755 ${S}${SRC_ERROR_DIR}/OS\ and\ Network\ Services-errors.txt ${D}${STAGE_LV_DIR}/errors/${LV_LANGUAGE}/Services.err
 
 	# copy ini file
-	cp -f $SRC_DIR/ni-rt.ini $STAGE_SHARE_DIR/ni-rt.ini
+	install -m 0755 ${S}/ni-rt.ini ${D}${STAGE_SHARE_DIR}/ni-rt.ini
 
 	# add /usr/local/natinst/lib to ld.cache
 	printf "/usr/local/natinst/lib\n" >> /etc/ld.so.conf
