@@ -93,5 +93,5 @@ do_install() {
 pkg_postinst_${PN} () {
 #!/bin/sh -e
 # add /usr/local/natinst/lib to ld.cache
-printf "/usr/local/natinst/lib\n" >> ${D}${sysconfdir}/ld.so.conf
+printf "/usr/local/natinst/lib\n" >> $D/etc/ld.so.conf
 }
