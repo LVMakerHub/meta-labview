@@ -32,10 +32,9 @@ SRC_URI = "file://ni-rt.ini \
 SRC_URI[md5sum] = ""
 SRC_URI[sha256sum] = ""
 
-# All the files are provided in a binary package, and keeping all the
-# files in a single package causes packaging QA errors and warnings.
-# Avoid these packaging failure by skipping all the QA checks
-INSANE_SKIP_${PN} = "${ERROR_QA} ${WARN_QA}"
+# Inhibit QA warnings and errors that can't be avoided because we're using 
+# pre-built binaries
+INSANE_SKIP_${PN} = "already-stripped dev-so textrel ldflags libdir"
 
 # Inhibit warnings about files being stripped, we can't do anything about it.
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
