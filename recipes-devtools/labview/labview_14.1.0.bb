@@ -8,6 +8,11 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}_${PV}:"
 
 S = "${WORKDIR}"
 
+inherit update-rc.d
+
+INITSCRIPT_NAME = "nilvrt"
+INITSCRIPT_PARAMS = "start 98 4 5 . stop 2 0 1 2 3 6 ."
+
 # Automatically choose java package based on target architecture
 def get_lv_arch(d):
        TA = d.getVar('TARGET_ARCH', True)
@@ -27,6 +32,7 @@ SRC_URI = "file://ni-rt.ini \
 	   file://tdtable.tdr \
 	   file://Errors/* \
 	   file://${LV_ARCH}/* \
+	   file://nilvrt \
 	  "
 
 SRC_URI[md5sum] = ""
@@ -50,7 +56,7 @@ STAGE_NATINST_DIR="/etc/natinst"
 STAGE_SHARE_DIR="${STAGE_NATINST_DIR}/share"
 STAGE_LV_INITD_DIR="/usr/local/natinst/etc/init.d"
 
-FILES_${PN} = "${STAGE_LV_DIR}/* ${STAGE_NATINST_DIR}/* ${STAGE_LIB_DIR}/* ${STAGE_SHARE_DIR}/* ${STAGE_LV_DIR}/errors/${LV_LANGUAGE}/* ${STAGE_LV_INITD_DIR}"
+FILES_${PN} = "${STAGE_LV_DIR}/* ${STAGE_NATINST_DIR}/* ${STAGE_LIB_DIR}/* ${STAGE_SHARE_DIR}/* ${STAGE_LV_DIR}/errors/${LV_LANGUAGE}/* ${STAGE_LV_INITD_DIR} ${sysconfdir}/init.d/nilvrt"
 
 do_install() {
 	install -d ${D}${STAGE_LIB_DIR}
@@ -89,6 +95,11 @@ do_install() {
 
 	# copy ini file
 	install -m 0755 ${S}/ni-rt.ini ${D}${STAGE_SHARE_DIR}/ni-rt.ini
+
+	# install startup script
+	install -m 0755 ${S}/nilvrt ${D}${STAGE_LV_INITD_DIR}/nilvrt
+	install -d ${D}${sysconfdir}/init.d
+	ln -s ${STAGE_LV_INITD_DIR}/nilrt ${D}${sysconfdir}/init.d/nilvrt
 }
 
 pkg_postinst_${PN} () {
