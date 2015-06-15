@@ -44,7 +44,7 @@ STAGE_PASSPORT_DIR="${STAGE_VISA_DIR}/NIvisa/Passport"
 STAGE_SHARE_DIR="/usr/local/natinst/share"
 STAGE_ERR_DIR="${STAGE_SHARE_DIR}/errors"
 
-FILES_${PN} = "${STAGE_LIB_DIR}/* ${STAGE_PASSPORT_DIR}/* ${STAGE_ERR_DIR}/*"
+FILES_${PN} = "${STAGE_LIB_DIR}/* ${STAGE_PASSPORT_DIR}/* ${STAGE_ERR_DIR}/* ${STAGE_SHARE_DIR}/* ${STAGE_VISA_DIR}/NIvisa/* /usr/local/lib/libvisa.so"
 
 do_install() {
 	install -d ${D}${STAGE_LIB_DIR}
