@@ -39,7 +39,7 @@ INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 # various path constants
 LV_LANGUAGE="English"
 STAGE_VISA_DIR="/usr/local/vxipnp/linux"
-STAGE_LIB_DIR="${STAGE_VISA_DIR}/lib/"
+STAGE_LIB_DIR="${STAGE_VISA_DIR}/lib"
 STAGE_PASSPORT_DIR="${STAGE_VISA_DIR}/NIvisa/Passport"
 STAGE_SHARE_DIR="/usr/local/natinst/share"
 STAGE_ERR_DIR="${STAGE_SHARE_DIR}/errors"
@@ -52,9 +52,10 @@ do_install() {
 	install -d ${D}${STAGE_ERR_DIR}/English
 	install -d ${D}${STAGE_ERR_DIR}/Japanese
 	install -d ${D}${STAGE_ERR_DIR}/Korean
+	install -d ${D}/usr/local/lib
 
 	install -m 0755 ${S}/${NI_ARCH}/*.so ${D}${STAGE_LIB_DIR}
-	ln -s /usr/local/lib/libvisa.so ${D}${STAGE_LIB_DIR}/libvisa.so
+	ln -s ${STAGE_LIB_DIR}/libvisa.so ${D}/usr/local/lib/libvisa.so
 	install -m 0755 ${S}/VISA-Eng.err ${D}${STAGE_ERR_DIR}/English/VISA.err
 	install -m 0755 ${S}/VISA-Jpn.err ${D}${STAGE_ERR_DIR}/Japanese/VISA.err
 	install -m 0755 ${S}/VISA-Kor.err ${D}${STAGE_ERR_DIR}/Korean/VISA.err
