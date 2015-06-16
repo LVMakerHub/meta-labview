@@ -99,7 +99,7 @@ do_install() {
 	# install startup script
 	install -m 0755 ${S}/nilvrt ${D}${STAGE_LV_INITD_DIR}/nilvrt
 	install -d ${D}${sysconfdir}/init.d
-	ln -s ${STAGE_LV_INITD_DIR}/nilrt ${D}${sysconfdir}/init.d/nilvrt
+	ln -s ${STAGE_LV_INITD_DIR}/nilvrt ${D}${sysconfdir}/init.d/nilvrt
 }
 
 pkg_postinst_${PN} () {
