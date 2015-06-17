@@ -65,3 +65,12 @@ do_install() {
 	install -m 0755 ${S}/NiViAsrl.ini ${D}${STAGE_PASSPORT_DIR}/NiViAsrl.ini
 	install -m 0755 ${S}/nisysapi.ini ${D}${STAGE_SHARE_DIR}/nisysapi.ini
 }
+
+pkg_postinst_${PN} () {
+#!/bin/sh -e
+# add /usr/local/vxipnp/linux/lib to ld.cache
+grep -q /usr/local/vxipnp/linux/lib $D/etc/ld.so.conf || printf "/usr/local/vxipnp/linux/lib\n" >> $D/etc/ld.so.conf
+if [ -z "$D" ]; then
+  ldconfig
+fi
+}
