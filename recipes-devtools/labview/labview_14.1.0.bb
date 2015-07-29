@@ -65,6 +65,7 @@ do_install() {
 	install -d ${D}${STAGE_LV_INITD_DIR}
 	install -d ${D}${STAGE_LV_DIR}/english
 
+	# install LV binary and essential files and libs
 	install -m 0755 ${S}/${LV_ARCH}/lvrt ${D}${STAGE_LV_DIR}
 	install -m 0755 ${S}/${LV_ARCH}/liblvrt* ${D}${STAGE_LV_DIR}
 	ln -s liblvrt.so.14.0.1 ${D}${STAGE_LV_DIR}/liblvrt.so.14.0
@@ -84,6 +85,11 @@ do_install() {
 	ln -s libniCPULib.so.14.0.0 ${D}${STAGE_LV_DIR}/libniCPULib.so.14
 	ln -s libniCPULib.so.14 ${D}${STAGE_LV_DIR}/libniCPULib.so
 	install -m 0755 ${S}/tdtable.tdr ${D}${STAGE_LV_DIR}
+
+	# add some additional libs
+	install -m 0755 ${S}/${LV_ARCH}/liblvpidtkt.so.14.0.0 ${D}${STAGE_LIB_DIR}
+	ln -s liblvpidtkt.so.14.0.0 ${D}${STAGE_LIB_DIR}/liblvpidtkt.so.14
+	ln -s liblvpidtkt.so.14 ${D}${STAGE_LIB_DIR}/liblvpidtkt.so
 
 	# install error files
 	install -d ${D}${STAGE_LV_DIR}/errors/${LV_LANGUAGE}
