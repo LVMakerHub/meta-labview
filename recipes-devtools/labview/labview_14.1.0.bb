@@ -90,6 +90,9 @@ do_install() {
 	install -m 0755 ${S}/${LV_ARCH}/liblvpidtkt.so.14.0.0 ${D}${STAGE_LIB_DIR}
 	ln -s liblvpidtkt.so.14.0.0 ${D}${STAGE_LIB_DIR}/liblvpidtkt.so.14
 	ln -s liblvpidtkt.so.14 ${D}${STAGE_LIB_DIR}/liblvpidtkt.so
+	install -m 0755 ${S}/${LV_ARCH}/libtdms.so.14.0.0 ${D}${STAGE_LIB_DIR}
+	ln -s libtdms.so.14.0.0 ${D}${STAGE_LIB_DIR}/libtdms.so.14
+	ln -s libtdms.so.14 ${D}${STAGE_LIB_DIR}/libtdms.so
 
 	# install error files
 	install -d ${D}${STAGE_LV_DIR}/errors/${LV_LANGUAGE}
