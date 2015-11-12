@@ -7,4 +7,5 @@ RDEPENDS_${PN} = "\
 	packagegroup-core-buildessential \
 	git \
 	gdb \
+	liblinxdevice \
 "
