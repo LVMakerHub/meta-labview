@@ -19,6 +19,6 @@ do_compile(){
 
 do_install_append(){
         install -d ${D}/usr/lib
-        install -m 0644 ${S}../core/examples/LinxDeviceLib/bin/*.so ${D}/usr/lib
+        install -m 0755 ${S}../core/examples/LinxDeviceLib/bin/*.so ${D}/usr/lib
 }
 
