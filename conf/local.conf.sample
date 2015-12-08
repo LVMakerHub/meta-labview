@@ -227,7 +227,7 @@ PACKAGECONFIG_append_pn-nativesdk-qemu = " sdl"
 ASSUME_PROVIDED += "libsdl-native"
 
 # Basic feeds for installing extra packages
-PACKAGE_FEED_URIS ?= "http://www.labviewmakerhub.com/feeds/armv7a"
+PACKAGE_FEED_URIS ?= "http://feeds.labviewmakerhub.com/armv7a"
 #IPK_FEED_URIS = " \
 #	all##http://download.ni.com/ni-linux-rt/feeds/2014/arm/all \
 # 	armv7a-vfp-neon##http://download.ni.com/ni-linux-rt/feeds/2014/arm/armv7a-vfp-neon/ \
