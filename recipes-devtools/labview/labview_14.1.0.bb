@@ -52,6 +52,7 @@ SRC_ERROR_DIR="/Errors/${LV_LANGUAGE}"
 STAGE_LIB_DIR="/usr/local/natinst/lib"
 STAGE_LV_DIR="/usr/local/natinst/labview"
 STAGE_LV_VAR_DIR="/var/local/natinst/labview"
+STAGE_LV_LOG_DIR="/var/local/natinst/log"
 STAGE_NATINST_DIR="/etc/natinst"
 STAGE_SHARE_DIR="${STAGE_NATINST_DIR}/share"
 STAGE_LV_INITD_DIR="/usr/local/natinst/etc/init.d"
@@ -64,6 +65,7 @@ do_install() {
 	install -d ${D}${STAGE_SHARE_DIR}
 	install -d ${D}${STAGE_LV_INITD_DIR}
 	install -d ${D}${STAGE_LV_DIR}/english
+	install -d ${D}${STAGE_LV_LOG_DIR}
 
 	# install LV binary and essential files and libs
 	install -m 0755 ${S}/${LV_ARCH}/lvrt ${D}${STAGE_LV_DIR}
