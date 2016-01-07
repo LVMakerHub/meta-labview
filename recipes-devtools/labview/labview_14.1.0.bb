@@ -57,7 +57,7 @@ STAGE_NATINST_DIR="/etc/natinst"
 STAGE_SHARE_DIR="${STAGE_NATINST_DIR}/share"
 STAGE_LV_INITD_DIR="/usr/local/natinst/etc/init.d"
 
-FILES_${PN} = "${STAGE_LV_DIR}/* ${STAGE_NATINST_DIR}/* ${STAGE_LIB_DIR}/* ${STAGE_SHARE_DIR}/* ${STAGE_LV_DIR}/errors/${LV_LANGUAGE}/* ${STAGE_LV_INITD_DIR} ${sysconfdir}/init.d/nilvrt"
+FILES_${PN} = "${STAGE_LV_DIR}/* ${STAGE_NATINST_DIR}/* ${STAGE_LIB_DIR}/* ${STAGE_SHARE_DIR}/* ${STAGE_LV_DIR}/errors/${LV_LANGUAGE}/* ${STAGE_LV_INITD_DIR} ${sysconfdir}/init.d/nilvrt ${STAGE_LV_LOG_DIR}"
 
 do_install() {
 	install -d ${D}${STAGE_LIB_DIR}
