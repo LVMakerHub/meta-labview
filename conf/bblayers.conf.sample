@@ -9,6 +9,7 @@ BBLAYERS ?= " \
   ../../meta \
   ../../meta-yocto \
   ../../meta-yocto-bsp \
+  ../../meta-openembedded/meta-oe \
   ../../meta-labview \
   "
 BBLAYERS_NON_REMOVABLE ?= " \

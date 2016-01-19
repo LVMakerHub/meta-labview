@@ -8,4 +8,5 @@ RDEPENDS_${PN} = "\
 	git \
 	gdb \
 	liblinxdevice \
+	libcec \
 "
