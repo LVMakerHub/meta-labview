@@ -3,9 +3,10 @@ HOMEPAGE = "http://www.labviewmakerhub.com"
 LICENSE = "BSD-2-Clause"
 SECTION = "libs"
 DEPENDS = ""
-LIC_FILES_CHKSUM = "file://../../../../../../../EULA.txt;md5=a3d0f18bd127854c6251ea868053e9a2"
+LIC_FILES_CHKSUM = "file://../../../../../../../EULA.txt;md5=5cdc480f6b6d05b53790a682a9ed9ed9"
 
-SRC_URI = "git://github.com/MakerHub/LINX.git;branch=${PV}"
+PV = "2.1-git${SRCPV}"
+SRC_URI = "git://github.com/MakerHub/LINX.git;branch=2.1"
 SRCREV = "${AUTOREV}"
 S = "${WORKDIR}/git/LabVIEW/vi.lib/MakerHub/LINX/Firmware/Source/make/"
 
