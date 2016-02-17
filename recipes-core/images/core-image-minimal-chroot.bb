@@ -7,6 +7,7 @@ IMAGE_INSTALL = "packagegroup-core-boot \
 		 ${CORE_IMAGE_EXTRA_INSTALL} \
 		 bash \
 		 labview \
+		 lv-web-support \
 		 liblinxdevice \
 		 visa \
 		"
