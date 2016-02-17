@@ -38,9 +38,9 @@ STAGE_LV_DIR="/usr/local/natinst/labview"
 STAGE_LIB_DIR="/usr/local/natinst/lib"
 STAGE_SHARE_DIR="/usr/local/natinst/share"
 STAGE_ETC_DIR="/etc/natinst"
-STAGE_TRACELOG_DIR="/var/log/natinst/tracelogs"
+STAGE_TRACELOG_DIR="/var/volatile/log/natinst/tracelogs"
 
-FILES_${PN} = "${STAGE_LV_DIR}/*"
+FILES_${PN} = "${STAGE_LV_DIR}/* ${STAGE_LIB_DIR}/* ${STAGE_SHARE_DIR}/* ${STAGE_ETC_DIR}/* ${STAGE_TRACELOG_DIR}/*"
 
 do_install() {
 	install -d ${D}${STAGE_LV_DIR}
@@ -49,8 +49,8 @@ do_install() {
 	install -d ${D}${STAGE_ETC_DIR}
 
 	# http, smtp, and webdav client libs
-	install -m 0755 ${S}/${NI_ARCH}/libni_httpclient.so.14.0.0 ${D}${STAGE_LV_DIR}
-	ln -s libni_httpclient.so.14.0.0 ${D}${STAGE_LV_DIR}/libni_httpclient.so
+	install -m 0755 ${S}/${NI_ARCH}/libni_httpClient.so.14.0.0 ${D}${STAGE_LV_DIR}
+	ln -s libni_httpClient.so.14.0.0 ${D}${STAGE_LV_DIR}/libni_httpClient.so
 	install -m 0755 ${S}/${NI_ARCH}/libniSmtpClient.so.14.5.0 ${D}${STAGE_LV_DIR}
 	ln -s libniSmtpClient.so.14.5.0 ${D}${STAGE_LV_DIR}/libniSmtpClient.so
 	install -m 0755 ${S}/${NI_ARCH}/libni_webdavLVClient.so.14.0.0 ${D}${STAGE_LV_DIR}
@@ -62,12 +62,13 @@ do_install() {
 	
 	# NI curl lib
 	install -d ${D}${STAGE_SHARE_DIR}/nicurl
-	install -m 0755 ${S}/${NI_ARCH}/libcurlimpl.so.14.0.0 ${D}${STAGE_LIB_DIR}
+	install -m 0755 ${S}/${NI_ARCH}/libcurlimpl.so.15.0.0 ${D}${STAGE_LIB_DIR}
 	ln -s ${STAGE_LIB_DIR}/libcurlimpl.so.15.0.0 ${D}${STAGE_SHARE_DIR}/nicurl/libcurlimpl.so.15.0.0
 	ln -s libcurlimpl.so.15.0.0 ${D}${STAGE_SHARE_DIR}/nicurl/libcurlimpl.so
 	ln -s ${STAGE_ETC_DIR}/nissl/ca-bundle.crt ${D}${STAGE_SHARE_DIR}/nicurl/ca-bundle.crt
 
 	# NI SSL lib
+	install -d ${D}${STAGE_SHARE_DIR}/nissl
 	install -m 0755 ${S}/${NI_ARCH}/libnisslinit.so.14.0.0 ${D}${STAGE_LIB_DIR}/libnisslinit.so.14.0.0
 	ln -s ${STAGE_LIB_DIR}/libnisslinit.so.14.0.0 ${D}${STAGE_SHARE_DIR}/nissl/libnisslinit.so.14.0.0
 	ln -s libnisslinit.so.14.0.0 ${D}${STAGE_SHARE_DIR}/nissl/libnisslinit.so
@@ -82,7 +83,8 @@ do_install() {
 
 	# NI traceengine
 	install -d ${D}${STAGE_TRACELOG_DIR}
+	install -d ${D}${STAGE_SHARE_DIR}/traceengine
 	install -m 0755 ${S}/traceengine.ini ${D}${STAGE_TRACELOG_DIR}/traceengine.ini
-	install -m 0755 ${S}/{NI_ARCH}/libni_traceengine.so.15.0.0 ${D}${STAGE_SHARE_DIR}/traceengine/libni_traceengine.so.15.0.0
+	install -m 0755 ${S}/${NI_ARCH}/libni_traceengine.so.15.0.0 ${D}${STAGE_SHARE_DIR}/traceengine/libni_traceengine.so.15.0.0
 	ln -s libni_traceengine.so.15.0.0 ${D}${STAGE_SHARE_DIR}/traceengine/libni_traceengine.so
 }
