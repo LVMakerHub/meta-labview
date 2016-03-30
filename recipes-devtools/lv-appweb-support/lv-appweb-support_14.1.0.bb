@@ -63,6 +63,9 @@ do_install() {
 	install -m 0755 ${S}/${NI_ARCH}/libmpr.so.4.1.0 ${D}${STAGE_SHARE_DIR}
 	ln -s libmpr.so.4.1.0 ${D}${STAGE_SHARE_DIR}/libmpr.so
 	ln -s ${STAGE_SHARE_DIR}/libmpr.so.4.1.0 ${D}${STAGE_LIB_DIR}/libmpr.so.4.1.0
+	install -m 0755 ${S}/${NI_ARCH}/libmprssl.so.4.1.0 ${D}${STAGE_SHARE_DIR}
+	ln -s libmprssl.so.4.1.0 ${D}${STAGE_SHARE_DIR}/libmprssl.so
+	ln -s ${STAGE_SHARE_DIR}/libmprssl.so.4.1.0 ${D}${STAGE_LIB_DIR}/libmprssl.so.4.1.0
 	install -m 0755 ${S}/${NI_ARCH}/libhttp.so.4.1.0 ${D}${STAGE_SHARE_DIR}
 	ln -s libhttp.so.4.1.0 ${D}${STAGE_SHARE_DIR}/libhttp.so
 	ln -s ${STAGE_SHARE_DIR}/libhttp.so.4.1.0 ${D}${STAGE_LIB_DIR}/libhttp.so.4.1.0
