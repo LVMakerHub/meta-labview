@@ -9,6 +9,8 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}_${PV}:"
 
 S = "${WORKDIR}"
 
+#RDEPENDS_${PN} += " libcap "
+
 # Automatically choose directory based on target architecture
 def get_ni_arch(d):
        TA = d.getVar('TARGET_ARCH', True)
@@ -60,7 +62,7 @@ do_install() {
 	ln -s ${STAGE_SHARE_DIR}/libpcre.so.4.1.0 ${D}${STAGE_LIB_DIR}/libpcre.so.4.1.0
 	install -m 0755 ${S}/${NI_ARCH}/libmpr.so.4.1.0 ${D}${STAGE_SHARE_DIR}
 	ln -s libmpr.so.4.1.0 ${D}${STAGE_SHARE_DIR}/libmpr.so
-	ln -s ${STAGE_SHARE_DIR}/libmpr.so.4.1.0 ${D}${STAGE_LIB_DIR}/libpcre.so.4.1.0
+	ln -s ${STAGE_SHARE_DIR}/libmpr.so.4.1.0 ${D}${STAGE_LIB_DIR}/libmpr.so.4.1.0
 	install -m 0755 ${S}/${NI_ARCH}/libhttp.so.4.1.0 ${D}${STAGE_SHARE_DIR}
 	ln -s libhttp.so.4.1.0 ${D}${STAGE_SHARE_DIR}/libhttp.so
 	ln -s ${STAGE_SHARE_DIR}/libhttp.so.4.1.0 ${D}${STAGE_LIB_DIR}/libhttp.so.4.1.0
