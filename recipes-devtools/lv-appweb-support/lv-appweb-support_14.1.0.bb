@@ -80,6 +80,7 @@ do_install() {
 	ln -s ${STAGE_SHARE_DIR}/mod_nisessmgr.so.14.0.0 ${D}${STAGE_LIB_DIR}/libmod_nisessmgr.so.14.0.0
 	install -m 0755 ${S}/${NI_ARCH}/libappweb.so.14.5.0 ${D}${STAGE_SHARE_DIR}
 	ln -s libappweb.so.14.5.0 ${D}${STAGE_SHARE_DIR}/libappweb.so
+	ln -s ${STAGE_SHARE_DIR}/libappweb.so ${D}${STAGE_LV_DIR}/libappweb.so
 
 	# mime.types
 	install -m 0444 ${S}/mime.types ${D}${STAGE_ETC_DIR}
