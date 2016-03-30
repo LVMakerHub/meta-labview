@@ -11,4 +11,5 @@ RDEPENDS_${PN} = "\
 	libcec \
 	opencv \
 	opencv-samples \
+	strace \
 "
