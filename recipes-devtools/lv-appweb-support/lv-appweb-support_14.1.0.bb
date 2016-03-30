@@ -9,7 +9,7 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}_${PV}:"
 
 S = "${WORKDIR}"
 
-#RDEPENDS_${PN} += " libcap "
+RDEPENDS_${PN} += "libcap"
 
 # Automatically choose directory based on target architecture
 def get_ni_arch(d):
@@ -120,13 +120,13 @@ do_install() {
 	install -m 0644 ${S}/mod_niws.cfg ${D}${STAGE_TRACELOG_DIR}
 	install -m 0644 ${S}/ws_service_container.cfg ${D}${STAGE_TRACELOG_DIR}
 
-	# mod_niauth, mod_nissl, and mod_ssl
+	# mod_niauth, mod_niconf, mod_nissl, and mod_ssl
 	install -m 0755 ${S}/${NI_ARCH}/mod_niauth.so.14.0.0 ${D}${STAGE_SHARE_DIR}
 	ln -s mod_niauth.so.14.0.0 ${D}${STAGE_SHARE_DIR}/mod_niauth.so
+	install -m 0755 ${S}/${NI_ARCH}/mod_niconf.so.14.0.0 ${D}${STAGE_SHARE_DIR}
+	ln -s mod_niconf.so.14.0.0 ${D}${STAGE_SHARE_DIR}/mod_niconf.so
 	install -m 0755 ${S}/${NI_ARCH}/mod_nissl.so.14.0.0 ${D}${STAGE_SHARE_DIR}
 	ln -s mod_nissl.so.14.0.0 ${D}${STAGE_SHARE_DIR}/mod_nissl.so
 	install -m 0755 ${S}/${NI_ARCH}/mod_ssl.so.4.1.0 ${D}${STAGE_SHARE_DIR}
 	ln -s mod_ssl.so.4.1.0 ${D}${STAGE_SHARE_DIR}/mod_ssl.so
-
-	# mod_niconf?
 }
