@@ -9,7 +9,8 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}_${PV}:"
 
 S = "${WORKDIR}"
 
-RDEPENDS_${PN} += "libcap"
+RRECOMMENDS_${PN} = "labview"
+RDEPENDS_${PN} = "lv-web-support libcap"
 
 # Automatically choose directory based on target architecture
 def get_ni_arch(d):
