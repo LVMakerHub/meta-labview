@@ -6,6 +6,8 @@ LIC_FILES_CHKSUM = ""
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}_${PV}:"
 
+RRECOMMENDS_${PN} = "labview"
+
 S = "${WORKDIR}"
 
 # Automatically choose directory based on target architecture
