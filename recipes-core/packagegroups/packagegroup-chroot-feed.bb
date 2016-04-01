@@ -9,6 +9,9 @@ RDEPENDS_${PN} = "\
 	gdb \
 	liblinxdevice \
 	libcec \
+	labview \
+	lv-appweb-support \
+	lv-web-support \
 	opencv \
 	opencv-samples \
 	strace \
