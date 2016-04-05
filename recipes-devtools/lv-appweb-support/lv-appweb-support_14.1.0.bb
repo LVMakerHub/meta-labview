@@ -73,6 +73,7 @@ do_install() {
 	install -m 0755 ${S}/${NI_ARCH}/libappwebcore.so.4.1.0 ${D}${STAGE_SHARE_DIR}
 	ln -s libappwebcore.so.4.1.0 ${D}${STAGE_SHARE_DIR}/libappwebcore.so
 	ln -s ${STAGE_SHARE_DIR}/libappwebcore.so.4.1.0 ${D}${STAGE_LIB_DIR}/libappwebcore.so.4.1.0
+	ln -s libappwebcore.so.4.1.0 ${D}${STAGE_LIB_DIR}/libappwebcore.so.4
 	install -m 0755 ${S}/${NI_ARCH}/mod_niesp.so.14.0.0 ${D}${STAGE_SHARE_DIR}
 	ln -s mod_niesp.so.14.0.0 ${D}${STAGE_SHARE_DIR}/mod_niesp.so
 	ln -s ${STAGE_SHARE_DIR}/mod_niesp.so.14.0.0 ${D}${STAGE_LIB_DIR}/libmod_niesp.so.14.0.0
@@ -93,6 +94,7 @@ do_install() {
 	ln -s ${STAGE_SHARE_DIR}/libws_runtime.so.14.5.0 ${D}${STAGE_LIB_DIR}/libws_runtime.so
 	ln -s ${STAGE_SHARE_DIR}/libws_runtime.so.14.5.0 ${D}${STAGE_LIB_DIR}/libws_runtime.so.14.5.0	
 	ln -s libws_runtime.so.14.5.0 ${D}${STAGE_LIB_DIR}/ws_runtime.so
+	ln -s ${STAGE_SHARE_DIR}/libws_runtime.so.14.5.0 ${D}${STAGE_LV_DIR}/ws_runtime.so
 	install -m 0755 ${S}/${NI_ARCH}/mod_niws.so.14.5.0 ${D}${STAGE_SHARE_DIR}
 	ln -s mod_niws.so.14.5.0 ${D}${STAGE_SHARE_DIR}/mod_niws.so
 	ln -s ${STAGE_SHARE_DIR}/mod_niws.so.14.5.0 ${D}${STAGE_LIB_DIR}/libmod_niws.so.14.5.0	
