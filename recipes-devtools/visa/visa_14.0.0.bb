@@ -1,8 +1,9 @@
 SUMMARY = "NI-VISA driver"
 HOMEPAGE = "http://ni.com/visa"
-LICENSE = "CLOSED"
 
-LIC_FILES_CHKSUM = ""
+LICENSE_FLAGS = "national-instruments"
+LICENSE = "National_Instruments_Software_License_Agreement"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=2c6c2a1463b05f89279c9242eae7d3a8"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}_${PV}:"
 
@@ -24,6 +25,7 @@ NI_ARCH = "${@get_ni_arch(d)}"
 SRC_URI = "file://*.ini \
 	   file://*.err \
 	   file://${NI_ARCH}/* \
+	   file://LICENSE \
 	  "
 
 SRC_URI[md5sum] = ""

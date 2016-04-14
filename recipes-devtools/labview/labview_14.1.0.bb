@@ -1,8 +1,9 @@
 SUMMARY = "LabVIEW embedded run-time engine"
 HOMEPAGE = "http://ni.com/labview"
-LICENSE = "CLOSED"
 
-LIC_FILES_CHKSUM = ""
+LICENSE_FLAGS = "national-instruments"
+LICENSE = "National_Instruments_Software_License_Agreement"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=2c6c2a1463b05f89279c9242eae7d3a8"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}_${PV}:"
 
@@ -33,6 +34,7 @@ SRC_URI = "file://ni-rt.ini \
 	   file://Errors/* \
 	   file://${LV_ARCH}/* \
 	   file://nilvrt \
+	   file://LICENSE \
 	  "
 
 SRC_URI[md5sum] = ""

@@ -1,9 +1,10 @@
 SUMMARY = "NI-LabVIEW appweb support libraries"
 HOMEPAGE = "http://ni.com/labview"
-LICENSE = "CLOSED"
 DESCRIPTION = "Appweb support enables usage of LabVIEW-based web services and Data Dashboard app"
 
-LIC_FILES_CHKSUM = ""
+LICENSE_FLAGS = "national-instruments"
+LICENSE = "National_Instruments_Software_License_Agreement"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=2c6c2a1463b05f89279c9242eae7d3a8"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}_${PV}:"
 
@@ -25,7 +26,9 @@ def get_ni_arch(d):
 
 NI_ARCH = "${@get_ni_arch(d)}"
 
-SRC_URI = "file://${NI_ARCH}/*"
+SRC_URI = "file://${NI_ARCH}/* \
+	   file://LICENSE \
+	  "
 
 SRC_URI[md5sum] = ""
 SRC_URI[sha256sum] = ""
