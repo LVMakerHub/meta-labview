@@ -1,2 +1,17 @@
-This layer adds support for LabVIEW and other National Instruments software.
+meta-labview
+------------
 
+This layer adds recipes for LabVIEW and other National Instruments software. 
+This software is largely distributed as pre-built binaries, and are provided 
+under the National Instruments Software License Agreement.
+
+These recipes will not build by default. In order to build them you need to
+enable "National_Instruments_Software_License_Agreement" license by adding 
+this line in your local.conf:
+
+LICENSE_FLAGS_WHITELIST += "national-instruments"
+
+A sample local.conf and bblayers.conf is supplied in conf directory.
+
+Maintainers:
+LabVIEWMakerHub Administrator <admin@labviewmakerhub.com>
