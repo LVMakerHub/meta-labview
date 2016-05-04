@@ -3,7 +3,11 @@ meta-labview
 
 This layer adds recipes for LabVIEW and other National Instruments software. 
 This software is largely distributed as pre-built binaries, and are provided 
-under the National Instruments Software License Agreement.
+under the NI Maker Software License Agreement.
+
+The Yocto meta-data (recipe files, etc.) is provided under the MIT license 
+(see COPYING.MIT), while any other software is provided under the terms of its 
+own license.
 
 These recipes will not build by default. In order to build them you need to
 enable "National_Instruments_Software_License_Agreement" license by adding 
