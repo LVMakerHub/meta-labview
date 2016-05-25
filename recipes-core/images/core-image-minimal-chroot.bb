@@ -8,6 +8,7 @@ IMAGE_INSTALL = "packagegroup-core-boot \
 		 bash \
 		 labview \
 		 lv-web-support \
+		 lv-appweb-support \
 		 liblinxdevice \
 		 visa \
 		"
