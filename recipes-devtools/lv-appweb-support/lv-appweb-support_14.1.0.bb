@@ -64,15 +64,19 @@ do_install() {
 	install -m 0755 ${S}/${NI_ARCH}/libpcre.so.4.1.0 ${D}${STAGE_SHARE_DIR}
 	ln -s libpcre.so.4.1.0 ${D}${STAGE_SHARE_DIR}/libpcre.so
 	ln -s ${STAGE_SHARE_DIR}/libpcre.so.4.1.0 ${D}${STAGE_LIB_DIR}/libpcre.so.4.1.0
+	ln -s libpcre.so.4.1.0 ${D}${STAGE_LIB_DIR}/libpcre.so.4
 	install -m 0755 ${S}/${NI_ARCH}/libmpr.so.4.1.0 ${D}${STAGE_SHARE_DIR}
 	ln -s libmpr.so.4.1.0 ${D}${STAGE_SHARE_DIR}/libmpr.so
 	ln -s ${STAGE_SHARE_DIR}/libmpr.so.4.1.0 ${D}${STAGE_LIB_DIR}/libmpr.so.4.1.0
+	ln -s libmpr.so.4.1.0 ${D}${STAGE_LIB_DIR}/libmpr.so.4
 	install -m 0755 ${S}/${NI_ARCH}/libmprssl.so.4.1.0 ${D}${STAGE_SHARE_DIR}
 	ln -s libmprssl.so.4.1.0 ${D}${STAGE_SHARE_DIR}/libmprssl.so
 	ln -s ${STAGE_SHARE_DIR}/libmprssl.so.4.1.0 ${D}${STAGE_LIB_DIR}/libmprssl.so.4.1.0
+	ln -s libmprssl.so.4.1.0 ${D}${STAGE_LIB_DIR}/libmprssl.so.4
 	install -m 0755 ${S}/${NI_ARCH}/libhttp.so.4.1.0 ${D}${STAGE_SHARE_DIR}
 	ln -s libhttp.so.4.1.0 ${D}${STAGE_SHARE_DIR}/libhttp.so
 	ln -s ${STAGE_SHARE_DIR}/libhttp.so.4.1.0 ${D}${STAGE_LIB_DIR}/libhttp.so.4.1.0
+	ln -s libhttp.so.4.1.0 ${D}${STAGE_LIB_DIR}/libhttp.so.4
 	install -m 0755 ${S}/${NI_ARCH}/libappwebcore.so.4.1.0 ${D}${STAGE_SHARE_DIR}
 	ln -s libappwebcore.so.4.1.0 ${D}${STAGE_SHARE_DIR}/libappwebcore.so
 	ln -s ${STAGE_SHARE_DIR}/libappwebcore.so.4.1.0 ${D}${STAGE_LIB_DIR}/libappwebcore.so.4.1.0
@@ -80,9 +84,11 @@ do_install() {
 	install -m 0755 ${S}/${NI_ARCH}/mod_niesp.so.14.0.0 ${D}${STAGE_SHARE_DIR}
 	ln -s mod_niesp.so.14.0.0 ${D}${STAGE_SHARE_DIR}/mod_niesp.so
 	ln -s ${STAGE_SHARE_DIR}/mod_niesp.so.14.0.0 ${D}${STAGE_LIB_DIR}/libmod_niesp.so.14.0.0
+	ln -s libmod_niesp.so.14.0.0 ${D}${STAGE_LIB_DIR}/mod_niesp.so.13
 	install -m 0755 ${S}/${NI_ARCH}/mod_nisessmgr.so.14.0.0 ${D}${STAGE_SHARE_DIR}
 	ln -s mod_nisessmgr.so.14.0.0 ${D}${STAGE_SHARE_DIR}/mod_nisessmgr.so
 	ln -s ${STAGE_SHARE_DIR}/mod_nisessmgr.so.14.0.0 ${D}${STAGE_LIB_DIR}/libmod_nisessmgr.so.14.0.0
+	ln -s libmod_nisessmgr.so.14.0.0 ${D}${STAGE_LIB_DIR}/mod_nisessmgr.so.13
 	install -m 0755 ${S}/${NI_ARCH}/libappweb.so.14.5.0 ${D}${STAGE_SHARE_DIR}
 	ln -s libappweb.so.14.5.0 ${D}${STAGE_SHARE_DIR}/libappweb.so
 	ln -s ${STAGE_SHARE_DIR}/libappweb.so ${D}${STAGE_LV_DIR}/libappweb.so
@@ -95,12 +101,14 @@ do_install() {
 	ln -s libws_runtime.so.14.5.0 ${D}${STAGE_SHARE_DIR}/libws_runtime.so
 	ln -s libws_runtime.so ${D}${STAGE_SHARE_DIR}/ws_runtime.so
 	ln -s ${STAGE_SHARE_DIR}/libws_runtime.so.14.5.0 ${D}${STAGE_LIB_DIR}/libws_runtime.so
-	ln -s ${STAGE_SHARE_DIR}/libws_runtime.so.14.5.0 ${D}${STAGE_LIB_DIR}/libws_runtime.so.14.5.0	
+	ln -s ${STAGE_SHARE_DIR}/libws_runtime.so.14.5.0 ${D}${STAGE_LIB_DIR}/libws_runtime.so.14.5.0
+	ln -s libws_runtime.so.14.5.0 ${D}${STAGE_LIB_DIR}/libws_runtime.so.13
 	ln -s libws_runtime.so.14.5.0 ${D}${STAGE_LIB_DIR}/ws_runtime.so
 	ln -s ${STAGE_SHARE_DIR}/libws_runtime.so.14.5.0 ${D}${STAGE_LV_DIR}/ws_runtime.so
 	install -m 0755 ${S}/${NI_ARCH}/mod_niws.so.14.5.0 ${D}${STAGE_SHARE_DIR}
 	ln -s mod_niws.so.14.5.0 ${D}${STAGE_SHARE_DIR}/mod_niws.so
 	ln -s ${STAGE_SHARE_DIR}/mod_niws.so.14.5.0 ${D}${STAGE_LIB_DIR}/libmod_niws.so.14.5.0	
+	ln -s libmod_niws.so.14.5.0 ${D}${STAGE_LIB_DIR}/mod_niws.so.1
 
 	# sys admin webservice - for Data Dashboard support
 	install -d ${D}${STAGE_WS_DIR}/LVWSSysAdmin
