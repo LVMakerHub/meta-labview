@@ -148,3 +148,13 @@ do_install() {
 	install -m 0755 ${S}/${NI_ARCH}/mod_ssl.so.4.1.0 ${D}${STAGE_SHARE_DIR}
 	ln -s mod_ssl.so.4.1.0 ${D}${STAGE_SHARE_DIR}/mod_ssl.so
 }
+
+# Usually package.bbclass inserts the ldconfig fragment if a .so is being 
+# installed, but since we install to non-standard locations like 
+# /usr/local/natinst/lib, we need to insert this manually
+pkg_postinst_${PN} () {
+#!/bin/sh
+if [ x"$D" = "x" ]; then
+	if [ -x /sbin/ldconfig ]; then /sbin/ldconfig ; fi
+fi
+}
