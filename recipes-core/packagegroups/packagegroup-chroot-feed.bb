@@ -18,5 +18,7 @@ RDEPENDS_${PN} = "\
 	opencv \
 	opencv-samples \
 	openssh \
+	portaudio-v19 \
+	portaudio-examples \
 	strace \
 "
