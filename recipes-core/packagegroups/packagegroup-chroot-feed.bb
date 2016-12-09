@@ -12,6 +12,7 @@ RDEPENDS_${PN} = "\
 	libcec \
 	libssh \
 	libssh2 \
+	lirc \
 	labview \
 	lv-appweb-support \
 	lv-web-support \
