@@ -5,6 +5,8 @@ inherit packagegroup
 
 RDEPENDS_${PN} = "\
 	packagegroup-core-buildessential \
+	packagegroup-qwavesys-bbb \
+	packagegroup-qwavesys-rpi \
 	dropbear \
 	git \
 	gdb \
