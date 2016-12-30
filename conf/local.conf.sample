@@ -238,6 +238,9 @@ INHERIT += "rm_work"
 # Add custom license flag to allow meta-labview recipes to build
 LICENSE_FLAGS_WHITELIST += "national-instruments"
 
+# set preferred version for opencv so it will actually build 3.x
+PREFERRED_VERSION_opencv = "3.%"
+
 # CONF_VERSION is increased each time build/conf/ changes incompatibly and is used to
 # track the version of this file when it was generated. This can safely be ignored if
 # this doesn't mean anything to you.
