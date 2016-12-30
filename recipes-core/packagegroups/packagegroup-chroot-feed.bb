@@ -17,7 +17,6 @@ RDEPENDS_${PN} = "\
 	lv-appweb-support \
 	lv-web-support \
 	opencv \
-	opencv-samples \
 	openssh \
 	portaudio-v19 \
 	portaudio-examples \
