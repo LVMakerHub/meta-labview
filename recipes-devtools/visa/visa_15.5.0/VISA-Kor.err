@@ -1,0 +1,310 @@
+<?XML Version="1.0">
+<nidocument>
+<nicomment>
+<nifamily familyname="VISA" displayname="VISA">
+</nifamily>
+</nicomment>
+<nierror code="-1073807360">
+VISA:  (Hex 0xBFFF0000) 알 수 없는 시스템 에러(부수적인 에러).
+</nierror>
+<nierror code="-1073807346">
+VISA:  (Hex 0xBFFF000E) 주어진 세션이나 객체 참조가 유효하지 않습니다.
+</nierror>
+<nierror code="-1073807345">
+VISA:  (Hex 0xBFFF000F) 리소스가 잠겨있기 때문에 지정된 잠금 타입을 얻을 수 없거나 지정된 동작을 수행할 수 없습니다.
+</nierror>
+<nierror code="-1073807344">
+VISA:  (Hex 0xBFFF0010) 유효하지 않은 정규식이 검색에서 지정되었습니다.
+</nierror>
+<nierror code="-1073807343">
+VISA:  (Hex 0xBFFF0011) 불충분한 위치 정보나 디바이스 또는 리소스가 시스템에 존재하지 않습니다.
+</nierror>
+<nierror code="-1073807342">
+VISA:  (Hex 0xBFFF0012) 유효하지 않은 리소스 참조가 지정되었습니다. 분석하는 동안 에러 발생.
+</nierror>
+<nierror code="-1073807341">
+VISA:  (Hex 0xBFFF0013) 유효하지 않은 접근 모드.
+</nierror>
+<nierror code="-1073807339">
+VISA:  (Hex 0xBFFF0015) 동작이 완료되기 전에 타임아웃이 만료되었습니다.
+</nierror>
+<nierror code="-1073807338">
+VISA:  (Hex 0xBFFF0016) VISA 드라이버가 세션 또는 객체 참조를 적절히 닫는데 실패했습니다. 이것은 내부 또는 OS 리소스에 에러가 있거나 네트워크 연결에 실패했거나 하위 레벨의 드라이버 및 OS에 에러가 있기 때문일 것입니다.
+</nierror>
+<nierror code="-1073807333">
+VISA:  (Hex 0xBFFF001B) 지정된 값이 유효하지 않습니다.
+</nierror>
+<nierror code="-1073807332">
+VISA:  (Hex 0xBFFF001C) 지정된 작업 식별자가 유효하지 않습니다.
+</nierror>
+<nierror code="-1073807331">
+VISA:  (Hex 0xBFFF001D) 지정된 속성이 정의되어 있지 않거나 참조된 리소스가 지원하지 않습니다.
+</nierror>
+<nierror code="-1073807330">
+VISA:  (Hex 0xBFFF001E) 지정된 속성 상태가 유효하지 않거나 리소스에서 정의된대로 지원하지 않습니다.
+</nierror>
+<nierror code="-1073807329">
+VISA:  (Hex 0xBFFF001F) 지정된 속성이 읽기 전용입니다.
+</nierror>
+<nierror code="-1073807328">
+VISA:  (Hex 0xBFFF0020) 지정된 잠금 타입을 이 리소스에서 지원하지 않습니다.
+</nierror>
+<nierror code="-1073807327">
+VISA:  (Hex 0xBFFF0021) 지정된 리소스의 접근 키가 유효하지 않습니다.
+</nierror>
+<nierror code="-1073807322">
+VISA:  (Hex 0xBFFF0026) 지정된 이벤트 타입을 리소스에서 지원하지 않습니다.
+</nierror>
+<nierror code="-1073807321">
+VISA:  (Hex 0xBFFF0027) 유효하지 않은 메커니즘이 지정되었습니다.
+</nierror>
+<nierror code="-1073807320">
+VISA:  (Hex 0xBFFF0028) 핸들러가 설치되어 있지 않습니다.
+</nierror>
+<nierror code="-1073807319">
+VISA:  (Hex 0xBFFF0029) 주어진 핸들러 참조가 유효하지 않습니다.
+</nierror>
+<nierror code="-1073807318">
+VISA:  (Hex 0xBFFF002A) 지정된 이벤트 내용이 유효하지 않습니다.
+</nierror>
+<nierror code="-1073807315">
+VISA:  (Hex 0xBFFF002D) 지정된 타입의 이벤트 큐가 오버플로우되었습니다. 이것은 일반적으로 이전 이벤트를 닫지 못했기 때문입니다.
+</nierror>
+<nierror code="-1073807313">
+VISA:  (Hex 0xBFFF002F) 이벤트를 받기 위해 지정된 타입의 이벤트를 활성화해야 합니다.
+</nierror>
+<nierror code="-1073807312">
+VISA:  (Hex 0xBFFF0030) 사용자 강제 종료가 전송 중에 발생했습니다.
+</nierror>
+<nierror code="-1073807308">
+VISA:  (Hex 0xBFFF0034) 초기 쓰기 프로토콜 위반이 전송 중에 발생했습니다.
+</nierror>
+<nierror code="-1073807307">
+VISA:  (Hex 0xBFFF0035) 초기 읽기 프로토콜 위반이 전송 중에 발생했습니다.
+</nierror>
+<nierror code="-1073807306">
+VISA:  (Hex 0xBFFF0036) 디바이스가 전송 중에 출력 프로토콜 에러를 보고했습니다.
+</nierror>
+<nierror code="-1073807305">
+VISA:  (Hex 0xBFFF0037) 디바이스가 전송 중에 입력 프로토콜 에러를 보고했습니다.
+</nierror>
+<nierror code="-1073807304">
+VISA:  (Hex 0xBFFF0038) 전송 중에 버스 에러가 발생했습니다.
+</nierror>
+<nierror code="-1073807303">
+VISA:  (Hex 0xBFFF0039) 이미 동작이 진행 중이기 때문에 비동기적인 동작을 실행 대기(큐)할 수 없습니다.
+</nierror>
+<nierror code="-1073807302">
+VISA:  (Hex 0xBFFF003A) 설정이 유효하지 않기 때문에(불일치 상태로 설정되어 있는 속성때문에) 동작을 시작할 수 없습니다.
+</nierror>
+<nierror code="-1073807301">
+VISA:  (Hex 0xBFFF003B) 비동기화된 작업을 큐할 수 없습니다(일반적으로 I/O 완료 이벤트가 활성화되어 있지 않거나 세션 큐에 불충분한 공간을 가지고 있기 때문입니다).
+</nierror>
+<nierror code="-1073807300">
+VISA:  (Hex 0xBFFF003C) 필요한 메모리 할당을 수행하기에 불충분한 시스템 리소스.
+</nierror>
+<nierror code="-1073807299">
+VISA:  (Hex 0xBFFF003D) 유효하지 않은 버퍼 마스크가 지정되었습니다.
+</nierror>
+<nierror code="-1073807298">
+VISA:  (Hex 0xBFFF003E) I/O 에러 때문에 동작을 수행할 수 없었습니다.
+</nierror>
+<nierror code="-1073807297">
+VISA:  (Hex 0xBFFF003F) 포맷 문자열에서 포맷 지정자가 유효하지 않습니다.
+</nierror>
+<nierror code="-1073807295">
+VISA:  (Hex 0xBFFF0041) 포맷 문자열에서 포맷 지정자를 지원하지 않습니다.
+</nierror>
+<nierror code="-1073807294">
+VISA:  (Hex 0xBFFF0042) 지정된 트리거 라인이 현재 사용 중입니다.
+</nierror>
+<nierror code="-1073807293">
+VISA:  (Hex 0xBFFF0043) 지정된 트리거 라인은 예약되지 않았습니다.
+</nierror>
+<nierror code="-1073807290">
+VISA:  (Hex 0xBFFF0046) 이 VISA 실행에서 지정된 모드를 지원하지 않습니다.
+</nierror>
+<nierror code="-1073807286">
+VISA:  (Hex 0xBFFF004A) 서비스 요청이 세션에서 받아들여지지 않았습니다.
+</nierror>
+<nierror code="-1073807282">
+VISA:  (Hex 0xBFFF004E) 유효하지 않은 주소 크기가 지정되었습니다.
+</nierror>
+<nierror code="-1073807279">
+VISA:  (Hex 0xBFFF0051) 유효하지 않은 오프셋이 지정되었습니다.
+</nierror>
+<nierror code="-1073807278">
+VISA:  (Hex 0xBFFF0052) 유효하지 않은 접근 폭이 지정되었습니다.
+</nierror>
+<nierror code="-1073807276">
+VISA:  (Hex 0xBFFF0054) 지정된 오프셋을 이 하드웨어에서 접근할 수 없습니다.
+</nierror>
+<nierror code="-1073807275">
+VISA:  (Hex 0xBFFF0055) 소스와 대상 폭이 다르면 지원할 수 없습니다.
+</nierror>
+<nierror code="-1073807273">
+VISA:  (Hex 0xBFFF0057) 지정된 세션이 현재 맵핑되어 있지 않습니다.
+</nierror>
+<nierror code="-1073807271">
+VISA:  (Hex 0xBFFF0059) 이전 응답이 아직 대기 중이고 여러 쿼리 에러를 발생시킵니다.
+</nierror>
+<nierror code="-1073807265">
+VISA:  (Hex 0xBFFF005F) 리스너의 조건이 감지되지 않습니다(RFD와 NDAC가 지정 해제됩니다).
+</nierror>
+<nierror code="-1073807264">
+VISA:  (Hex 0xBFFF0060) 이 세션에 관련된 인터페이스는 현재 작동 중인 컨트롤러가 아닙니다.
+</nierror>
+<nierror code="-1073807263">
+VISA:  (Hex 0xBFFF0061) 이 세션에 관련된 인터페이스는 시스템 컨트롤러가 아닙니다.
+</nierror>
+<nierror code="-1073807257">
+VISA:  (Hex 0xBFFF0067) 주어진 세션이나 객체 참조가 이 동작을 지원하지 않습니다.
+</nierror>
+<nierror code="-1073807256">
+VISA:  (Hex 0xBFFF0068) 인터럽트가 이전 호출로부터 아직 대기 상태입니다.
+</nierror>
+<nierror code="-1073807254">
+VISA:  (Hex 0xBFFF006A) 전송 중에 패리티 에러가 발생했습니다.
+</nierror>
+<nierror code="-1073807253">
+VISA:  (Hex 0xBFFF006B) 전송 중에 프레임 에러가 발생했습니다.
+</nierror>
+<nierror code="-1073807252">
+VISA:  (Hex 0xBFFF006C) 오버런 에러가 전송 중에 발생했습니다. 다음 문자가 도달하기 전에 하드웨어에서 문자를 읽어오지 못했습니다.
+</nierror>
+<nierror code="-1073807250">
+VISA:  (Hex 0xBFFF006E) trigSrc에서 trigDest로의 경로가 현재 맵핑되어 있지 않습니다.
+</nierror>
+<nierror code="-1073807248">
+VISA:  (Hex 0xBFFF0070) 지정된 오프셋이 동작의 접근 폭에 적절히 정렬되어 있지 않습니다.
+</nierror>
+<nierror code="-1073807247">
+VISA:  (Hex 0xBFFF0071) 지정된 사용자 버퍼가 유효하지 않거나 필요한 크기에 맞게 접근할 수 없습니다.
+</nierror>
+<nierror code="-1073807246">
+VISA:  (Hex 0xBFFF0072) 리소스는 유효하지만 VISA가 현재 접근할 수 없습니다.
+</nierror>
+<nierror code="-1073807242">
+VISA:  (Hex 0xBFFF0076) 지정된 폭을 이 하드웨어에서 지원하지 않습니다.
+</nierror>
+<nierror code="-1073807240">
+VISA:  (Hex 0xBFFF0078) 일부 파라미터의 값이 유효하지 않습니다(해당 파라미터는 알지 못합니다).
+</nierror>
+<nierror code="-1073807239">
+VISA:  (Hex 0xBFFF0079) 지정된 프로토콜이 유효하지 않습니다.
+</nierror>
+<nierror code="-1073807237">
+VISA:  (Hex 0xBFFF007B) 유효하지 않은 크기의 윈도우가 지정되었습니다.
+</nierror>
+<nierror code="-1073807232">
+VISA:  (Hex 0xBFFF0080) 지정된 세션에 현재 맵핑된 윈도우가 있습니다.
+</nierror>
+<nierror code="-1073807231">
+VISA:  (Hex 0xBFFF0081) 주어진 동작을 실행할 수 없습니다.
+</nierror>
+<nierror code="-1073807229">
+VISA:  (Hex 0xBFFF0083) 유효하지 않은 크기가 지정되었습니다.
+</nierror>
+<nierror code="-1073807215">
+VISA:  (Hex 0xBFFF0091) 유효하지 않은 모드가 지정되었습니다.
+</nierror>
+<nierror code="-1073807204">
+VISA:  (Hex 0xBFFF009C) 현재 세션이 리소스에서 잠겨있지 않았습니다.
+</nierror>
+<nierror code="-1073807203">
+VISA:  (Hex 0xBFFF009D) 디바이스가 모든 메모리를 반출할 수 있는 것은 아닙니다.
+</nierror>
+<nierror code="-1073807202">
+VISA:  (Hex 0xBFFF009E) VISA 또는 VISA의 필수 코드 라이브러리를 찾을 수 없거나 로드할 수 없습니다.  이것은 보통 요청된 드라이버가 시스템에 설치되어 있지 않기 때문입니다.
+</nierror>
+<nierror code="-1073807201">
+VISA:  (Hex 0xBFFF009F) 인터페이스가 요청된 레벨의 인터럽트 또는 요청된 statusID 값을 가진 인터럽트를 생성할 수 없습니다.
+</nierror>
+<nierror code="-1073807200">
+VISA:  (Hex 0xBFFF00A0) 라인 파라미터에 의해 지정된 값이 유효하지 않습니다.
+</nierror>
+<nierror code="-1073807199">
+VISA:  (Hex 0xBFFF00A1) 지정된 파일을 열려고 시도하는 동안 에러가 발생했습니다. 가능한 이유는 유효하지 않은 경로를 포함하거나 접근 권한이 없습니다.
+</nierror>
+<nierror code="-1073807198">
+VISA:  (Hex 0xBFFF00A2) 지정된 파일에서 I/O를 수행하는 동안 에러가 발생했습니다.
+</nierror>
+<nierror code="-1073807197">
+VISA:  (Hex 0xBFFF00A3) 지정된 라인 중 하나인 trigSrc 또는 trigDest를 이 VISA 구조에서 지원하지 않거나 라인의 조합이 유효한 맵핑이 아닙니다.
+</nierror>
+<nierror code="-1073807196">
+VISA:  (Hex 0xBFFF00A4) 지정된 메커니즘이 주어진 이벤트 타입을 지원하지 않습니다.
+</nierror>
+<nierror code="-1073807195">
+VISA:  (Hex 0xBFFF00A5) 인터페이스 타입이 유효하지만 그러나 지정된 인터페이스 번호가 설정되지 않았습니다.
+</nierror>
+<nierror code="-1073807194">
+VISA:  (Hex 0xBFFF00A6) 주어진 세션의 연결을 잃어버렸습니다.
+</nierror>
+<nierror code="-1073807193">
+VISA:  (Hex 0xBFFF00A7) 원격 머신이 존재하지 않거나 어떤 연결도 받지 않습니다. NI-VISA 서버를 설치하고 원격 머신에서 실행하고 있다면 호환성이 없는 버전을 가지고 있거나 다른 포트와 통신하고 있을 수 있습니다.
+</nierror>
+<nierror code="-1073807192">
+VISA:  (Hex 0xBFFF00A8) 리소스 또는 원격 컴퓨터로의 접근이 거부되었습니다. 이것은 현재 사용자나 컴퓨터에 대한 충분한 권한이 부족하기 때문입니다.
+</nierror>
+<nierror code="0">
+VISA:  (Hex 0x0) 작업을 성공적으로 완료했습니다.
+</nierror>
+<nierror code="1073676290">
+VISA:  (Hex 0x3FFF0002) 지정된 이벤트가 지정된 메커니즘 중 적어도 하나에서 이미 활성화되어 있습니다.
+</nierror>
+<nierror code="1073676291">
+VISA:  (Hex 0x3FFF0003) 지정된 이벤트가 지정된 메커니즘 중 적어도 하나에서 이미 비활성화되어 있습니다.
+</nierror>
+<nierror code="1073676292">
+VISA:  (Hex 0x3FFF0004) 동작이 성공적으로 완료되었지만 큐는 이미 비었습니다.
+</nierror>
+<nierror code="1073676293">
+VISA:  (Hex 0x3FFF0005) 지정된 종료 문자를 읽었습니다.
+</nierror>
+<nierror code="1073676294">
+VISA:  (Hex 0x3FFF0006) 전송된 바이트 개수가 요청된 입력 카운트와 같습니다. 더 많은 데이터를 이용할 수 있습니다.
+</nierror>
+<nierror code="1073676300">
+VISA:  (Hex 0x3FFF000C) VISA가 설정된 큐 크기가 다룰 수 있는 타입의 이벤트 정보보다 더 많은 이벤트 타입 정보를 받았습니다.
+</nierror>
+<nierror code="1073676407">
+VISA:  (Hex 0x3FFF0077) 지정된 설정이 존재하지 않거나 로드할 수 없었습니다. VISA에서 지정된 기본값이 사용될 것입니다.
+</nierror>
+<nierror code="1073676413">
+VISA:  (Hex 0x3FFF007D) 세션을 성공적으로 열었지만 지정된 주소의 디바이스가 응답하지 않습니다.
+</nierror>
+<nierror code="1073676414">
+VISA:  (Hex 0x3FFF007E) trigSrc에서 trigDest로의 경로가 이미 맵핑되어 있습니다.
+</nierror>
+<nierror code="1073676416">
+VISA:  (Hex 0x3FFF0080) 이벤트 알림을 받고 성공적으로 종료되기를 기다리십시오. 이 세션에서 사용가능한 inEventType에 의해 지정된 타입 중 적어도 하나 이상의 이벤트 발생이 있습니다.
+</nierror>
+<nierror code="1073676418">
+VISA:  (Hex 0x3FFF0082) 지정된 객체 참조가 초기화되어 있지 않습니다.
+</nierror>
+<nierror code="1073676420">
+VISA:  (Hex 0x3FFF0084) 지정된 속성 상태가 유효함에도 불구하고 이 리소스 실행을 지원하지 않습니다.
+</nierror>
+<nierror code="1073676421">
+VISA:  (Hex 0x3FFF0085) 동작에 전달된 상태 코드를 해석할 수 없었습니다.
+</nierror>
+<nierror code="1073676424">
+VISA:  (Hex 0x3FFF0088) 지정된 I/O 버퍼를 지원하지 않습니다.
+</nierror>
+<nierror code="1073676440">
+VISA:  (Hex 0x3FFF0098) 이벤트가 성공적으로 핸들됩니다. 이 이벤트의 이 세션에서 다른 핸들러를 수행하지 마십시오.
+</nierror>
+<nierror code="1073676441">
+VISA:  (Hex 0x3FFF0099) 동작이 성공적으로 완료되었고 이 세션은 공유의 잠금 상태를 갖습니다.
+</nierror>
+<nierror code="1073676442">
+VISA:  (Hex 0x3FFF009A) 동작이 성공적으로 완료되었고 이 세션은 배타적인 잠금 상태를 갖습니다.
+</nierror>
+<nierror code="1073676443">
+VISA:  (Hex 0x3FFF009B) 동작을 성공적으로 완료했지만 동작이 실제로 비동기적이기 보다는 동기적이었습니다.
+</nierror>
+<nierror code="1073676457">
+VISA:  (Hex 0x3FFF00A9) 동작이 성공적으로 끝났지만 낮은 레벨의 드라이버가 확장된 기능을 실행하지 않았습니다.
+</nierror>
+</nidocument>
