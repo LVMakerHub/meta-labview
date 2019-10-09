@@ -1,0 +1,23 @@
+DocumentRoot "/usr/local/natinst/labview/webserver/ws_www"
+TypesConfig "/etc/natinst/mime.types"
+LimitWorkers 10
+LimitRequestBody 10000000
+LimitRequestForm 10000000
+LoadModulePath /usr/local/natinst/share/NIWebServer
+LoadModule niSessionManagerModule mod_nisessmgr
+LoadModule niAuthModule mod_niauth
+LoadModule EspModule mod_niesp
+LoadModule WSRuntime mod_niws
+Listen $PORT$
+
+NI.ServerName "LV Debug Web Server"
+InactivityTimeout 60
+SetConnector netConnector
+AddHandler niAuthHandler
+AddHandler WSRuntime
+AddHandler fileHandler ""
+AddOutputFilter chunkFilter
+LimitUrl 1024
+ThreadStack 64K
+
+NI.WSRuntime.Configuration RemoteDebug /usr/local/natinst/labview/webserver/services

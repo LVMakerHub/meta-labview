@@ -26,6 +26,8 @@ NI_ARCH = "${@get_ni_arch(d)}"
 
 SRC_URI = "file://${NI_ARCH}/* \
 	   file://LICENSE \
+	   file://ca-bundle.crt \
+	   file://traceengine.ini \
 	  "
 
 SRC_URI[md5sum] = ""

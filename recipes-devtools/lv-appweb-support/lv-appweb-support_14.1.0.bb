@@ -28,6 +28,13 @@ NI_ARCH = "${@get_ni_arch(d)}"
 
 SRC_URI = "file://${NI_ARCH}/* \
 	   file://LICENSE \
+	   file://mime.types \
+	   file://*.cfg \
+	   file://*.html \
+	   file://*.ini \
+	   file://*.template \
+	   file://debugsvc \
+	   file://sysadminsvc \
 	  "
 
 SRC_URI[md5sum] = ""
