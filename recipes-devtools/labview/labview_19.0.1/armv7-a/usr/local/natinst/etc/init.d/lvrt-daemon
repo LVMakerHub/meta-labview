@@ -1,0 +1,54 @@
+#!/bin/sh
+# Copyright (c) 2018 National Instruments.
+# All rights reserved.
+#
+# lvrt-daemon is a daemon that:
+# - restarts lvrt if it crashes
+# - disables statup application and blinks the LED in case of MAX_CRASHES of startup application
+# - no limit on crashes for the interactive session
+
+MAX_CRASHES=2
+CRASH_COUNT=0
+
+PID_RUNLVRT=/var/run/runlvrt.pid
+PID_LVRT_WRAPPER=/var/run/lvrt_wrapper.pid
+
+# "NORMAL_START"               - first run
+# "CRASHED_AND_RESTART"        - lvrt crashed so we have to restart in a
+#                                normal fashion
+# "CRASHED_AND_NO_APP_RESTART" - lvrt crashed and we need to restart lvrt
+#                                without the startup application
+STARTUP_PARAM=NORMAL_START
+
+UI_ENABLED="`/usr/local/natinst/bin/nirtcfg -g section=SYSTEMSETTINGS,token=ui.enabled | tr '[:upper:]' '[:lower:]'`"
+
+while true
+do
+    STARTUPAPP_ENABLED="`/usr/local/natinst/bin/nirtcfg -f /etc/natinst/share/lvrt.conf -g section=LVRT,token=RTTarget.LaunchAppAtBoot | tr '[:upper:]' '[:lower:]'`"
+    YOU_ONLY_LIVE_TWICE_TOKEN="`/usr/local/natinst/bin/nirtcfg -g section=Startup,token=YouOnlyLiveTwice | tr '[:upper:]' '[:lower:]'`"
+
+    if [[ "$STARTUPAPP_ENABLED" == "true" ]]; then
+        if [[ "$YOU_ONLY_LIVE_TWICE_TOKEN" != "false" ]]; then
+            if [[ $MAX_CRASHES -le $CRASH_COUNT ]]; then
+            echo "Startup application prevented from running at startup. The startup application crashed during previous startup attempts."
+
+                # set LED to 4 blinks constantly repeating
+                /usr/local/natinst/bin/status_led blink_count 4
+
+                # disable startup app for the rest of the session (until reboot)
+                STARTUP_PARAM=CRASHED_AND_NO_APP_RESTART
+            fi
+        fi
+    fi
+
+    /bin/su -- lvuser -l -c "/etc/init.d/lvrt-wrapper $STARTUP_PARAM $PID_LVRT_WRAPPER $UI_ENABLED"
+    EXITCODE=$?
+    # 42 is the LV watchdog restart exit code which is not a crash
+    if [ $EXITCODE != 0 -a $EXITCODE != 42 ]; then
+        STARTUP_PARAM=CRASHED_AND_RESTART
+        CRASH_COUNT=$[CRASH_COUNT+1]
+    else
+        STARTUP_PARAM=NORMAL_START
+        CRASH_COUNT=0
+    fi
+done

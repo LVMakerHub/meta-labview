@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!--last modified on Tue, Jan 12, 1999 10:53 AM-->
+<HTML>
+
+<HEAD>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=iso-8859-1">
+<LINK rel=STYLESHEET href="www.css" Type="text/css">
+
+    <META NAME="Author" Content="Stepan Riha">
+    <TITLE>Publishing VI Images</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF">
+
+<P><A NAME="top"></A> 
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+    <TR>
+	<TD><IMG SRC="images/lvwebsrv.gif" WIDTH="318" HEIGHT="44" ALIGN="BOTTOM" ALT="LabVIEW Web Server"
+	    BORDER="0"></TD>
+	<TD>
+	    <P ALIGN="RIGHT"><A HREF="docs.htm"><IMG SRC="images/prev.gif" WIDTH="29" HEIGHT="30"
+	    ALIGN="BOTTOM" BORDER="0"></A><A HREF="index.htm"><IMG SRC="images/home.gif" WIDTH="26"
+	    HEIGHT="30" ALIGN="BOTTOM" BORDER="0"></A><A HREF="webtool.htm"><IMG SRC="images/next.gif"
+	    WIDTH="29" HEIGHT="30" ALIGN="BOTTOM" BORDER="0"></A>
+	</TD>
+    </TR>
+</TABLE>
+</P>
+<H2>Publishing VI Images</H2>
+<P>When you use the LabVIEW Web Server to publish the image of a VI, the VI must
+be in memory, and the Web server must be enabled and correctly configured.</P>
+<P>The LabVIEW Web Server uses the <TT>.snap?</TT> URL to publish panel images. The <tt>.snap?</tt> is followed by the name of the VI <A HREF="docs.htm#Special Characters">encoded
+according to URL rules</A>.</P>
+<P>For example, if you have a VI with the name <B>Chart.vi</B> loaded, you can
+type the following text in your browser's URL field (replace <TT>host.domain.com</TT>
+with the Internet address of your own computer):</P>
+
+
+<BLOCKQUOTE>
+    <P><TT>http://host.domain.com/.snap?Chart.vi</TT></P>
+
+</BLOCKQUOTE>
+
+<P>The LabVIEW Web Server returns the image of the Chart VI front panel.</P>
+
+<H3>Embedding VI Images in HTML Documents</H3>
+<P>It might not be enough to simply see the image of your VI in the browser. Usually,
+you want additional text to explain what the image represents. In this case,
+you can embed the URL link of your VI image in an HTML document.</P>
+<P>Most HTML editors allow you to insert an image and then specify the source
+URL of the image. Type the appropriate URL as described above into the source (or
+<TT>SRC</TT>) field of the image.</P>
+<P>If you are editing HTML by hand, the tag for the image can be one
+of the following:</P>
+
+
+<BLOCKQUOTE>
+    <P><TT>&lt;IMG SRC=&quot;/.snap?Chart.vi&quot;&gt;<BR>
+    &lt;IMG SRC=&quot;http://host.domain.com/.snap?Chart.vi&quot;&gt;</TT></P>
+
+</BLOCKQUOTE>
+
+<P>The first example uses a relative URL to describe the location of the image.
+You can use a relative URL when the when the same server publishes the HTML document and the VI image.</P>
+<P>The second example uses a full URL. You can use a full URL in HTML documents that any Web server publishes.</P>
+<H3>Image Animations</H3>
+<P>The LabVIEW Web Server also can publish animations of VI images. Use the <TT>.monitor?</TT>
+URL to retrieve animations of VI images. The <tt>.monitor?</tt> URL follows the same
+rules as the <TT>.snap?</TT> URL.</P>
+
+<H3>Things to Consider</H3>
+<P>Often, the front panel of your VI is quite large, especially if you use a large, high-resolution monitor. When the Web server receives a request for a VI image,
+it must capture the contents of the front panel window, convert it into an image format,
+and then send it back to the browser. The larger the window is, the longer it takes
+the server to create the image, thus slowing down the execution of your VIs. Additionally,
+a large picture takes significantly more time to transmit to the browser, especially
+over a slow modem connection.</P>
+<P>It is a good idea to keep the panels of VIs that you plan to publish on the Internet
+small. You might want to create a large VI that contains buttons and other controls that the operator of your application sees and create a second,
+smaller VI that contains only relevant display information for publishing
+on the Web.</P>
+
+<P>
+<HR>
+
+<TABLE BORDER="0" WIDTH="100%">
+    <TR>
+	<TD WIDTH="50%">&copy; National Instruments</TD>
+	<TD WIDTH="50%">
+	    <P ALIGN="RIGHT"><A HREF="#top"><IMG SRC="images/top.gif" WIDTH="29" HEIGHT="30"
+	    ALIGN="BOTTOM" BORDER="0"></A><A HREF="docs.htm"><IMG SRC="images/prev.gif" WIDTH="29"
+	    HEIGHT="30" ALIGN="BOTTOM" BORDER="0"></A><A HREF="index.htm"><IMG SRC="images/home.gif"
+	    WIDTH="26" HEIGHT="30" ALIGN="BOTTOM" BORDER="0"></A><A HREF="webtool.htm"><IMG SRC="images/next.gif"
+	    WIDTH="29" HEIGHT="30" ALIGN="BOTTOM" BORDER="0"></A>
+	</TD>
+    </TR>
+</TABLE>
+
+
+
+</BODY>
+
+</HTML>

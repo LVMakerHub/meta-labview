@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!--last modified on Fri, Oct 23, 1998 6:28 PM-->
+<HTML>
+
+<HEAD>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=iso-8859-1">
+<LINK rel=STYLESHEET href="www.css" Type="text/css">
+
+    <META NAME="Author" Content="National Instrument LabVIEW">
+    <TITLE>Publishing Documents</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF">
+
+<P><A NAME="top"></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+    <TR>
+	<TD><IMG SRC="images/lvwebsrv.gif" WIDTH="318" HEIGHT="44" ALIGN="BOTTOM" ALT="LabVIEW Web Server"
+	    BORDER="0"></TD>
+	<TD>
+	    <P ALIGN="RIGHT"><A HREF="services.htm"><IMG SRC="images/prev.gif" WIDTH="29" HEIGHT="30"
+	    ALIGN="BOTTOM" BORDER="0"></A><A HREF="index.htm"><IMG SRC="images/home.gif" WIDTH="26"
+	    HEIGHT="30" ALIGN="BOTTOM" BORDER="0"></A><A HREF="webtool.htm"><IMG SRC="images/next.gif"
+	    WIDTH="29" HEIGHT="30" ALIGN="BOTTOM" BORDER="0"></A>
+	</TD>
+    </TR>
+</TABLE>
+</P>
+<H2>Publishing Documents</H2>
+<P>All documents that are published by the LabVIEW Web Server must be located in
+the server root directory. By default, the root directory is
+<tt>/ni-rt/system/www</tt>. You can change the root
+directory in the <strong>Web Server: Configuration</strong> page of the <strong>RT Target Options</strong> dialog box.</P>
+<H3>File Paths and URLs</H3>
+<P>When you save a document to the Web server root directory, you can
+retrieve it using a corresponding URL. A URL tells a browser what server to connect
+to and tells the server which document to return. URLs to documents retrieved
+from the LabVIEW Web Server are in the following format:</P>
+
+
+<BLOCKQUOTE>
+    <P><TT>http://</TT><FONT COLOR="#DD0000"><TT>host.domain.com</TT></FONT><FONT COLOR="#006600"><TT>/path/to/document.htm</TT></FONT><TT><BR>
+    http://</TT><FONT COLOR="#DD0000"><TT>host.domain.com</TT></FONT><FONT COLOR="#663399"><TT>:8000</TT></FONT><FONT
+    COLOR="#006600"><TT>/path/to/document.htm</TT></FONT></P>
+
+</BLOCKQUOTE>
+
+
+<DL>
+    <DT><TT>http://</TT></DT>
+    <DD>This string tells the browser that it is connecting to an HTTP server.
+    <P>
+    <DT><FONT COLOR="#DD0000"><TT>host.domain.com</TT></FONT></DT>
+    <DD>This string tells the browser the Internet address of the Web server (your computer).
+    <P>
+    <DT><FONT COLOR="#663399"><TT>:8000</TT></FONT></DT>
+    <DD>This number specifies the HTTP Port used by the server. If the server uses port
+    80, this number can be omitted (as in the first example).
+    <P>
+    <DT><FONT COLOR="#006600"><TT>/path/to/document.htm</TT></FONT></DT>
+    <DD>This string tells the Web server which document to return. It is a list of directory
+    and filenames separated by the slash (<tt>/</tt>) character. The specified path is appended
+    to the server's root directory. For example, if the root directory on the RT target is <TT>/ni-rt/system/www</TT>, the string <FONT COLOR="#006600"><TT>/path/to/document.htm</TT></FONT> specifies the file <TT>/ni-rt/system/www</TT><FONT COLOR="#006600"><TT>/path/to/document.htm</TT></FONT>.
+</DL>
+
+<H4>Converting a File Path to a URL</H4>
+<P>The URL to your document begins with <TT>http://</TT> followed by the Internet
+address of your computer. If your server is using a port other than 80, follow this with a colon (<tt>:</tt>) and the port number. Finally, append the URL file
+path.</P>
+<P>To determine the URL path of a file in your root directory, take the file
+path and ignore the part at the beginning of the path that is the same as your root directory.
+Change the path separator characters <tt>\</tt> (Windows), <tt>:</tt> (Mac OS), or <tt>/</tt> (Unix) to the URL path separator character <tt>/</tt>.</P>
+<H4><A NAME="Special Characters"></A>Special Characters</H4>
+<P>If the converted file path contains any special characters such as spaces, special
+punctuation marks, or characters with accents, you must encode them according to URL
+conventions. Each special character should be replaced by <TT>%<em>xx</em></TT>, where <TT><em>xx</em></TT>
+is the hexadecimal value of the character. For example, the file name &quot;<TT>Experiment
+Page.htm</TT>&quot; is encoded as &quot;<TT>Experiment%20Page.htm</TT>&quot;
+because <TT>20</TT> is the hexadecimal value of the space character.</P>
+<P><B>Note:</B> If you use only ASCII letters and numbers and avoid spaces in your
+file and directory names, you do not have to encode special characters.</P>
+<H3>Text Documents</H3>
+<P>The most common text document format on the Web is HTML. You can create HTML documents
+using an HTML editor. You can download shareware HTML editors from the Web. Many
+word processor applications, such as WordPerfect
+or Microsoft Word also allow you to save
+documents in HTML format.</P>
+<P>When you save an HTML document, make sure that it has a <TT>.htm</TT> or <TT>.html</TT>
+filename extension.</P>
+<H3>Image Documents</H3>
+<P>The most common image formats on the Web are JPEG and GIF. Another more recent
+Web image format is PNG; however, it is not supported by older browsers. Many image
+editing programs allow you to save images in one of the Web image formats. You
+also can use utilities to convert Windows BMP files or Mac OS PICT
+files to a Web image file.</P>
+<P>When you save an image file in a Web format, make sure that is has the appropriate
+(<TT>.gif</TT>, <TT>.jpg</TT>, <TT>.jpeg</TT>, or <TT>.png</TT>) filename extension.</P>
+<H3>Default Directory Document&#0151;index.htm</H3>
+<P>When a URL ends with a slash <tt>/</tt> (for example, <TT>http://host.domain.com/tests/</TT>),
+it specifies a directory rather than a file. In this case, the Web server returns
+the file <TT>index.htm</TT> located in the specified directory, if it exists. In other words,
+the server automatically appends <TT>index.htm</TT> to the URL (for example, <TT>http://host.domain.com/tests/index.htm</TT>).</P>
+<P>It is a good idea to have an <TT>index.htm</TT> file located in your root directory so that anyone who connects to your computer using a URL such as <TT>http://host.domain.com</TT>
+receives a valid document.</P>
+
+<P>
+<HR>
+
+<TABLE BORDER="0" WIDTH="100%">
+    <TR>
+	<TD WIDTH="50%">&copy; National Instruments</TD>
+	<TD WIDTH="50%">
+	    <P ALIGN="RIGHT"><A HREF="#top"><IMG SRC="images/top.gif" WIDTH="29" HEIGHT="30"
+	    ALIGN="BOTTOM" BORDER="0"></A><A HREF="services.htm"><IMG SRC="images/prev.gif" WIDTH="29"
+	    HEIGHT="30" ALIGN="BOTTOM" BORDER="0"></A><A HREF="index.htm"><IMG SRC="images/home.gif"
+	    WIDTH="26" HEIGHT="30" ALIGN="BOTTOM" BORDER="0"></A><A HREF="webtool.htm"><IMG SRC="images/next.gif"
+	    WIDTH="29" HEIGHT="30" ALIGN="BOTTOM" BORDER="0"></A>
+	</TD>
+    </TR>
+</TABLE>
+
+
+
+</BODY>
+
+</HTML>

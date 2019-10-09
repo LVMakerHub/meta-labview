@@ -42,7 +42,8 @@ SRC_URI[sha256sum] = ""
 
 # Inhibit QA warnings and errors that can't be avoided because we're using 
 # pre-built binaries
-INSANE_SKIP_${PN} = "already-stripped dev-so textrel ldflags libdir"
+# Added file-rdeps because libblas has a sym dep on GLIBC_2.4
+INSANE_SKIP_${PN} = "already-stripped dev-so textrel ldflags libdir file-rdeps"
 
 # Inhibit warnings about files being stripped, we can't do anything about it.
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
