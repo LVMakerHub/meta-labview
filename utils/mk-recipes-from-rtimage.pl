@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# Usage: mk-recipes-from-rtimage.pl [-x] [-v] <RT_Images_dir>
+# Usage: utils/mk-recipes-from-rtimage.pl [-x] [-v] <RT_Images_dir>
 #
 # This script will create labview, visa, and other dependent .bb recipes and
 # installation files for a LabVIEW LINX image.  It was written for 2019 SP1,
@@ -31,8 +31,6 @@ my $LV = "labview";
 
 my $MetaLVRoot = ".";
 my $MetaLVBBRoot = "$MetaLVRoot/recipes-devtools/";
-
-my $metaLVSkelTarFile = "meta-labview-skel.tar.gz";
 
 my ($ARCH_S) = $ARCH;  $ARCH_S =~ s/-//g;
 
