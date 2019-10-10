@@ -34,6 +34,7 @@ INSANE_SKIP_${PN} = "already-stripped dev-so textrel ldflags libdir"
 
 # Inhibit warnings about files being stripped, we can't do anything about it.
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
+
 FILES_${PN} = "/etc /usr /var"
 
 do_install() {
