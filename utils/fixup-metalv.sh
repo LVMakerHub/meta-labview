@@ -1,6 +1,6 @@
 #!/bin/sh 
 
-# fixup-metalv.sh
+# utils/fixup-metalv.sh
 # Run this script from the meta-labview folder, after running mk-recipes-from-rtimage.pl,
 # to overwrite files from an SP1 release.
 
