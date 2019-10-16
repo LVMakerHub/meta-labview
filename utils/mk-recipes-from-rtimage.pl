@@ -45,7 +45,7 @@ my @CDF = (
 			"CPUInfo/$SHORT_VERS/cpuInfo-linux-$ARCH_S.cdf",
 			"TDMS/$LONG_VERS/tdms-linux-$ARCH_S.cdf",
 			"RTLog/$RTLOG_VERS/RTLog-linux-$ARCH_S.cdf",
-			"Base/16.0/Base_common-linux-armv7a.cdf",
+			"Base/16.0/Base_common-linux-$ARCH_S.cdf",
 		],
 		'ldconfAdd' => '/usr/local/natinst/lib',
 		'initScript' => "inherit update-rc.d\nINITSCRIPT_NAME = \"nilvrt\"\n\nINITSCRIPT_PARAMS = \"start 98 4 5 . stop 2 0 1 2 3 6 .\"\n\n",
