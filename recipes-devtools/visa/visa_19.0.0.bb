@@ -24,6 +24,7 @@ NI_ARCH = "${@get_ni_arch(d)}"
 
 SRC_URI = "file://${NI_ARCH}/* \
            file://LICENSE \
+           file://FILES \
 "
 
 SRC_URI[md5sum] = ""

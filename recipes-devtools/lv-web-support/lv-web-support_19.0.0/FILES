@@ -1,0 +1,27 @@
+/etc/ssl/certs/ca-certificates.crt <- ./recipes-devtools/lv-web-support/lv-web-support_19.0.0/armv7-a/etc/natinst/nissl/ca-bundle.crt
+da39a3ee5e6b4b0d3255bfef95601890afd80709  ./recipes-devtools/lv-web-support/lv-web-support_19.0.0/armv7-a/etc/natinst/nissl/nissl.f
+26b109cf4d8d051488507087f9de9c6a105bdbff  ./recipes-devtools/lv-web-support/lv-web-support_19.0.0/armv7-a/etc/ssl/certs/ca-certificates.crt
+/etc/natinst/nissl/ca-bundle.crt <- ./recipes-devtools/lv-web-support/lv-web-support_19.0.0/armv7-a/usr/local/natinst/share/nicurl/ca-bundle.crt
+libcurlimpl.so.19.0.0 <- ./recipes-devtools/lv-web-support/lv-web-support_19.0.0/armv7-a/usr/local/natinst/share/nicurl/libcurlimpl.so
+/usr/local/natinst/lib/libcurlimpl.so.19.0.0 <- ./recipes-devtools/lv-web-support/lv-web-support_19.0.0/armv7-a/usr/local/natinst/share/nicurl/libcurlimpl.so.19.0.0
+libeay32.so.19.0.0 <- ./recipes-devtools/lv-web-support/lv-web-support_19.0.0/armv7-a/usr/local/natinst/share/nissl/libeay32.so
+/usr/local/natinst/lib/libnisslinit.so.19.0.0 <- ./recipes-devtools/lv-web-support/lv-web-support_19.0.0/armv7-a/usr/local/natinst/share/nissl/libnisslinit.so.19.0.0
+/usr/local/natinst/lib/libssleay32.so.19.0.0 <- ./recipes-devtools/lv-web-support/lv-web-support_19.0.0/armv7-a/usr/local/natinst/share/nissl/libssleay32.so.19.0.0
+libnisslinit.so.19.0.0 <- ./recipes-devtools/lv-web-support/lv-web-support_19.0.0/armv7-a/usr/local/natinst/share/nissl/libnisslinit.so
+libssleay32.so.19.0.0 <- ./recipes-devtools/lv-web-support/lv-web-support_19.0.0/armv7-a/usr/local/natinst/share/nissl/libssleay32.so
+/usr/local/natinst/lib/libeay32.so.19.0.0 <- ./recipes-devtools/lv-web-support/lv-web-support_19.0.0/armv7-a/usr/local/natinst/share/nissl/libeay32.so.19.0.0
+1006526cd20ad6f6e4dc4fc958d811861e46de6c  ./recipes-devtools/lv-web-support/lv-web-support_19.0.0/armv7-a/usr/local/natinst/share/traceengine/libni_traceengine.so.17.0.0
+libni_traceengine.so.17.0.0 <- ./recipes-devtools/lv-web-support/lv-web-support_19.0.0/armv7-a/usr/local/natinst/share/traceengine/libni_traceengine.so
+libeay32.so.19.0.0 <- ./recipes-devtools/lv-web-support/lv-web-support_19.0.0/armv7-a/usr/local/natinst/lib/libeay32.so
+316fdb6ee45a4cf5db82b41e863eb1aedc5b09f0  ./recipes-devtools/lv-web-support/lv-web-support_19.0.0/armv7-a/usr/local/natinst/lib/libnisslinit.so.19.0.0
+7df8f65a8a4db9ead424c9d769a22abdb2c2dcad  ./recipes-devtools/lv-web-support/lv-web-support_19.0.0/armv7-a/usr/local/natinst/lib/libssleay32.so.19.0.0
+938999faf5d35d3e5237d74f166af380c8caab18  ./recipes-devtools/lv-web-support/lv-web-support_19.0.0/armv7-a/usr/local/natinst/lib/libcurlimpl.so.19.0.0
+libssleay32.so.19.0.0 <- ./recipes-devtools/lv-web-support/lv-web-support_19.0.0/armv7-a/usr/local/natinst/lib/libssleay32.so
+d10f9a1a6165117d5695f8607a14a9f7133c4f0b  ./recipes-devtools/lv-web-support/lv-web-support_19.0.0/armv7-a/usr/local/natinst/lib/libeay32.so.19.0.0
+libniSmtpClient.so.16.0.0 <- ./recipes-devtools/lv-web-support/lv-web-support_19.0.0/armv7-a/usr/local/natinst/labview/libniSmtpClient.so
+libni_webdavLVClient.so.16.0.0 <- ./recipes-devtools/lv-web-support/lv-web-support_19.0.0/armv7-a/usr/local/natinst/labview/libni_webdavLVClient.so
+d47dcd2c25bdc622b7677e148caf9c8d8485463d  ./recipes-devtools/lv-web-support/lv-web-support_19.0.0/armv7-a/usr/local/natinst/labview/libni_webdavLVClient.so.16.0.0
+libni_httpClient.so.16.0.0 <- ./recipes-devtools/lv-web-support/lv-web-support_19.0.0/armv7-a/usr/local/natinst/labview/libni_httpClient.so
+912b01baadabdd166e6283ac2a4570a2d9d75a82  ./recipes-devtools/lv-web-support/lv-web-support_19.0.0/armv7-a/usr/local/natinst/labview/libni_httpClient.so.16.0.0
+81356a06d991b92c8d7a9683d43eb63f7b0856dd  ./recipes-devtools/lv-web-support/lv-web-support_19.0.0/armv7-a/usr/local/natinst/labview/libniSmtpClient.so.16.0.0
+9275e51c08940794667c1e0fc3608fad32768b5e  ./recipes-devtools/lv-web-support/lv-web-support_19.0.0/armv7-a/var/local/natinst/tracelogs/traceengine.ini

@@ -1,6 +1,7 @@
 SUMMARY = "NI-LabVIEW appweb support libraries"
 HOMEPAGE = "http://ni.com/labview"
 
+DEPENDS = "lv-web-support libcap"
 LICENSE_FLAGS = "national-instruments"
 LICENSE = "NI_Maker_Software_License_Agreement"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=2c6c2a1463b05f89279c9242eae7d3a8"
@@ -24,6 +25,7 @@ NI_ARCH = "${@get_ni_arch(d)}"
 
 SRC_URI = "file://${NI_ARCH}/* \
            file://LICENSE \
+           file://FILES \
 "
 
 SRC_URI[md5sum] = ""
@@ -40,4 +42,13 @@ FILES_${PN} = "/etc /usr /var"
 do_install() {
     install -d ${D}
     cp -R ${S}/${NI_ARCH}/* ${D}
+}
+
+pkg_postinst_${PN} () {
+#!/bin/sh -e
+# add /usr/local/natinst/lib to ld.cache
+grep -q /usr/local/natinst/share/NIWebServer $D/etc/ld.so.conf || printf "/usr/local/natinst/share/NIWebServer\n" >> $D/etc/ld.so.conf
+if [ -z "$D" ]; then
+  ldconfig
+fi
 }
