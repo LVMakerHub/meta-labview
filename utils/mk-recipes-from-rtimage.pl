@@ -68,7 +68,7 @@ my @CDF = (
 		'vers' => $LONG_VERS,
 		'summary' => "NI-LabVIEW web support libraries",
 		'homepage' => "http://ni.com/labview",
-	  	'cdf' => [
+		'cdf' => [
 			"HTTP Client/$LONG_VERS/Linux/$ARCH_S/httpClient-linux-$ARCH_S.cdf",
 			"SMTP Client/$LONG_VERS/Linux/$ARCH_S/smtpClient-linux-$ARCH_S.cdf",
 			"WebDAV Client/$LONG_VERS/Linux/$ARCH_S/webdavLVClient-linux-$ARCH_S.cdf",
@@ -81,17 +81,20 @@ my @CDF = (
 			$BASEIMAGETAR_FOR_CERTFILE => "./etc/ssl/certs/ca-certificates.crt"
 		}
 	},
-	{   'package' => 'lv-appweb-support',
+	{	'package' => 'lv-appweb-support',
 		'vers' => $LONG_VERS,
 		'summary' => "NI-LabVIEW appweb support libraries",
 		'homepage' => "http://ni.com/labview",
+		'depends' => 'lv-web-support libcap',
+		'vers' => $LONG_VERS,
 	  	'cdf' => [
 			"System_webserver/$SHORT_VERS/Linux/$ARCH_S/NISystemWebServer-linux-$ARCH_S.cdf",
 			"WS_Runtime/$SHORT_VERS/Linux/$ARCH_S/ws_runtime-linux-$ARCH_S.cdf",
 			"webserver/$SHORT_VERS/Linux/$ARCH_S/appweb-linux-$ARCH_S.cdf",
 			"webserver_ssl_support/$LONG_VERS/Linux/$ARCH_S/webserver_ssl_support-linux-$ARCH_S.cdf",
 			#"webserver/$SHORT_VERS/Linux/$ARCH_S/niwebserver-linux-$ARCH_S.cdf",
-		]
+		],
+		'ldconfAdd' => '/usr/local/natinst/share/NIWebServer'
 	}
 );
 
@@ -127,6 +130,7 @@ foreach my $ref (@CDF) {
 	my $pkg = $$ref{'package'};
 	my $summary = $$ref{'summary'};
 	my $homepage = $$ref{'homepage'};
+	my $depends = $$ref{'depends'};
 	my $pkgv = $pkg . "_" . ($pkg eq $LV ? $LVLONG_VERS : $LONG_VERS);
 	my $ldConfAdd = $$ref{'ldconfAdd'};
 	my $initScript = $$ref{'initScript'};
@@ -279,12 +283,20 @@ NI OR ITS LICENSOR WAS ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 EOF
 		close O;
+		#
+		# bitbake doesn't detect changes in files inside directories
+		# referenced by SRC_URI tag and will incorrectly use cached
+		# outputs.  Workaround by adding an explicitly referenced
+		# file which will reflect such changes.
+		system("find \"$pkgDistDir\" -type l -exec readlink -n {} \\; -exec echo -n ' <- ' \\; -exec ls -d {} \\; -o -type f -exec shasum {} \\; > \"$pkgDistBase/FILES\"");
+
 		opendir(my $dh, $pkgDistDir) || die "can't opendir $pkgDistDir: $!";
 		my @topDirs = grep { s,^,/,; } grep { !/^\./ && !/^LICENSE$/; } readdir($dh);
 		closedir $dh;
 		open (O, ">$pkgDistBB");
 		print O "SUMMARY = \"$summary\"\n";
 		print O "HOMEPAGE = \"$homepage\"\n\n";
+		print O "DEPENDS = \"$depends\"\n" if (defined($depends) && $depends ne "");
 		print O <<'EOF';  # Could recompute MD5 hash ourselves, but nibuild doesn't have up-to-date Digest::MD5 for 64-bit
 LICENSE_FLAGS = "national-instruments"
 LICENSE = "NI_Maker_Software_License_Agreement"
@@ -312,6 +324,7 @@ NI_ARCH = "${@get_ni_arch(d)}"
 
 SRC_URI = "file://${NI_ARCH}/* \
            file://LICENSE \
+           file://FILES \
 "
 
 SRC_URI[md5sum] = ""
