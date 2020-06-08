@@ -1,0 +1,24 @@
+[Server]
+DAVEnabled = true
+
+[Hosts]
+Default = "Default Host"
+DefaultSSL = "SSL"
+
+[Default]
+Enabled = true
+Port = 80
+Address = "*"
+
+[DefaultSSL]
+Enabled = true
+Port = 443
+Address = "*"
+SSLEnabled = true
+SSLCertificateFile = "/var/local/natinst/certstore/server_certs/server_0.cer"
+SSLCertificateKeyFile = "/var/local/natinst/certstore/server_certs/server_0.key"
+
+[AllHosts_]
+Enabled = false
+SSLEnabled = false
+

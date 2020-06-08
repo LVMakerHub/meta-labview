@@ -9,6 +9,7 @@ IMAGE_INSTALL = "packagegroup-core-boot \
 		 lv-web-support \
 		 lv-appweb-support \
 		 liblinxdevice \
+		 librtpi \
 		 visa \
 		"
 
