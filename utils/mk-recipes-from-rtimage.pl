@@ -1,30 +1,40 @@
 #!/usr/bin/perl
 #
+# The script should be run from the Yocto meta-labview folder.
+#
 # Usage: utils/mk-recipes-from-rtimage.pl [-x] [-v] <RT_Images_dir>
 #
 # This script will create labview, visa, and other dependent .bb recipes and
-# installation files for a LabVIEW LINX image.  It was written for 2019 SP1,
-# but it should be easy to update for # future released just by changing the
+# installation files for a LabVIEW LINX image.  It was written for 2020,
+# but it should be easy to update for future releases just by changing the
 # version numbers in variables at the top of file and tweaking the @CDF array
 # as needed.
-#
-# The script should be run from the Yocto meta-labview folder.
-#
-# Then, if LabVIEW is being released independently from RT (as is the case for
-# 2019 SP1), run the ./fixup-metalv.sh script to update built files from a
-# locally build LVRT ARM image (tweaking script as needed).
 #
 
 use strict;
 use warnings;
 use File::Basename;
 
-my $YEAR_VERS = "2019";
-my $LVLONG_VERS = "19.0.1";
-my $LONG_VERS = "19.0.0";
-my $SHORT_VERS = "19.0";
-my $RTLOG_VERS = "2.8";
-my $BASEIMAGETAR_FOR_CERTFILE = "Base/16.0/762F/base.tar";
+my $YEAR_VERS = "2020";
+my $LVLONG_VERS = "20.0.0";
+my $LONG_VERS = "20.0.0";
+my $SHORT_VERS = "20.0";
+my $RTLOG_VERS = "2.9";
+my $BASE_VERS = "17.0";
+my $TDMS_VERS = "19.0.0";
+
+# Values for LabVIEW 2019 SP1
+#my $YEAR_VERS = "2019";
+#my $LVLONG_VERS = "19.0.1";
+#my $LONG_VERS = "19.0.0";
+#my $SHORT_VERS = "19.0";
+#my $RTLOG_VERS = "2.8";
+#my $BASE_VERS = "16.0";
+#my $TDMS_VERS = "19.0.0";
+
+
+my $BASEIMAGETAR_FOR_CERTFILE = "Base/$BASE_VERS/762F/base.tar";
+
 my $ARCH = "armv7-a";   # or "x64"
 my $VISA_ARCH = "Arm";  # or "64"
 my $LV = "labview";
@@ -43,9 +53,9 @@ my @CDF = (
 			"LabVIEW/$YEAR_VERS/LabVIEW-linux-$ARCH.cdf",
 			"LabVIEW/$YEAR_VERS/LabVIEW_common-linux-$ARCH_S.cdf",
 			"CPUInfo/$SHORT_VERS/cpuInfo-linux-$ARCH_S.cdf",
-			"TDMS/$LONG_VERS/tdms-linux-$ARCH_S.cdf",
+			"TDMS/$TDMS_VERS/tdms-linux-$ARCH_S.cdf",
 			"RTLog/$RTLOG_VERS/RTLog-linux-$ARCH_S.cdf",
-			"Base/16.0/Base_common-linux-$ARCH_S.cdf",
+			"Base/$BASE_VERS/Base_common-linux-$ARCH_S.cdf",
 		],
 		'ldconfAdd' => '/usr/local/natinst/lib',
 		'initScript' => "inherit update-rc.d\nINITSCRIPT_NAME = \"nilvrt\"\n\nINITSCRIPT_PARAMS = \"start 98 4 5 . stop 2 0 1 2 3 6 .\"\n\n",
@@ -72,7 +82,7 @@ my @CDF = (
 			"HTTP Client/$LONG_VERS/Linux/$ARCH_S/httpClient-linux-$ARCH_S.cdf",
 			"SMTP Client/$LONG_VERS/Linux/$ARCH_S/smtpClient-linux-$ARCH_S.cdf",
 			"WebDAV Client/$LONG_VERS/Linux/$ARCH_S/webdavLVClient-linux-$ARCH_S.cdf",
-			"NI-Curl/$SHORT_VERS/Linux/$ARCH_S/nicurl-linux-$ARCH_S.cdf",
+			"NI-Curl/$LONG_VERS/Linux/$ARCH_S/nicurl-linux-$ARCH_S.cdf",
 			"nissl/$LONG_VERS/Linux/sslCerts-linux.cdf",
 			"nissl/$LONG_VERS/Linux/$ARCH_S/sslSupport-linux-$ARCH_S.cdf",
 			"TraceEngine/$LONG_VERS/Linux/$ARCH_S/traceengine-linux-$ARCH_S.cdf",
@@ -94,6 +104,7 @@ my @CDF = (
 			"webserver_ssl_support/$LONG_VERS/Linux/$ARCH_S/webserver_ssl_support-linux-$ARCH_S.cdf",
 			#"webserver/$SHORT_VERS/Linux/$ARCH_S/niwebserver-linux-$ARCH_S.cdf",
 		],
+		'installExtra' => "/bin/echo -e '\\r\\nDisablePermissions = true\\r' >> \${D}/etc/natinst/webservices/webservices.ini",
 		'ldconfAdd' => '/usr/local/natinst/share/NIWebServer'
 	}
 );
@@ -116,8 +127,10 @@ while (defined($arg = shift) && $arg =~ /^-/) {
 }
 my $cdf;
 my $TOPDIR;
+my $FIXDIR;
 if (defined($arg)) {
 	chomp($TOPDIR = $arg);
+	chomp($FIXDIR = $arg) if (defined($arg = shift));
 } else {
 	die "Usage: $0 [-x] [-v] <RT_Images_dir>\n -x : actually extract files\n -v : verbose output\n";
 }
@@ -288,6 +301,7 @@ EOF
 		# referenced by SRC_URI tag and will incorrectly use cached
 		# outputs.  Workaround by adding an explicitly referenced
 		# file which will reflect such changes.
+		system("utils/fixup-metalv.sh \"$FIXDIR\" \"$pkg\"") if (($pkg eq "labview" || $pkg eq "lv-appweb-support") && $FIXDIR && $FIXDIR ne "");
 		system("find \"$pkgDistDir\" -type l -exec readlink -n {} \\; -exec echo -n ' <- ' \\; -exec ls -d {} \\; -o -type f -exec shasum {} \\; > \"$pkgDistBase/FILES\"");
 
 		opendir(my $dh, $pkgDistDir) || die "can't opendir $pkgDistDir: $!";
