@@ -7,21 +7,32 @@
 # This script will create labview, visa, and other dependent .bb recipes and
 # installation files for a LabVIEW LINX image.  It was written for 2020,
 # but it should be easy to update for future releases just by changing the
-# version numbers in variables at the top of file and tweaking the @CDF array
+# version numbers in variables at the top of file and tweaking the @PKG array
 # as needed.
 #
 
 use strict;
 use warnings;
 use File::Basename;
+use File::stat;
 
-my $YEAR_VERS = "2020";
-my $LVLONG_VERS = "20.0.0";
-my $LONG_VERS = "20.0.0";
-my $SHORT_VERS = "20.0";
-my $RTLOG_VERS = "2.9";
+my $YEAR_VERS = "2021";
+my $LVLONG_VERS = "21.0.0";
+my $LONG_VERS = "21.0.0";
+
+my $SHORT_VERS = "21.0";
+my $RTLOG_VERS = "2.10";
 my $BASE_VERS = "17.0";
-my $TDMS_VERS = "19.0.0";
+my $TDMS_VERS = "21.0.0";
+
+# Values for LabVIEW 2020
+#my $YEAR_VERS = "2020";
+#my $LVLONG_VERS = "20.0.0";
+#my $LONG_VERS = "20.0.0";
+#my $SHORT_VERS = "20.0";
+#my $RTLOG_VERS = "2.9";
+#my $BASE_VERS = "17.0";
+#my $TDMS_VERS = "19.0.0";
 
 # Values for LabVIEW 2019 SP1
 #my $YEAR_VERS = "2019";
@@ -32,7 +43,7 @@ my $TDMS_VERS = "19.0.0";
 #my $BASE_VERS = "16.0";
 #my $TDMS_VERS = "19.0.0";
 
-
+my $useIPKs = ($YEAR_VERS ge "2021");
 my $BASEIMAGETAR_FOR_CERTFILE = "Base/$BASE_VERS/762F/base.tar";
 
 my $ARCH = "armv7-a";   # or "x64"
@@ -44,12 +55,60 @@ my $MetaLVBBRoot = "$MetaLVRoot/recipes-devtools/";
 
 my ($ARCH_S) = $ARCH;  $ARCH_S =~ s/-//g;
 
-my @CDF = (
+my $opt_x = 0;  # Extract files
+my $opt_v = 0;  # Verbose
+my $opt_s = 0;  # Extract postinst scripts
+
+my $arg;
+while (defined($arg = shift) && $arg =~ /^-/) {
+	if ($arg eq "-x") { # extract 
+		$opt_x = 1;
+	} elsif ($arg eq "-v") {
+		$opt_v = 1;
+	} elsif ($arg eq "-s") { # scripts
+		$opt_s = 1;
+	} else {
+		die "$0: Unknown option $arg\n";
+	}
+}
+my $TOPDIR;
+my $FIXDIR;
+if (defined($arg)) {
+	chomp($TOPDIR = $arg);
+	chomp($FIXDIR = $arg) if (defined($arg = shift));
+	die "Can't access $FIXDIR\n" if ($FIXDIR && !-d $FIXDIR);
+} else {
+	die "Usage: $0 [-x] [-v] <RT_Images_dir>\n -x : actually extract files\n -v : verbose output\n";
+}
+
+
+my $lvIPKSub;
+my $rtmainIPKSub;
+
+if ($TOPDIR =~ m,/ni/*$,) {
+	$lvIPKSub = getNewestFile($TOPDIR, "linuxpkg/feeds/ipk/ni-l/ni-linux-rt-lv$YEAR_VERS/$LVLONG_VERS") . "/inline";
+	$rtmainIPKSub = getNewestFile($TOPDIR, "linuxpkg/feeds/ipk/ni-l/ni-linux-rt-main/$LVLONG_VERS") . "/inline";
+}
+
+print "Package folders:\n\t$lvIPKSub\n\t$rtmainIPKSub\n" if ($opt_v && $lvIPKSub);
+
+die "$0 should be run from meta-labview directory\n" if (!-f "$MetaLVRoot/conf/layer.conf" || !-d "$MetaLVRoot/../meta-labview");
+
+chomp (my $cwd = `pwd`);
+chdir ($TOPDIR) || die "Can't access $TOPDIR\n";
+
+my @PKG = (
 	{	'package' => 'labview',
 		'vers' => $LONG_VERS,
 		'summary' => "LabVIEW embedded run-time engine",
 		'homepage' => "http://ni.com/labview",
-		'cdf' => [
+		'ipk' => [
+			<$lvIPKSub/ni-labview-realtime_$LVLONG_VERS.*_cortexa9-vfpv3.ipk>, # replaces LabVIEW/*
+			<$lvIPKSub/libnicpuinfo_$LVLONG_VERS.*_cortexa9-vfpv3.ipk>,
+			<$lvIPKSub/ni-rtlog_$RTLOG_VERS.*_cortexa9-vfpv3.ipk>,
+			<$rtmainIPKSub/ni-tdms_$LVLONG_VERS.*_cortexa9-vfpv3.ipk>,
+		],
+		'cdf' => [ # CDFs only used for release years <= 2020
 			"LabVIEW/$YEAR_VERS/LabVIEW-linux-$ARCH.cdf",
 			"LabVIEW/$YEAR_VERS/LabVIEW_common-linux-$ARCH_S.cdf",
 			"CPUInfo/$SHORT_VERS/cpuInfo-linux-$ARCH_S.cdf",
@@ -57,27 +116,43 @@ my @CDF = (
 			"RTLog/$RTLOG_VERS/RTLog-linux-$ARCH_S.cdf",
 			"Base/$BASE_VERS/Base_common-linux-$ARCH_S.cdf",
 		],
+		'ipkRemoveFiles' => [ "/home", "/c", "/C" ],
 		'ldconfAdd' => '/usr/local/natinst/lib',
 		'initScript' => "inherit update-rc.d\nINITSCRIPT_NAME = \"nilvrt\"\n\nINITSCRIPT_PARAMS = \"start 98 4 5 . stop 2 0 1 2 3 6 .\"\n\n",
 		'insaneSkipExtra' => 'file-rdeps',
-		'installExtra' => "mkdir \${D}/var/local/natinst/log\n    ln -s libni_emb.so.12.0.0 \${D}/usr/local/natinst/lib/libni_emb.so.6",
+		'installExtra' => "mkdir \${D}/var/local/natinst/log\n	echo RTTarget.RTProtocolAllowed=True >> \${D}/etc/natinst/share/lvrt.conf\n	echo statusLogPath=/var/local/natinst/log/LVStatus.txt >> \${D}/etc/natinst/share/lvrt.conf",
 		'fixupFunc' => 'lvFixupInitScript'
 	},
 	{ 	'package' => 'visa',
 		'vers' => $LONG_VERS,
 		'summary' => "NI-VISA driver",
 		'homepage' => "http://ni.com/visa",
+		'ipk' => [
+			<$rtmainIPKSub/libvisa_$LVLONG_VERS.*_cortexa9-vfpv3.ipk>,
+			<$rtmainIPKSub/libvisa-data_$LVLONG_VERS.*_all.ipk>,
+			<$rtmainIPKSub/ni-visa-passport-serial_$LVLONG_VERS.*_cortexa9-vfpv3.ipk>,
+			<$rtmainIPKSub/ni-visa-errors_$LVLONG_VERS.*_all.ipk>,
+		],
 	  	'cdf' => [
 			"NI-VISA/$SHORT_VERS/installLinuxArm.cdf",
 			"NI-VISA/$SHORT_VERS/errors_Linux.cdf",
 			"NI-VISA/$SHORT_VERS/passport_Asrl_LinuxArm.cdf",
 		],
-		'ldconfAdd' => '/usr/local/vxipnp/linux/lib'
+		'ldconfAdd_CDFOnly' => '/usr/local/vxipnp/linux/lib'
 	},
 	{ 	'package' => 'lv-web-support',
 		'vers' => $LONG_VERS,
 		'summary' => "NI-LabVIEW web support libraries",
 		'homepage' => "http://ni.com/labview",
+		'ipk' => [
+			<$lvIPKSub/ni-labview-http-client_$LVLONG_VERS.*_cortexa9-vfpv3.ipk>,
+			<$lvIPKSub/ni-labview-smtp-client_$LVLONG_VERS.*_cortexa9-vfpv3.ipk>,
+			<$lvIPKSub/ni-labview-webdav-client_$LVLONG_VERS.*_cortexa9-vfpv3.ipk>,
+			<$rtmainIPKSub/nicurl_$LVLONG_VERS.*_cortexa9-vfpv3.ipk>, # Link /usr/local/natinst/share/nicurl/ca-bundle.crt -> /etc/natinst/nissl/ca-bundle.crt now created as hard-link to host file in .deb installer
+			<$rtmainIPKSub/ni-ca-certs_*_all.ipk>, # has link /etc/natinst/nissl/ca-bundle.crt -> /etc/ssl/certs/ca-certificates.crt
+			<$rtmainIPKSub/nissl_*_cortexa9-vfpv3.ipk>,
+			<$rtmainIPKSub/ni-traceengine_*_cortexa9-vfpv3.ipk>,
+		],
 		'cdf' => [
 			"HTTP Client/$LONG_VERS/Linux/$ARCH_S/httpClient-linux-$ARCH_S.cdf",
 			"SMTP Client/$LONG_VERS/Linux/$ARCH_S/smtpClient-linux-$ARCH_S.cdf",
@@ -97,59 +172,55 @@ my @CDF = (
 		'homepage' => "http://ni.com/labview",
 		'depends' => 'lv-web-support libcap',
 		'vers' => $LONG_VERS,
+	  	'ipk' => [
+			<$rtmainIPKSub/ni-system-webserver_$LVLONG_VERS.*_cortexa9-vfpv3.ipk>,
+			<$rtmainIPKSub/ni-webservices-webserver-support_$LVLONG_VERS.*_cortexa9-vfpv3.ipk>,
+			<$rtmainIPKSub/ni-webserver-libs_$LVLONG_VERS.*_cortexa9-vfpv3.ipk>,
+			<$rtmainIPKSub/ni-ssl-webserver-support_$LVLONG_VERS.*_cortexa9-vfpv3.ipk>,
+		],
 	  	'cdf' => [
 			"System_webserver/$SHORT_VERS/Linux/$ARCH_S/NISystemWebServer-linux-$ARCH_S.cdf",
 			"WS_Runtime/$SHORT_VERS/Linux/$ARCH_S/ws_runtime-linux-$ARCH_S.cdf",
 			"webserver/$SHORT_VERS/Linux/$ARCH_S/appweb-linux-$ARCH_S.cdf",
 			"webserver_ssl_support/$LONG_VERS/Linux/$ARCH_S/webserver_ssl_support-linux-$ARCH_S.cdf",
-			#"webserver/$SHORT_VERS/Linux/$ARCH_S/niwebserver-linux-$ARCH_S.cdf",
 		],
-		'installExtra' => "/bin/echo -e '\\r\\nDisablePermissions = true\\r' >> \${D}/etc/natinst/webservices/webservices.ini",
-		'ldconfAdd' => '/usr/local/natinst/share/NIWebServer'
+		'installExtra' => "/bin/echo -e '\\nDisablePermissions = true' >> \${D}/etc/natinst/webservices/webservices.ini",
+		'ldconfAdd' => '/usr/local/natinst/share/NIWebServer',
+		# This entry will fix up absolute symlinks from /usr/local/natinst/lib (to /usr/local/natinst/share/NIWebServer)
+		# and make them relative so they don't get eaten by bitbake.  But it turns out similar links were also eaten
+		# in the lvrt20 release and never noticed; this apparently doesn't cause any issues so it's better to just leave them out.
+		#'ipkRelinkAbsoluteSymlinks' => [ "/usr/local/natinst/lib" ],
+
+		# These symlinks point to files which are removed from the image and unneeded
+		'ipkRemoveFiles' => [
+		       	"/usr/local/natinst/lib/mod_niws.so.1",
+		       	"/usr/local/natinst/lib/mod_niesp.so.13",
+		       	"/usr/local/natinst/lib/mod_nisessmgr.so.13",
+		       	"/usr/local/natinst/lib/libws_runtime.so",
+		       	"/usr/local/natinst/lib/ws_repl.so"
+	       	],
 	}
 );
+chdir($cwd);
 
-my $opt_x = 0;  # Extract files
-my $opt_v = 0;  # Verbose
-my $opt_s = 0;  # Extract postinst scripts
-
-my $arg;
-while (defined($arg = shift) && $arg =~ /^-/) {
-	if ($arg eq "-x") { # extract 
-		$opt_x = 1;
-	} elsif ($arg eq "-v") {
-		$opt_v = 1;
-	} elsif ($arg eq "-s") { # scripts
-		$opt_s = 1;
-	} else {
-		die "$0: Unknown option $arg\n";
-	}
-}
 my $cdf;
-my $TOPDIR;
-my $FIXDIR;
-if (defined($arg)) {
-	chomp($TOPDIR = $arg);
-	chomp($FIXDIR = $arg) if (defined($arg = shift));
-} else {
-	die "Usage: $0 [-x] [-v] <RT_Images_dir>\n -x : actually extract files\n -v : verbose output\n";
-}
-
-die "$0 should be run from meta-labview directory\n" if (!-f "$MetaLVRoot/conf/layer.conf" || !-d "$MetaLVRoot/../meta-labview");
-
+my $ipk;
 my %iniFileSeen;
 
-foreach my $ref (@CDF) {
+foreach my $ref (@PKG) {
 	my $pkg = $$ref{'package'};
 	my $summary = $$ref{'summary'};
 	my $homepage = $$ref{'homepage'};
 	my $depends = $$ref{'depends'};
 	my $pkgv = $pkg . "_" . ($pkg eq $LV ? $LVLONG_VERS : $LONG_VERS);
 	my $ldConfAdd = $$ref{'ldconfAdd'};
+	$ldConfAdd = $$ref{'ldconfAdd_CDFOnly'} if (!defined($ldConfAdd) && !$useIPKs);
 	my $initScript = $$ref{'initScript'};
 	my $insaneSkipExtra = $$ref{'insaneSkipExtra'};
 	my $installExtra = $$ref{'installExtra'};
 	my $fixupFunc = $$ref{'fixupFunc'};
+	my $ipkRemoveFiles = $$ref{'ipkRemoveFiles'};
+	my $ipkRelinkAbsoluteSymlinks = $$ref{'ipkRelinkAbsoluteSymlinks'};
 
 	printf "# Package %s\n", $pkg if ($opt_v);
 	my $pkgDistBase = "$MetaLVBBRoot$pkg/$pkgv";
@@ -159,103 +230,144 @@ foreach my $ref (@CDF) {
 	if ($opt_x) {
 		system("mkdir -p -m 755 $pkgDistDir");
 	}
-	while (my ($tarFile, $extractFile) = each %{$ref->{'explicitTarFilesToExtract'}}) {
-		open(P, "tar xfO \"$TOPDIR/$tarFile\" --wildcards *data.tar.gz | tar tfz - \"$extractFile\" |");
-		while (<P>) {
-			print " XFile ", $_;
+	if ($useIPKs) {
+		my @ipks = @{$ref->{'ipk'}};
+		foreach $ipk (@ipks)
+		{
+			print " # Processing $ipk\n" if ($opt_v);
+			die "Can't access $TOPDIR/$ipk\n" if (! -f "$TOPDIR/$ipk");
+			my $dpkgxopt = $opt_v ? "-X" : "-x";
+			if ($opt_x) {
+				system("cd $pkgDistDir; dpkg $dpkgxopt \"$TOPDIR/$ipk\" .");
+			}
 		}
-		close P;
-		if ($opt_x) {
-			my $ddir = dirname("$pkgDistDir/$extractFile");
-			system("mkdir -p -m 755 \"$ddir\"");
-			system("cd $pkgDistDir; tar xfO \"$TOPDIR/$tarFile\" --wildcards *data.tar.gz | tar xfz - \"$extractFile\"");
+		my @rmDirs = $ipkRemoveFiles ? @{$ipkRemoveFiles} : ();
+		foreach my $rmdir (@rmDirs) {
+			system("rm -rf \"$pkgDistDir/$rmdir\"");
 		}
-	}
-
-	my @cdfs = @{$ref->{'cdf'}};
-	foreach $cdf (@cdfs)
-	{
-		$cdf = $TOPDIR . "/" . $cdf;
-		my $dir = dirname($cdf);
-		my $cdfFile = basename($cdf);
-		open (F, $cdf) || die "Can't find file $cdf\n";
-		print " # Processing $cdf\n" if ($opt_v);
-		while (<F>) {
-			if (/CODEBASE/) {
-				if (/FILENAME="([^\"]*)" TARGET="([^\"]*)"/) {
-					my ($file, $target) = ($1, $2);
-					die if ($file eq "" || $target eq "");
-					next if ($target =~ m,/var/local/natinst/www/,);
+		if ($ipkRelinkAbsoluteSymlinks) {
+			my @relinkDirs = @{$ipkRelinkAbsoluteSymlinks};
+			my $installRelinkCmds = "";
+			foreach my $relinkDir (@relinkDirs) {
+				if (-d "$pkgDistDir/$relinkDir") {
+					opendir(my $dir_fh, "$pkgDistDir/$relinkDir");
+					my ($prevFile, $prevTime, $file, $fileTime, $newestFile);
+					while (my $file = readdir $dir_fh) {
+						if (-l "$pkgDistDir/$relinkDir/$file") {
+							my $linkTarget = readlink "$pkgDistDir/$relinkDir/$file";
+							if ($linkTarget =~ m,^/,) {
+								my $linkTargetDir = dirname($linkTarget);
+								#chomp(my $relTarget = `realpath -m  --relative-to=$relinkDir $linkTargetDir`);
+								$installRelinkCmds .= "    rm -f \${D}$relinkDir/$file\n" .
+								      "    lnr \${D}$linkTarget \${D}$relinkDir/$file\n";
+							}
+						}
+					}
+					closedir($dir_fh);
+				} else {
+					die "$pkgDistDir/$relinkDir does not exist for 'ipkRelinkAbsoluteSymlinks' entry\n";
+				}
+			}
+			$installExtra .= "\n" . $installRelinkCmds if ($installRelinkCmds ne "");
+		}
+	} else {
+		while (my ($tarFile, $extractFile) = each %{$ref->{'explicitTarFilesToExtract'}}) {
+			open(P, "tar xfO \"$TOPDIR/$tarFile\" --wildcards *data.tar.gz | tar tfz - \"$extractFile\" |");
+			while (<P>) {
+				print " XFile ", $_;
+			}
+			close P;
+			if ($opt_x) {
+				my $ddir = dirname("$pkgDistDir/$extractFile");
+				system("mkdir -p -m 755 \"$ddir\"");
+				system("cd $pkgDistDir; tar xfO \"$TOPDIR/$tarFile\" --wildcards *data.tar.gz | tar xfz - \"$extractFile\"");
+			}
+		}
+		my @cdfs = @{$ref->{'cdf'}};
+		foreach $cdf (@cdfs)
+		{
+			$cdf = $TOPDIR . "/" . $cdf;
+			my $dir = dirname($cdf);
+			my $cdfFile = basename($cdf);
+			open (F, $cdf) || die "Can't find file $cdf\n";
+			print " # Processing $cdf\n" if ($opt_v);
+			while (<F>) {
+				if (/CODEBASE/) {
+					if (/FILENAME="([^\"]*)" TARGET="([^\"]*)"/) {
+						my ($file, $target) = ($1, $2);
+						die if ($file eq "" || $target eq "");
+						next if ($target =~ m,/var/local/natinst/www/,);
+						if ($opt_x) {
+							my $ddir = dirname("$pkgDistDir$target");
+							system("mkdir -p -m 755 \"$ddir\"");
+							my $cpCmd = "cp -f \"$dir/$file\" \"$pkgDistDir$target\"";
+							system($cpCmd) == 0 || die "Command '$cpCmd' failed";
+							my $mode = 0644;
+							$mode = 0755 if ($target =~ /(\.so|lvrt)/);
+							chmod $mode, "$pkgDistDir$target";
+						}
+						print " File $target\n";
+					} elsif (/FILENAME="([^\"]*)" TYPE="TAR"/) {
+						my $tarFile = $1;
+						print " # TAR $dir/$tarFile BEGIN\n" if ($opt_v);
+						open(P, "tar xfO  \"$dir/$tarFile\" --wildcards *data.tar.gz | tar tfz - |");
+						while (<P>) {
+							s,^\./,,;
+							s,^,/,;
+							next if (m,/$,);
+							print " File ", $_;
+						}
+						close P;
+						print " # TAR $dir/$tarFile END\n" if ($opt_v);
+						if ($opt_x) {
+							system("cd $pkgDistDir; tar xfO  \"$dir/$tarFile\" --wildcards *data.tar.gz | tar xfz -") == 0 || die;
+						}
+						my $cdfDir = $cdfFile;
+						$cdfDir =~ s/\.cdf$//;
+						if ($opt_s) {
+							system("mkdir -p -m 755 xscripts/$cdfDir");
+							system("cd xscripts/$cdfDir && tar xf  \"$dir/$tarFile\" postinst 2>/dev/null");
+						}
+					}
+				} elsif (/SYMLINK SOURCE="([^\"]*)" LINK="([^\"]*)"/) {
+					my ($linkFrom, $linkTo) = ($2,$1);
+					next if ($linkFrom eq "/C");
+					next if ($linkFrom =~ "^/c/");
+					next if ($linkFrom =~ "^/home/lvuser/");
+					print " Link $linkFrom -> $linkTo\n";
+					if ($opt_x) {
+						my $ddir = dirname("$pkgDistDir$linkFrom");
+						system("mkdir -p  -m 755 \"$ddir\"");
+						system("ln -sf \"$linkTo\" \"$pkgDistDir$linkFrom\"") == 0|| die;
+					}
+				} elsif (/MERGEINI FILENAME="([^\"]*)" TARGET="([^\"]*)"/) {
+					my ($file, $target) = ($1,$2);
+					print " MergeIni $target\n";
 					if ($opt_x) {
 						my $ddir = dirname("$pkgDistDir$target");
 						system("mkdir -p -m 755 \"$ddir\"");
-						my $cpCmd = "cp -f \"$dir/$file\" \"$pkgDistDir$target\"";
-						system($cpCmd) == 0 || die "Command '$cpCmd' failed";
-						my $mode = 0644;
-						$mode = 0755 if ($target =~ /(\.so|lvrt)/);
-						chmod $mode, "$pkgDistDir$target";
+						if (!$iniFileSeen{"$pkgDistDir$target"}) {
+							$iniFileSeen{"$pkgDistDir$target"} = 1;
+							open (OF, ">$pkgDistDir$target");
+							print OF "[LVRT]\n";
+						} else {
+							open (OF, ">>$pkgDistDir$target");
+						}
+						open (IF, "$dir/$file") || die;
+						while (<IF>) {
+							s/\r$//;
+							next if (/^\[LVRT\]$/);
+							next if (/^\s*$/);
+							die "Can't handle mergeini files with sections other than [LVRT]\n" if (/^\[$/);
+							print OF $_;
+						}
+						close IF;
+						close OF;
 					}
-					print " File $target\n";
-				} elsif (/FILENAME="([^\"]*)" TYPE="TAR"/) {
-					my $tarFile = $1;
-					print " # TAR $dir/$tarFile BEGIN\n" if ($opt_v);
-					open(P, "tar xfO  \"$dir/$tarFile\" --wildcards *data.tar.gz | tar tfz - |");
-					while (<P>) {
-						s,^\./,,;
-						s,^,/,;
-						next if (m,/$,);
-						print " File ", $_;
-					}
-					close P;
-					print " # TAR $dir/$tarFile END\n" if ($opt_v);
-					if ($opt_x) {
-						system("cd $pkgDistDir; tar xfO  \"$dir/$tarFile\" --wildcards *data.tar.gz | tar xfz -") == 0 || die;
-					}
-					my $cdfDir = $cdfFile;
-					$cdfDir =~ s/\.cdf$//;
-					if ($opt_s) {
-						system("mkdir -p -m 755 xscripts/$cdfDir");
-						system("cd xscripts/$cdfDir && tar xf  \"$dir/$tarFile\" postinst 2>/dev/null");
-					}
-				}
-			} elsif (/SYMLINK SOURCE="([^\"]*)" LINK="([^\"]*)"/) {
-				my ($linkFrom, $linkTo) = ($2,$1);
-				next if ($linkFrom eq "/C");
-				next if ($linkFrom =~ "^/c/");
-				next if ($linkFrom =~ "^/home/lvuser/");
-				print " Link $linkFrom -> $linkTo\n";
-				if ($opt_x) {
-					my $ddir = dirname("$pkgDistDir$linkFrom");
-					system("mkdir -p  -m 755 \"$ddir\"");
-					system("ln -sf \"$linkTo\" \"$pkgDistDir$linkFrom\"") == 0|| die;
-				}
-			} elsif (/MERGEINI FILENAME="([^\"]*)" TARGET="([^\"]*)"/) {
-				my ($file, $target) = ($1,$2);
-				print " MergeIni $target\n";
-				if ($opt_x) {
-					my $ddir = dirname("$pkgDistDir$target");
-					system("mkdir -p -m 755 \"$ddir\"");
-					if (!$iniFileSeen{"$pkgDistDir$target"}) {
-						$iniFileSeen{"$pkgDistDir$target"} = 1;
-						open (OF, ">$pkgDistDir$target");
-						print OF "[LVRT]\n";
-					} else {
-						open (OF, ">>$pkgDistDir$target");
-					}
-					open (IF, "$dir/$file") || die;
-					while (<IF>) {
-						s/\r$//;
-						next if (/^\[LVRT\]$/);
-						next if (/^\s*$/);
-						die "Can't handle mergeini files with sections other than [LVRT]\n" if (/^\[$/);
-						print OF $_;
-					}
-					close IF;
-					close OF;
 				}
 			}
+			close F;
 		}
-		close F;
 	}
 	if ($opt_x) {
 		open (O, ">$pkgDistBase/LICENSE");
@@ -372,7 +484,6 @@ EOF
 
 pkg_postinst_\${PN} () {
 #!/bin/sh -e
-# add /usr/local/natinst/lib to ld.cache
 grep -q $ldConfAdd \$D/etc/ld.so.conf || printf "$ldConfAdd\\n" >> \$D/etc/ld.so.conf
 if [ -z "\$D" ]; then
   ldconfig
@@ -436,4 +547,20 @@ esac
 exit 0
 EOF
 	close INITF;
+}
+
+sub getNewestFile {
+	my ($top, $subdir) = @_;
+	opendir(my $dir_fh, $top."/".$subdir);
+	my ($prevFile, $prevTime, $file, $fileTime, $newestFile);
+	while (my $file = readdir $dir_fh) {
+    		if ($file !~ /^\./) {
+			my $fileTime = stat("$top/$subdir/$file");
+			$newestFile = $file if (!$prevFile || $fileTime->mtime > $prevTime->mtime);
+			$prevFile = $file;
+			$prevTime = $fileTime;
+		}
+	}
+	closedir $dir_fh;
+	return $subdir."/".$newestFile;
 }
