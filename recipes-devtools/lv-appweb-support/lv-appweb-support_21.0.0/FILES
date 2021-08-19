@@ -1,0 +1,84 @@
+/usr/local/natinst/etc/init.d/systemWebServer <- ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/etc/init.d/systemWebServer
+d1be7227ead9a387a88abde597b050fab76caf45  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/etc/nivalidatestartup.d/systemWebServer
+3d7d12628e80bf439d712d1cd223cf51f2d58517  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/etc/sudoers.d/systemwebserver
+43a7fb6a13be8fcdfcf9d741cf5e4e4d024c16c9  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/etc/natinst/appweb/NISystemWebServer.conf
+6b62bf398330511c1aaed279403120dacbb2d467  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/etc/natinst/NISystemWebServer.ini.defaults
+f9f12687d7b406cdc52a865ab8944dc8e13ff8dc  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/etc/natinst/webservices/webservices.ini
+0807436df801c959fa57f1b3390236df3503164d  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/etc/natinst/mime.types
+fa3ad3fff70b517f36c24d7095589105b29c6e45  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/share/doc/ni-system-webserver/NOTICES
+e23894cbe8c887b247f51158d9ef8706e2f3583e  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/share/doc/ni-ssl-webserver-support/NOTICES
+e23894cbe8c887b247f51158d9ef8706e2f3583e  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/share/doc/ni-webservices-webserver-support/NOTICES
+e23894cbe8c887b247f51158d9ef8706e2f3583e  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/share/doc/ni-webserver-libs/NOTICES
+ef26a11181aa2a9186d1c103d5dde49b23f3a91b  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/etc/init.d/systemWebServer
+mod_niesp.so.16.0.0 <- ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/share/NIWebServer/mod_niesp.so
+16d77dd866b6232219d3a62adf54626ba0a1aa71  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/share/NIWebServer/SystemWebServer
+fc3ddaf797c13168a4e548f0c84dc46e4dde8d74  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/share/NIWebServer/libws_runtime.so.14.5.0
+1f1ccb503fbfc6078b582a7becb51c25bae9a2ad  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/share/NIWebServer/mod_niauth.so.14.0.0
+9526e0e742a98ff77214e62beff2537d49305b3d  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/share/NIWebServer/libpcre.so.4.1.0
+libws_repl.so.20.0.0 <- ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/share/NIWebServer/libws_repl.so
+libws_runtime.so.14.5.0 <- ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/share/NIWebServer/libws_runtime.so
+mod_niws.so.14.5.0 <- ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/share/NIWebServer/mod_niws.so
+539148487a7a1de980a8d1bf7d5dec9cf2f6ed81  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/share/NIWebServer/libmprssl.so.4.1.0
+fc3ddaf797c13168a4e548f0c84dc46e4dde8d74  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/share/NIWebServer/NIWebServiceContainer
+083dd398aeb07f96dc35b7f9c184acdd4f350d01  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/share/NIWebServer/mod_niconf.so.16.0.0
+libmprssl.so.4.1.0 <- ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/share/NIWebServer/libmprssl.so
+2aba5e504d1b80fd31601481e1dc9c7877ef132f  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/share/NIWebServer/mod_nissl.so.16.0.0
+a84d3c3cf14d06c5719164416a08bc53ab7570a7  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/share/NIWebServer/libappweb.so.21.0.0
+dd9a86bb76a8111bd562b0224543e895b9714b82  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/share/NIWebServer/mod_ssl.so.4.1.0
+mod_nisessmgr.so.16.0.0 <- ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/share/NIWebServer/mod_nisessmgr.so
+1bccae6af2dc6d8e00d23a82c390312a0ab12695  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/share/NIWebServer/libhttp.so.4.1.0
+c8150861c4776d99d85eefe3cefe4601ee0ee435  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/share/NIWebServer/libws_repl.so.20.0.0
+libws_repl.so <- ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/share/NIWebServer/ws_repl.so
+2ea7312dc86b5313f20d30400f28c07a65a246aa  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/share/NIWebServer/mod_nisessmgr.so.16.0.0
+mod_ssl.so.4.1.0 <- ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/share/NIWebServer/mod_ssl.so
+5b3911b84998fed6fecf1de17294e79d9e920969  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/share/NIWebServer/certInit
+libhttp.so.4.1.0 <- ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/share/NIWebServer/libhttp.so
+libws_runtime.so <- ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/share/NIWebServer/ws_runtime.so
+17b83d27f249c813d85bf569f0a2c3735c79a6ac  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/share/NIWebServer/libappwebcore.so.4.1.0
+mod_niauth.so.14.0.0 <- ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/share/NIWebServer/mod_niauth.so
+mod_niconf.so.16.0.0 <- ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/share/NIWebServer/mod_niconf.so
+ee8506a62c3ed6adea32b3157b36df7252f21ad3  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/share/NIWebServer/mod_niws.so.14.5.0
+libpcre.so.4.1.0 <- ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/share/NIWebServer/libpcre.so
+2d04edaa67faa4bcde1cad1a8d14a6a791ecd5fa  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/share/NIWebServer/mod_niesp.so.16.0.0
+libws_runtime.so.14.5.0 <- ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/share/NIWebServer/libws_runtime.so.13
+mod_nissl.so.16.0.0 <- ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/share/NIWebServer/mod_nissl.so
+libappweb.so.21.0.0 <- ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/share/NIWebServer/libappweb.so
+libmpr.so.4.1.0 <- ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/share/NIWebServer/libmpr.so
+libappwebcore.so.4.1.0 <- ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/share/NIWebServer/libappwebcore.so
+676422dd1753ace82bc3f4fe665e78424372aaa6  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/share/NIWebServer/libmpr.so.4.1.0
+/usr/local/natinst/share/NIWebServer/mod_nisessmgr.so.16.0.0 <- ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/lib/libmod_nisessmgr.so.16.0.0
+libmprssl.so.4.1.0 <- ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/lib/libmprssl.so.4
+/usr/local/natinst/share/NIWebServer/libpcre.so.4.1.0 <- ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/lib/libpcre.so.4.1.0
+libappwebcore.so.4.1.0 <- ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/lib/libappwebcore.so.4
+/usr/local/natinst/share/NIWebServer/mod_niesp.so.16.0.0 <- ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/lib/libmod_niesp.so.16.0.0
+/usr/local/natinst/share/NIWebServer/libmprssl.so.4.1.0 <- ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/lib/libmprssl.so.4.1.0
+/usr/local/natinst/share/NIWebServer/libhttp.so.4.1.0 <- ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/lib/libhttp.so.4.1.0
+/usr/local/natinst/share/NIWebServer/libws_repl.so.20.0.0 <- ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/lib/libws_repl.so.20.0.0
+/usr/local/natinst/share/NIWebServer/mod_niws.so.20.0.0 <- ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/lib/libmod_niws.so.20.0.0
+/usr/local/natinst/share/NIWebServer/libappwebcore.so.4.1.0 <- ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/lib/libappwebcore.so.4.1.0
+libmpr.so.4.1.0 <- ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/lib/libmpr.so.4
+libpcre.so.4.1.0 <- ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/lib/libpcre.so.4
+libhttp.so.4.1.0 <- ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/lib/libhttp.so.4
+libws_repl.so.20.0.0 <- ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/lib/libws_repl.so.13
+/usr/local/natinst/share/NIWebServer/libmpr.so.4.1.0 <- ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/lib/libmpr.so.4.1.0
+14b85bd6d6e047bbcb02f233518655310be60ea6  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/labview/webserver/niwsdebugserver.conf.template
+fa8f02744810d3904a082f3df4313843ae2f12c8  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/labview/webserver/services/LVWSDebugSvc/WebService.ini
+a3f43ba0a372daea319a26cfe26c3057127a7902  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/labview/webserver/services/LVWSDebugSvc/libdebugsvc.so.16.0.0
+libdebugsvc.so.16.0.0 <- ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/labview/webserver/services/LVWSDebugSvc/libdebugsvc.so
+9284b7cfa3aca3d28adf3a2b3736aec63282fa91  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/labview/webserver/ws_www/login.html
+6af3bf3222b09fe6e7f57be703119c7ba9ca6c5b  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/labview/webserver/ws_www/LoginPage.xap
+627fc7ee338436c8b2144b75069216aab4d7db02  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/usr/local/natinst/labview/webserver/ws_www/clientaccesspolicy.xml
+2b589cf368b2b754765fefcf3763d999a9070f28  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/var/local/natinst/tracelogs/ws_service_container.cfg
+b08ffe7fead0d3e27b2962f4c824f16f2b9c92ec  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/var/local/natinst/tracelogs/ws_runtime.cfg
+68c6a549603a8b298712414ef203ede68655d0e2  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/var/local/natinst/tracelogs/sslAdminSvc.cfg
+d6943d61f82a84a617a6cc77fdc9935e189dc5ec  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/var/local/natinst/tracelogs/ws_shared.cfg
+3497cc221828e017632b00f0c2b9249bf2ddec9e  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/var/local/natinst/tracelogs/mod_niws.cfg
+3ec3d29beca5e35f71eb619575de99d01d55294c  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/var/local/natinst/webservices/NI/LVWSSslAdmin/WebService.ini
+3047c4f8f59c2879746604cca0f18c70d1ee11e8  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/var/local/natinst/webservices/NI/LVWSSslAdmin/libssladminsvc.so.16.0.0
+libssladminsvc.so.16.0.0 <- ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/var/local/natinst/webservices/NI/LVWSSslAdmin/libssladminsvc.so
+f432d6e3d0201b108ab2faed3d8291d9a176c28f  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/var/local/natinst/webservices/NI/LVWSSysAdmin/WebService.ini
+53b7aa9ac41c2af8255ab49fa71de98f5bc0f237  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/var/local/natinst/webservices/NI/LVWSSysAdmin/libsysadminsvc.so.16.0.0
+libsysadminsvc.so.16.0.0 <- ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/var/local/natinst/webservices/NI/LVWSSysAdmin/libsysadminsvc.so
+9284b7cfa3aca3d28adf3a2b3736aec63282fa91  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/var/local/natinst/www/login.html
+6af3bf3222b09fe6e7f57be703119c7ba9ca6c5b  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/var/local/natinst/www/LoginPage.xap
+627fc7ee338436c8b2144b75069216aab4d7db02  ./recipes-devtools/lv-appweb-support/lv-appweb-support_21.0.0/armv7-a/var/local/natinst/www/clientaccesspolicy.xml

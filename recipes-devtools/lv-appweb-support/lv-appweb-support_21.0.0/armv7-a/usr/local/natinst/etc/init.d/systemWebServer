@@ -1,0 +1,50 @@
+#! /bin/sh
+#
+
+ulimit -s 256
+
+certInitPath=/usr/local/natinst/share/NIWebServer/certInit
+progname=systemWebServer
+progpath=/usr/local/natinst/share/NIWebServer/SystemWebServer
+arguments="-timeout 50 -child-timeout 20 -system"
+stopargs="-stop -system"
+
+# init.d script from National Instruments
+test -x "$progpath" || exit 0
+
+startdaemon(){
+	echo -n "Starting $progname: "
+	if ! su webserv -c $certInitPath; then
+		echo "Certificate initialization failed!"
+	fi
+	if [ ! -f /etc/natinst/safemode ]; then
+		start-stop-daemon -c webserv:ni --start -x $progpath -- $arguments
+	else
+		capsh --caps=cap_setpcap,cap_setuid,cap_setgid,cap_net_bind_service,cap_net_admin,cap_sys_time+ep --inh=cap_net_bind_service,cap_net_admin,cap_sys_time --keep=1 --user=webserv --addamb=cap_net_bind_service,cap_net_admin,cap_sys_time -- -c "start-stop-daemon --start -x $progpath -- $arguments"
+	fi
+    test $? -eq 1 || echo "done"
+}
+stopdaemon(){
+	echo -n "Stopping $progname: "
+	start-stop-daemon --stop --quiet --retry 30 -x $progpath
+	echo "done"
+}
+
+case "$1" in
+  start)
+	startdaemon
+	;;
+  stop)
+  	stopdaemon
+	;;
+  force-reload|restart|reload)
+  	stopdaemon
+	startdaemon
+	;;
+  *)
+	echo "Usage: $progname {start|stop|restart|reload|force-reload}" >&2
+	exit 1
+	;;
+esac
+
+exit 0
