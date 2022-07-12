@@ -1,0 +1,313 @@
+<?xml version="1.0"?>
+<nidocument>
+<nicomment>
+<nifamily displayname="VISA" familyname="VISA">
+</nifamily>
+</nicomment>
+<nierror code="-1073807360">
+VISA:  (Hex 0xBFFF0000) 不明なシステムエラー(その他のエラー)が発生しました。
+</nierror>
+<nierror code="-1073807346">
+VISA:  (Hex 0xBFFF000E) 所定のセッションまたはオブジェクトリファレンスは無効です。
+</nierror>
+<nierror code="-1073807345">
+VISA:  (Hex 0xBFFF000F) リソースがロックされているため、指定されたタイプのロックを取得できないか、指定の操作を実行できません。
+</nierror>
+<nierror code="-1073807344">
+VISA:  (Hex 0xBFFF0010) 検索に対して無効な表現が指定されました。
+</nierror>
+<nierror code="-1073807343">
+VISA:  (Hex 0xBFFF0011) 位置情報が不十分か、デバイスまたはリソースがシステムに存在しません。
+</nierror>
+<nierror code="-1073807342">
+VISA:  (Hex 0xBFFF0012) 無効なリソースリファレンスが指定されました。構文解析エラーです。
+</nierror>
+<nierror code="-1073807341">
+VISA:  (Hex 0xBFFF0013) アクセスモードが無効です。
+</nierror>
+<nierror code="-1073807339">
+VISA:  (Hex 0xBFFF0015) 操作が完了する前にタイムアウトで時間切れとなりました。
+</nierror>
+<nierror code="-1073807338">
+VISA:  (Hex 0xBFFF0016) VISAドライバはセッションまたはオブジェクトリファレンスを適切に閉じる操作に失敗しました。これは内部リソースまたはOSリソースの解放エラー、ネットワーク接続失敗、下位レベルドライバ、またはOSエラーが原因の可能性があります。
+</nierror>
+<nierror code="-1073807333">
+VISA:  (Hex 0xBFFF001B) 指定された度の値が無効です。
+</nierror>
+<nierror code="-1073807332">
+VISA:  (Hex 0xBFFF001C) 指定されたジョブ識別子が無効です。
+</nierror>
+<nierror code="-1073807331">
+VISA:  (Hex 0xBFFF001D) 指定された属性が定義されていないか、またはリファレンスされたリソースによってサポートされていません。
+</nierror>
+<nierror code="-1073807330">
+VISA:  (Hex 0xBFFF001E) 指定された属性の状態が無効であるか、またはそのリソースによって定義されているようにサポートされていません。
+</nierror>
+<nierror code="-1073807329">
+VISA:  (Hex 0xBFFF001F) 指定された属性は読み取り専用です。
+</nierror>
+<nierror code="-1073807328">
+VISA:  (Hex 0xBFFF0020) 指定されたタイプのロックはこのリソースによってサポートされていません。
+</nierror>
+<nierror code="-1073807327">
+VISA:  (Hex 0xBFFF0021) 指定されたリソースへのアクセスキーが無効です。
+</nierror>
+<nierror code="-1073807322">
+VISA:  (Hex 0xBFFF0026) 指定されたイベントタイプはそのリソースによってサポートされていません。
+</nierror>
+<nierror code="-1073807321">
+VISA:  (Hex 0xBFFF0027) 無効なメカニズムが指定されました。
+</nierror>
+<nierror code="-1073807320">
+VISA:  (Hex 0xBFFF0028) ハンドラはインストールされませんでした。
+</nierror>
+<nierror code="-1073807319">
+VISA:  (Hex 0xBFFF0029) 所定のハンドラリファレンスが無効です。
+</nierror>
+<nierror code="-1073807318">
+VISA:  (Hex 0xBFFF002A) 指定されたイベントコンテキストが無効です。
+</nierror>
+<nierror code="-1073807315">
+VISA:  (Hex 0xBFFF002D) 指定されたイベントキューがオーバフローしました。以前のイベントが正常に閉じられていることを確認してください。
+</nierror>
+<nierror code="-1073807313">
+VISA:  (Hex 0xBFFF002F) 受信するには指定されたタイプのイベントを有効にする必要があります。
+</nierror>
+<nierror code="-1073807312">
+VISA:  (Hex 0xBFFF0030) 転送中にユーザによる強制終了が発生しました。
+</nierror>
+<nierror code="-1073807308">
+VISA:  (Hex 0xBFFF0034) 転送中にRaw Writeプロトコルの違反が発生しました。
+</nierror>
+<nierror code="-1073807307">
+VISA:  (Hex 0xBFFF0035) 転送中にRaw Readプロトコルの違反が発生しました。
+</nierror>
+<nierror code="-1073807306">
+VISA:  (Hex 0xBFFF0036) 転送中にデバイスが出力プロトコールエラーを報告しました。
+</nierror>
+<nierror code="-1073807305">
+VISA:  (Hex 0xBFFF0037) 転送中にデバイスが入力プロトコールエラーを報告しました。
+</nierror>
+<nierror code="-1073807304">
+VISA:  (Hex 0xBFFF0038) 転送中にバスエラーが発生しました。
+</nierror>
+<nierror code="-1073807303">
+VISA:  (Hex 0xBFFF0039) 進行中の操作が既にあるため、非同期的な操作をキューすることができません。
+</nierror>
+<nierror code="-1073807302">
+VISA:  (Hex 0xBFFF003A) セットアップが無効 (属性が一貫性のない状態に設定された) ため操作を開始できません。
+</nierror>
+<nierror code="-1073807301">
+VISA:  (Hex 0xBFFF003B) 非同期操作をキューできません (通常、I/O完了イベントが有効に設定されていないか、セッションのキューに十分な空き領域がないため)。
+</nierror>
+<nierror code="-1073807300">
+VISA:  (Hex 0xBFFF003C) 必要なメモリの割り当てを実行する十分なシステムリソースがありません。
+</nierror>
+<nierror code="-1073807299">
+VISA:  (Hex 0xBFFF003D) 無効なバッファマスクが指定されました。
+</nierror>
+<nierror code="-1073807298">
+VISA:  (Hex 0xBFFF003E) I/Oエラーのため、操作を実行できませんでした。
+</nierror>
+<nierror code="-1073807297">
+VISA:  (Hex 0xBFFF003F) 形式文字列の形式指定子が無効です。
+</nierror>
+<nierror code="-1073807295">
+VISA:  (Hex 0xBFFF0041) 形式文字列の形式指定子はサポートされていません。
+</nierror>
+<nierror code="-1073807294">
+VISA:  (Hex 0xBFFF0042) 指定されたトリガラインは現在使用中です。
+</nierror>
+<nierror code="-1073807293">
+VISA:  (Hex 0xBFFF0043) 指定されたトリガラインは予約されていません。
+</nierror>
+<nierror code="-1073807290">
+VISA:  (Hex 0xBFFF0046) 指定されたモードはこのVISAの実装によってサポートされていません。
+</nierror>
+<nierror code="-1073807286">
+VISA:  (Hex 0xBFFF004A) サービスリクエストがセッションに対して受信されませんでした。
+</nierror>
+<nierror code="-1073807282">
+VISA:  (Hex 0xBFFF004E) 無効なアドレス領域が指定されました。
+</nierror>
+<nierror code="-1073807279">
+VISA:  (Hex 0xBFFF0051) 無効なオフセットが指定されました。
+</nierror>
+<nierror code="-1073807278">
+VISA:  (Hex 0xBFFF0052) 無効なアクセス幅が指定されました。
+</nierror>
+<nierror code="-1073807276">
+VISA:  (Hex 0xBFFF0054) 指定されたオフセットはこのハードウェアからアクセスできません。
+</nierror>
+<nierror code="-1073807275">
+VISA:  (Hex 0xBFFF0055) 異なるソースおよび送信先幅をサポートできません。
+</nierror>
+<nierror code="-1073807273">
+VISA:  (Hex 0xBFFF0057) 指定されたセッションは現在割り当てられていません。
+</nierror>
+<nierror code="-1073807271">
+VISA:  (Hex 0xBFFF0059) 前回の応答はまだ待機中であるため、複数のクエリエラーが発生しています。
+</nierror>
+<nierror code="-1073807265">
+VISA:  (Hex 0xBFFF005F) 検出されたリスナ状態がありません (NRFDとNDACの両方のアサートが解除されています)。
+</nierror>
+<nierror code="-1073807264">
+VISA:  (Hex 0xBFFF0060) このセッションに関連するインタフェースは現在CIC (コントローラインチャージ) でありません。
+</nierror>
+<nierror code="-1073807263">
+VISA:  (Hex 0xBFFF0061) このセッションに関連するインタフェースはシステムコントローラではありません。
+</nierror>
+<nierror code="-1073807257">
+VISA:  (Hex 0xBFFF0067) 所定のセッションまたはオブジェクトリファレンスはこの操作をサポートしていません。
+</nierror>
+<nierror code="-1073807256">
+VISA:  (Hex 0xBFFF0068) 前回の呼び出しからの割り込みを待機中です。
+</nierror>
+<nierror code="-1073807254">
+VISA:  (Hex 0xBFFF006A) 転送中にパリティエラーが発生しました。
+</nierror>
+<nierror code="-1073807253">
+VISA:  (Hex 0xBFFF006B) 転送中にフレーミングエラーが発生しました。
+</nierror>
+<nierror code="-1073807252">
+VISA:  (Hex 0xBFFF006C) 転送中にオーバーランエラーが発生しました。次の文字が到着する前に、ハードウェアから文字が読み取られませんでした。
+</nierror>
+<nierror code="-1073807250">
+VISA:  (Hex 0xBFFF006E) trigSrcからtrigDestへのパスは現在割り当てられていません。
+</nierror>
+<nierror code="-1073807248">
+VISA:  (Hex 0xBFFF0070) 指定されたオフセットは操作のアクセス幅に対して適切でありません。
+</nierror>
+<nierror code="-1073807247">
+VISA:  (Hex 0xBFFF0071) 指定されたユーザバッファが無効か、要求されたサイズに対してアクセスできません。
+</nierror>
+<nierror code="-1073807246">
+VISA:  (Hex 0xBFFF0072) リソースは有効ですが、現在VISAはアクセスできません。
+</nierror>
+<nierror code="-1073807242">
+VISA:  (Hex 0xBFFF0076) 指定された幅はこのハードウェアによってサポートされていません。
+</nierror>
+<nierror code="-1073807240">
+VISA:  (Hex 0xBFFF0078) 一部のパラメータの値 (どのパラメータかは不明) が無効です。
+</nierror>
+<nierror code="-1073807239">
+VISA:  (Hex 0xBFFF0079) 指定されたプロトコルが無効です。
+</nierror>
+<nierror code="-1073807237">
+VISA:  (Hex 0xBFFF007B) 無効なウィンドウサイズが指定されました。
+</nierror>
+<nierror code="-1073807232">
+VISA:  (Hex 0xBFFF0080) 指定されたセッションには現在マップされたウィンドウが含まれています。
+</nierror>
+<nierror code="-1073807231">
+VISA:  (Hex 0xBFFF0081) 所定の操作は実装されていません。
+</nierror>
+<nierror code="-1073807229">
+VISA:  (Hex 0xBFFF0083) 無効な長さが指定されました。
+</nierror>
+<nierror code="-1073807215">
+VISA:  (Hex 0xBFFF0091) 無効のモードが指定されました。
+</nierror>
+<nierror code="-1073807204">
+VISA:  (Hex 0xBFFF009C) 現在のセッションではリソースにロックがありませんでした。
+</nierror>
+<nierror code="-1073807203">
+VISA:  (Hex 0xBFFF009D) デバイスはメモリをエクスポートしません。
+</nierror>
+<nierror code="-1073807202">
+VISA:  (Hex 0xBFFF009E) VISAまたはVISAによって必要とされるコードライブラリが検出またはロードできませんでした。  通常、必要なドライバがシステムにインストールされていないのが原因です。
+</nierror>
+<nierror code="-1073807201">
+VISA:  (Hex 0xBFFF009F) インタフェースは要求されたレベルまたは要求されたstatusID値で割り込みを生成できません。
+</nierror>
+<nierror code="-1073807200">
+VISA:  (Hex 0xBFFF00A0) ラインパラメータによって指定された値は無効です。
+</nierror>
+<nierror code="-1073807199">
+VISA:  (Hex 0xBFFF00A1) 指定されたファイルを開くときにエラーが発生しました。推測される原因は、無効なパス、または無効なアクセス権限です。
+</nierror>
+<nierror code="-1073807198">
+VISA:  (Hex 0xBFFF00A2) 指定されたファイルにI/O操作を実行中にエラーが発生しました。
+</nierror>
+<nierror code="-1073807197">
+VISA:  (Hex 0xBFFF00A3) 指定されたラインの1つ (trigSrcまたはtrigDest) はこのVISAのバージョンではサポートされていないか、ラインの組み合わせは有効な割り当てでありません。
+</nierror>
+<nierror code="-1073807196">
+VISA:  (Hex 0xBFFF00A4) 指定されたメカニズムは所定のイベントタイプによってサポートしていません。
+</nierror>
+<nierror code="-1073807195">
+VISA:  (Hex 0xBFFF00A5) インタフェースタイプは有効ですが、指定されたインタフェース番号は構成されていません。
+</nierror>
+<nierror code="-1073807194">
+VISA:  (Hex 0xBFFF00A6) 所定のセッションの接続が失われました。
+</nierror>
+<nierror code="-1073807193">
+VISA:  (Hex 0xBFFF00A7) リモートマシンが存在しないか、接続できません。NI-VISAのサーバがインストールされていて、リモートマシン上で実行されている場合、互換性のないバージョンかあるいは違うポートで受信している可能性があります。
+</nierror>
+<nierror code="-1073807192">
+VISA:  (Hex 0xBFFF00A8) リソースまたはリモートマシンへのアクセスが拒否されました。これは現在のユーザまたはマシンに十分な権限がないからです。
+</nierror>
+<nierror code="-1073807190">
+VISA:  (Hex 0xBFFF00AA) 下位レベルのドライバによりこのリソースが正式でないインターフェイスに対応している、または接続されていることが報告されました。詳細については、ナショナルインスツルメンツの技術サポートにお問い合わせください。
+</nierror>
+<nierror code="0">
+VISA:  (Hex 0x0) 操作は問題なく完了しました。
+</nierror>
+<nierror code="1073676290">
+VISA:  (Hex 0x3FFF0002) 指定されたイベントは指定されたメカニズムの最低1つに対して既に有効に設定されています。
+</nierror>
+<nierror code="1073676291">
+VISA:  (Hex 0x3FFF0003) 指定されたイベントは指定されたメカニズムの最低1つに対して既に無効に設定されています。
+</nierror>
+<nierror code="1073676292">
+VISA:  (Hex 0x3FFF0004) 操作は問題なく完了しましたが、キューは既に空です。
+</nierror>
+<nierror code="1073676293">
+VISA:  (Hex 0x3FFF0005) 指定された終端文字が読み取られました。
+</nierror>
+<nierror code="1073676294">
+VISA:  (Hex 0x3FFF0006) 転送されたバイト数が要求された入力カウントと同じです。追加データがある可能性があります。
+</nierror>
+<nierror code="1073676300">
+VISA:  (Hex 0x3FFF000C) VISAが構成済みのキューサイズに格納できる範囲以上の指定されたタイプのイベント情報を受信しました。
+</nierror>
+<nierror code="1073676407">
+VISA:  (Hex 0x3FFF0077) 指定されている構成は存在しないか、またはロードすることができませんでした。VISA固有のデフォルト値を使用してください。
+</nierror>
+<nierror code="1073676413">
+VISA:  (Hex 0x3FFF007D) セッションは正常に開始しましたが、指定されたアドレスのデバイスから応答がありません。
+</nierror>
+<nierror code="1073676414">
+VISA:  (Hex 0x3FFF007E) trigSrcからtrigDestへのパスは既に割り当てられています。
+</nierror>
+<nierror code="1073676416">
+VISA:  (Hex 0x3FFF0080) イベント通知の受信時に、Waitは正常に終了されました。このセッションには、inEventTypeによって指定されたタイプのイベントオカーレンスが少なくとも1つあります。
+</nierror>
+<nierror code="1073676418">
+VISA:  (Hex 0x3FFF0082) 指定されたオブジェクトリファレンスは初期化されていません。
+</nierror>
+<nierror code="1073676420">
+VISA:  (Hex 0x3FFF0084) 指定された属性の状態は有効ですが、このリソースの実装によってサポートされていません。
+</nierror>
+<nierror code="1073676421">
+VISA:  (Hex 0x3FFF0085) 操作に渡されたステータスコードを解釈できませんでした。
+</nierror>
+<nierror code="1073676424">
+VISA:  (Hex 0x3FFF0088) 指定されたI/Oバッファはサポートされていません。
+</nierror>
+<nierror code="1073676440">
+VISA:  (Hex 0x3FFF0098) イベントは問題なく処理されました。このセッションでこのイベント用にその他のハンドラを呼び出さないでください。
+</nierror>
+<nierror code="1073676441">
+VISA:  (Hex 0x3FFF0099) 操作は正常に完了し、このセッションは共有ロックをネストしました。
+</nierror>
+<nierror code="1073676442">
+VISA:  (Hex 0x3FFF009A) 操作は正常に完了し、このセッションは排他的ロックをネストしました。
+</nierror>
+<nierror code="1073676443">
+VISA:  (Hex 0x3FFF009B) 操作は正常に完了しましたが、実際に操作は非同期ではなく同期的でした。
+</nierror>
+<nierror code="1073676457">
+VISA:  (Hex 0x3FFF00A9) 操作は成功しましたが、下位レベルドライバは拡張された機能を実装しませんでした。
+</nierror>
+</nidocument>
