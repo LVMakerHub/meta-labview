@@ -1,4 +1,4 @@
-#!/bin/sh 
+#!/bin/bash 
 # Note: This script requires access to NI internal systems to function correctly
 # and is not intended to be run by end users. If you need to rebuild a
 # LINX lvrt image, make any modifications you need directly to the
@@ -25,15 +25,21 @@
 #
 
 # Update as needed:
+UPDATELV=
+LVVERS=22
+LVVERSMIN=.3
+NEWMINORVERS=3.0
+
 #UPDATELV=y
 #LVVERS=19
+#LVVERSMIN=.0
 #NEWMINORVERS=0.1
 
-UPDATELV=
-LVVERS=21
-NEWMINORVERS=0.0
+#UPDATELV=
+#LVVERS=21
+#LVVERSMIN=.0
+#NEWMINORVERS=0.0
 
-LVVERSMIN=.0
 OLDMINORVERS=0.0
 
 OLDLVALARMVERS=12.0.0
@@ -67,9 +73,9 @@ if [ ! -f "$METALV/conf/layer.conf" -o ! -d "$METALV/../meta-labview" ]; then
 	exit 1
 fi
 
-cd "$LVBUILD"
+cd "$LVBUILD" || exit 1
 unset PERL5LIB
-. setupEnv.sh
+. ./setupEnv.sh
 
 P4="p4 -p penguin.natinst.com:1666 -c  $nibuild_penguin_clientspec"
 
@@ -78,7 +84,7 @@ NIDIR=$USRLOCALDIR/natinst
 LVDIR=$NIDIR/labview
 
 LVPKG=recipes-devtools/labview/labview_$LVVERS.$NEWMINORVERS
-APPWEBPKG=recipes-devtools/lv-appweb-support/lv-appweb-support_$LVVERS.0.0
+APPWEBPKG=recipes-devtools/lv-appweb-support/lv-appweb-support_$LVVERS$LVVERSMIN.0
 
 
 MODNIWSP4PATH=//user/ksharp/web/webservices/ws_core/export/14.5/14.5.0f5/targets/linuxU/armv7-a/gcc-4.4-arm/release/mod_niws.so.14.5.0
@@ -113,7 +119,8 @@ ln -sfv libNILVRuntimeManager.so.$LVVERS  $METALV/$LVPKG/$LVDIR/libNILVRuntimeMa
 fi
 
 PENGDEPS=$($P4 where //labviewrt/dev | awk '{print $3;}')
-(cd $PENGDEP
+(mkdir -p $PENGDEPS
+ cd $PENGDEPS
  test -z "$PKG" -o "$PKG" = "labview" && p4sync penguin:$LVALARMP4PATH
  test -z "$PKG" -o "$PKG" = "labview" && p4sync penguin:$RTPIP4PATH
  test -z "$PKG" -o "$PKG" = "lv-appweb-support" && p4sync penguin:$MODNIWSP4PATH

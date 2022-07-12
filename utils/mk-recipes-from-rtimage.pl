@@ -16,14 +16,25 @@ use warnings;
 use File::Basename;
 use File::stat;
 
-my $YEAR_VERS = "2021";
-my $LVLONG_VERS = "21.0.0";
-my $LONG_VERS = "21.0.0";
+my $YEAR_VERS = "2022";
+my $LVLONG_VERS = "22.5.0";
+my $LONG_VERS = "22.3.0";
 
-my $SHORT_VERS = "21.0";
+my $SHORT_VERS = "22.3";
 my $RTLOG_VERS = "2.10";
 my $BASE_VERS = "17.0";
-my $TDMS_VERS = "21.0.0";
+my $TDMS_VERS = "22.0.0";
+my $NICURL_VERS = "21.3.0";
+
+# Values for LabVIEW 2021
+#my $YEAR_VERS = "2021";
+#my $LVLONG_VERS = "21.0.0";
+#my $LONG_VERS = "21.0.0";
+#my $SHORT_VERS = "21.0";
+#my $RTLOG_VERS = "2.10";
+#my $BASE_VERS = "17.0";
+#my $TDMS_VERS = "21.0.0";
+#my $NICURL_VERS = "21.0.0";
 
 # Values for LabVIEW 2020
 #my $YEAR_VERS = "2020";
@@ -33,6 +44,7 @@ my $TDMS_VERS = "21.0.0";
 #my $RTLOG_VERS = "2.9";
 #my $BASE_VERS = "17.0";
 #my $TDMS_VERS = "19.0.0";
+#my $NICURL_VERS = "20.0.0";
 
 # Values for LabVIEW 2019 SP1
 #my $YEAR_VERS = "2019";
@@ -42,6 +54,7 @@ my $TDMS_VERS = "21.0.0";
 #my $RTLOG_VERS = "2.8";
 #my $BASE_VERS = "16.0";
 #my $TDMS_VERS = "19.0.0";
+#my $NICURL_VERS = "19.0.0";
 
 my $useIPKs = ($YEAR_VERS ge "2021");
 my $BASEIMAGETAR_FOR_CERTFILE = "Base/$BASE_VERS/762F/base.tar";
@@ -103,10 +116,10 @@ my @PKG = (
 		'summary' => "LabVIEW embedded run-time engine",
 		'homepage' => "http://ni.com/labview",
 		'ipk' => [
-			<$lvIPKSub/ni-labview-realtime_$LVLONG_VERS.*_cortexa9-vfpv3.ipk>, # replaces LabVIEW/*
-			<$lvIPKSub/libnicpuinfo_$LVLONG_VERS.*_cortexa9-vfpv3.ipk>,
+			<$lvIPKSub/ni-labview-realtime_$LONG_VERS.*_cortexa9-vfpv3.ipk>, # replaces LabVIEW/*
+			<$lvIPKSub/libnicpuinfo_$LONG_VERS.*_cortexa9-vfpv3.ipk>,
 			<$lvIPKSub/ni-rtlog_$RTLOG_VERS.*_cortexa9-vfpv3.ipk>,
-			<$rtmainIPKSub/ni-tdms_$LVLONG_VERS.*_cortexa9-vfpv3.ipk>,
+			<$rtmainIPKSub/ni-tdms_$LONG_VERS.*_cortexa9-vfpv3.ipk>,
 		],
 		'cdf' => [ # CDFs only used for release years <= 2020
 			"LabVIEW/$YEAR_VERS/LabVIEW-linux-$ARCH.cdf",
@@ -145,10 +158,10 @@ my @PKG = (
 		'summary' => "NI-LabVIEW web support libraries",
 		'homepage' => "http://ni.com/labview",
 		'ipk' => [
-			<$lvIPKSub/ni-labview-http-client_$LVLONG_VERS.*_cortexa9-vfpv3.ipk>,
-			<$lvIPKSub/ni-labview-smtp-client_$LVLONG_VERS.*_cortexa9-vfpv3.ipk>,
-			<$lvIPKSub/ni-labview-webdav-client_$LVLONG_VERS.*_cortexa9-vfpv3.ipk>,
-			<$rtmainIPKSub/nicurl_$LVLONG_VERS.*_cortexa9-vfpv3.ipk>, # Link /usr/local/natinst/share/nicurl/ca-bundle.crt -> /etc/natinst/nissl/ca-bundle.crt now created as hard-link to host file in .deb installer
+			<$lvIPKSub/ni-labview-http-client_$LONG_VERS.*_cortexa9-vfpv3.ipk>,
+			<$lvIPKSub/ni-labview-smtp-client_$LONG_VERS.*_cortexa9-vfpv3.ipk>,
+			<$lvIPKSub/ni-labview-webdav-client_$LONG_VERS.*_cortexa9-vfpv3.ipk>,
+			<$rtmainIPKSub/nicurl_$NICURL_VERS.*_cortexa9-vfpv3.ipk>, # Link /usr/local/natinst/share/nicurl/ca-bundle.crt -> /etc/natinst/nissl/ca-bundle.crt now created as hard-link to host file in .deb installer
 			<$rtmainIPKSub/ni-ca-certs_*_all.ipk>, # has link /etc/natinst/nissl/ca-bundle.crt -> /etc/ssl/certs/ca-certificates.crt
 			<$rtmainIPKSub/nissl_*_cortexa9-vfpv3.ipk>,
 			<$rtmainIPKSub/ni-traceengine_*_cortexa9-vfpv3.ipk>,
@@ -173,10 +186,10 @@ my @PKG = (
 		'depends' => 'lv-web-support libcap',
 		'vers' => $LONG_VERS,
 	  	'ipk' => [
-			<$rtmainIPKSub/ni-system-webserver_$LVLONG_VERS.*_cortexa9-vfpv3.ipk>,
-			<$rtmainIPKSub/ni-webservices-webserver-support_$LVLONG_VERS.*_cortexa9-vfpv3.ipk>,
-			<$rtmainIPKSub/ni-webserver-libs_$LVLONG_VERS.*_cortexa9-vfpv3.ipk>,
-			<$rtmainIPKSub/ni-ssl-webserver-support_$LVLONG_VERS.*_cortexa9-vfpv3.ipk>,
+			<$rtmainIPKSub/ni-system-webserver_$LONG_VERS.*_cortexa9-vfpv3.ipk>,
+			<$rtmainIPKSub/ni-webservices-webserver-support_$LONG_VERS.*_cortexa9-vfpv3.ipk>,
+			<$rtmainIPKSub/ni-webserver-libs_$LONG_VERS.*_cortexa9-vfpv3.ipk>,
+			<$rtmainIPKSub/ni-ssl-webserver-support_$LONG_VERS.*_cortexa9-vfpv3.ipk>,
 		],
 	  	'cdf' => [
 			"System_webserver/$SHORT_VERS/Linux/$ARCH_S/NISystemWebServer-linux-$ARCH_S.cdf",
@@ -212,7 +225,7 @@ foreach my $ref (@PKG) {
 	my $summary = $$ref{'summary'};
 	my $homepage = $$ref{'homepage'};
 	my $depends = $$ref{'depends'};
-	my $pkgv = $pkg . "_" . ($pkg eq $LV ? $LVLONG_VERS : $LONG_VERS);
+	my $pkgv = $pkg . "_" . $LONG_VERS;
 	my $ldConfAdd = $$ref{'ldconfAdd'};
 	$ldConfAdd = $$ref{'ldconfAdd_CDFOnly'} if (!defined($ldConfAdd) && !$useIPKs);
 	my $initScript = $$ref{'initScript'};
@@ -493,7 +506,7 @@ EOF
 		close O;
 	}
 	if ($opt_x) {
-		eval "&$fixupFunc(\"$pkgDistDir\")" if (defined($fixupFunc) && $fixupFunc ne "");
+            eval "&$fixupFunc(\"$pkgDistDir\")" if (defined($fixupFunc) && $fixupFunc ne "");
 	}
 }
 
@@ -503,7 +516,7 @@ if ($opt_s) {
 
 sub lvFixupInitScript {
 	my ($pkgDistDir) = @_;
-	open (INITF, ">$pkgDistDir/usr/local/natinst/etc/init.d/nilvrt");
+	open (INITF, ">$pkgDistDir/usr/local/natinst/etc/init.d/nilvrt") || die;
 	print INITF <<'EOF';
 #!/bin/sh
 
