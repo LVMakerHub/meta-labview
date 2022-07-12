@@ -1,0 +1,283 @@
+<?xml version="1.0"?>
+<nidocument>
+<nicomment>
+<nifamily displayname="OS and Network Services" familyname="OS and Network Services">
+</nifamily>
+</nicomment>
+<nierror code="-1967370240">
+OS and Network Services: Internal Networking Error
+</nierror>
+<nierror code="-1967370239">
+OS and Network Services: Out of memory error when executing the requested network operation.
+</nierror>
+<nierror code="-1967370238">
+OS and Network Services: The application has exceeded the number of available PSP subscription handles
+</nierror>
+<nierror code="-1967370237">
+OS and Network Services: The connection to the server has been lost
+</nierror>
+<nierror code="-1967370236">
+OS and Network Services: The network transmit buffer is full.
+</nierror>
+<nierror code="-1967370235">
+OS and Network Services: The requested operation was not supported by the server.
+</nierror>
+<nierror code="-1967370234">
+OS and Network Services: The server was unable to bind a TCP port.
+</nierror>
+<nierror code="-1967370233">
+OS and Network Services: Operation failed because the network layer is in the process of shutting down.
+</nierror>
+<nierror code="-1967370232">
+OS and Network Services: The network layer was unable to schedule an asynchronous operation
+</nierror>
+<nierror code="-1967370231">
+OS and Network Services: The server does not support the requested data format.
+</nierror>
+<nierror code="-1967370224">
+OS and Network Services: Service registration failed. A service with the given name has already been registered.
+</nierror>
+<nierror code="-1967362047">
+OS and Network Services: Installed library is the wrong version.
+</nierror>
+<nierror code="-1967362046">
+OS and Network Services: Client attempted to call a function on an unregistered library.
+</nierror>
+<nierror code="-1967362045">
+OS and Network Services: Operation timed out.
+</nierror>
+<nierror code="-1967362044">
+OS and Network Services: Syntax error.
+</nierror>
+<nierror code="-1967362043">
+OS and Network Services: Stack overflowed.
+</nierror>
+<nierror code="-1967362042">
+OS and Network Services: Unable to start service.
+</nierror>
+<nierror code="-1967362041">
+OS and Network Services: Out of range.
+</nierror>
+<nierror code="-1967362040">
+OS and Network Services: Object not found.
+</nierror>
+<nierror code="-1967362039">
+OS and Network Services: Object already exists.
+</nierror>
+<nierror code="-1967362038">
+OS and Network Services: Object not found.  Please check the if the specificied name or URL exists for the object, which could be a computer, process, shared variable, Citadel database, or NI domain.
+</nierror>
+<nierror code="-1967362037">
+OS and Network Services: Object or collection is not empty.
+</nierror>
+<nierror code="-1967362036">
+OS and Network Services: Client attempted to call a registration function more than once.
+</nierror>
+<nierror code="-1967362035">
+OS and Network Services: Invalid result type.
+</nierror>
+<nierror code="-1967362034">
+OS and Network Services: Invalid operation.
+</nierror>
+<nierror code="-1967362033">
+OS and Network Services: Invalid argument(s).
+</nierror>
+<nierror code="-1967362032">
+OS and Network Services: Initialization failed.
+</nierror>
+<nierror code="-1967362031">
+OS and Network Services: Write file operation failed.
+</nierror>
+<nierror code="-1967362030">
+OS and Network Services: Read file operation failed.
+</nierror>
+<nierror code="-1967362029">
+OS and Network Services: End of file.
+</nierror>
+<nierror code="-1967362028">
+OS and Network Services: Failed to de-serialize.
+</nierror>
+<nierror code="-1967362027">
+OS and Network Services: Unable to complete request. Connection failed.
+</nierror>
+<nierror code="-1967362026">
+OS and Network Services: Operation cancelled.
+</nierror>
+<nierror code="-1967362025">
+OS and Network Services: Buffer overflowed.
+</nierror>
+<nierror code="-1967362024">
+OS and Network Services: Attempt to advertise service to Logos Classified Ads failed.
+</nierror>
+<nierror code="-1967362023">
+OS and Network Services: Access denied.
+</nierror>
+<nierror code="-1967362022">
+OS and Network Services: Buffer underflowed.
+</nierror>
+<nierror code="-1967362021">
+OS and Network Services: File already exists.
+</nierror>
+<nierror code="-1967362020">
+OS and Network Services: The provided refnum is invalid.
+</nierror>
+<nierror code="-1967362019">
+OS and Network Services: A null refnum was provided as input.
+</nierror>
+<nierror code="-1967362016">
+OS and Network Services: Unexpected OS exception occurred.
+</nierror>
+<nierror code="-1967362015">
+OS and Network Services: Failed to load library.
+</nierror>
+<nierror code="-1967362014">
+OS and Network Services: Class not found.
+</nierror>
+<nierror code="-1967362013">
+OS and Network Services: No known value.
+</nierror>
+<nierror code="-1967362012">
+OS and Network Services: Invalid locale.
+</nierror>
+<nierror code="-1967362000">
+OS and Network Services: Invalid UTF8 encoding sequence.
+</nierror>
+<nierror code="-1967361999">
+OS and Network Services: Citadel ran out of shared memory.
+</nierror>
+<nierror code="-1967361998">
+OS and Network Services: Badly formatted GUID string.
+</nierror>
+<nierror code="-1967361997">
+OS and Network Services: The data type of the shared variable does not support the property value you specified. Refer to the LabVIEW Help for information about how to determine the supported shared variable properties.
+</nierror>
+<nierror code="-1967361996">
+OS and Network Services: Unable to convert.
+</nierror>
+<nierror code="-1967361995">
+OS and Network Services: Corruptions were detected in shared memory.
+</nierror>
+<nierror code="-1967357951">
+OS and Network Services: The Network Variable Engine, has not been setup to use MXS. This should happen the first time you run the service. This error is often the result of not restarting your computer after an install. Please verify that the "National Instruments Variable Engine" service is running.
+</nierror>
+<nierror code="-1967357950">
+OS and Network Services: The I\O Server is not setup in MXS. The first time the "Network Variable Engine" service launches it will do so. Please verify that the "Network Variable Engine" service is running.
+</nierror>
+<nierror code="-1967357949">
+OS and Network Services: Unable to query Measurement & Automation Explorer for the Network Variable Engine. Make sure the Network Variable Engine (which installs support for network-published shared variables) exists on the RT target and check that the network connection is valid.
+</nierror>
+<nierror code="-1967345663">
+OS and Network Services: Generic security error.
+</nierror>
+<nierror code="-1967345662">
+OS and Network Services: Version is not supported by peer.
+</nierror>
+<nierror code="-1967345661">
+OS and Network Services: Account is locked.
+</nierror>
+<nierror code="-1967345660">
+OS and Network Services: Logos session timed out or is locked out by other users.
+</nierror>
+<nierror code="-1967345659">
+OS and Network Services: The specified user does not exist.
+</nierror>
+<nierror code="-1967345658">
+OS and Network Services: The specified group does not exist.
+</nierror>
+<nierror code="-1967345657">
+OS and Network Services: Duplicate name.
+</nierror>
+<nierror code="-1967345656">
+OS and Network Services: Message is corrupted.
+</nierror>
+<nierror code="-1967345655">
+OS and Network Services: The domain server failed to complete a function.
+</nierror>
+<nierror code="-1967345654">
+OS and Network Services: Cannot delete built-in principals.
+</nierror>
+<nierror code="-1967345653">
+OS and Network Services: Invalid password.
+</nierror>
+<nierror code="-1967345652">
+OS and Network Services: Not a local computer.
+</nierror>
+<nierror code="-1967345651">
+OS and Network Services: Not an administrator.
+</nierror>
+<nierror code="-1967345650">
+OS and Network Services: Domain is not defined.
+</nierror>
+<nierror code="-1967345649">
+OS and Network Services: Domain already exists.
+</nierror>
+<nierror code="-1967345648">
+OS and Network Services: Password is too short or too long.
+</nierror>
+<nierror code="-1967345647">
+OS and Network Services: Machine is denied access.
+</nierror>
+<nierror code="-1967345646">
+OS and Network Services: Requested data denied.
+</nierror>
+<nierror code="-1967345632">
+OS and Network Services: Cannot lock account.
+</nierror>
+<nierror code="-1967345631">
+OS and Network Services: Network connection timed out.
+</nierror>
+<nierror code="-1967345630">
+OS and Network Services: File corrupted.
+</nierror>
+<nierror code="-1967345629">
+OS and Network Services: Network is disconnected.
+</nierror>
+<nierror code="-1967345628">
+OS and Network Services: Requested data not found.
+</nierror>
+<nierror code="-1967345627">
+OS and Network Services: Operation cancelled by user.
+</nierror>
+<nierror code="-1967345626">
+OS and Network Services: Attempt to advertise service to NI PSP Service Locator failed.
+</nierror>
+<nierror code="-1967345616">
+OS and Network Services: Message size less than one block.
+</nierror>
+<nierror code="-1967345615">
+OS and Network Services: Failed to generate random number.
+</nierror>
+<nierror code="-1967345614">
+OS and Network Services: Passwords do not match.
+</nierror>
+<nierror code="-1967345612">
+OS and Network Services: Password too short.
+</nierror>
+<nierror code="-1967345611">
+OS and Network Services: Password too long.
+</nierror>
+<nierror code="-1967345610">
+OS and Network Services: Domain already added.
+</nierror>
+<nierror code="-1967345609">
+OS and Network Services: No more principals.
+</nierror>
+<nierror code="180121600">
+OS and Network Services: The Network Variable Engine's input queue is at 90% capacity.
+</nierror>
+<nierror code="180121601">
+OS and Network Services: The Network Variable Engine input queue has overflowed.
+</nierror>
+<nierror code="180121602">
+OS and Network Services: The read buffer for the variable read is empty. The last known value was returned.
+</nierror>
+<nierror code="180121603">
+OS and Network Services: The write buffer for the variable is full. The next write operation could overflow the buffer.
+</nierror>
+<nierror code="180121604">
+OS and Network Services: The write buffer for the variable has overflowed. The oldest value in the buffer was discarded.
+</nierror>
+<nierror code="180121605">
+OS and Network Services: Variable data is being written faster than it can be transmitted. This may result in data loss.
+</nierror>
+</nidocument>

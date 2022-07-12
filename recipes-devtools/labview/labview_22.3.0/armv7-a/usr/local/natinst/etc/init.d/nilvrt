@@ -1,0 +1,40 @@
+#!/bin/sh
+
+RUNDIR=/usr/local/natinst/labview
+DAEMON=./lvrt
+ARGS=""
+USER=root
+PIDFILE=/var/run/lvrt.pid
+
+do_start() {
+	cd $RUNDIR
+	/sbin/start-stop-daemon --start --pidfile $PIDFILE \
+		--make-pidfile --background --chuid $USER \
+		--startas $DAEMON
+}
+
+do_stop() {
+	/sbin/start-stop-daemon --stop --pidfile $PIDFILE --verbose
+}
+
+case "$1" in
+  start)
+	echo "Starting LabVIEW"
+	do_start
+	;;
+  stop)
+	echo "Stopping LabVIEW"
+	do_stop
+	;;
+  restart)
+	echo "Restarting LabVIEW"
+	do_stop
+	do_start
+	;;
+  *)
+	echo "Usage: /etc/init.d/nilvrt {start|stop|restart}"
+	exit 1
+	;;
+esac
+
+exit 0
