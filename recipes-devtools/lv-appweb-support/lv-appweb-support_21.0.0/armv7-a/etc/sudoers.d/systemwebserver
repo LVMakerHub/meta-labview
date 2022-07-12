@@ -1,1 +1,0 @@
-webserv ALL=(#0:#0) NOPASSWD: /usr/local/natinst/bin/niinstallsafemode
