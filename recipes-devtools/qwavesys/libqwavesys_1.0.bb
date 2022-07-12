@@ -10,7 +10,7 @@ S = "${WORKDIR}/git"
 
 PV = "1.0-git${SRCPV}"
 SRCREV = "${AUTOREV}"
-SRC_URI = "git://github.com/QWaveSystems/QwaveSys-Raspberry-Pi-Package.git;protocol=git;branch=master"
+SRC_URI = "git://github.com/QWaveSystems/QwaveSys-Raspberry-Pi-Package.git;protocol=https;branch=master"
 
 #CFLAGS_append =" -DCONFIG_LIBNL32 -I${STAGING_INCDIR}/libnl3"
 #LDFLAGS_append =" -lnl-3 -lnl-genl-3 -lm"

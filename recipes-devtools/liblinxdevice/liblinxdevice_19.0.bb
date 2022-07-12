@@ -3,11 +3,14 @@ HOMEPAGE = "http://www.labviewmakerhub.com"
 LICENSE = "BSD-2-Clause"
 SECTION = "libs"
 DEPENDS = ""
-LIC_FILES_CHKSUM = "file://../../../../../../../EULA.txt;md5=5cdc480f6b6d05b53790a682a9ed9ed9"
+LIC_FILES_CHKSUM = "file://${WORKDIR}/EULA.txt;md5=5cdc480f6b6d05b53790a682a9ed9ed9"
 
-PV = "19.0-git${SRCPV}"
-SRC_URI = "git://github.com/MakerHub/LINX.git;branch=19.0"
-#SRC_URI = "git:///home/craig/dev/LINX;protocol=file;branch=19.0"  # example of local git ref
+PV = "20.0-git${SRCPV}"
+
+SRC_URI = "git://github.com/MakerHub/LINX.git;protocol=https;branch=20.0;md5sum=2145582e5bc9d72462c5dffc5ecadba0 \
+    https://raw.githubusercontent.com/MakerHub/LINX/20.0/EULA.txt;branch=20.0;md5sum=5cdc480f6b6d05b53790a682a9ed9ed9"
+
+#SRC_URI = "git:///home/user/dev/LINX;protocol=file;branch=20.0"  # example of local git ref
 
 SRCREV = "${AUTOREV}"
 S = "${WORKDIR}/git/LabVIEW/vi.lib/MakerHub/LINX/Firmware/Source/make/"
@@ -21,6 +24,8 @@ FILES_${PN} += "/usr/lib/*.so"
 FILES_${PN}-dev = ""
 
 do_compile(){
+        ls
+        pwd
         oe_runmake libs allio
 }
 
