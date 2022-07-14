@@ -24,8 +24,6 @@ FILES_${PN} += "/usr/lib/*.so"
 FILES_${PN}-dev = ""
 
 do_compile(){
-        ls
-        pwd
         oe_runmake libs allio
 }
 
