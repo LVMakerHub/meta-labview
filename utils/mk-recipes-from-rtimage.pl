@@ -16,15 +16,25 @@ use warnings;
 use File::Basename;
 use File::stat;
 
-my $YEAR_VERS = "2022";
-my $LVLONG_VERS = "22.5.0";
-my $LONG_VERS = "22.3.0";
+my $YEAR_VERS = "2023";
+my $LVLONG_VERS = "23.0.0";
+my $LONG_VERS = "23.1.0";
 
-my $SHORT_VERS = "22.3";
+my $SHORT_VERS = "23.1";
 my $RTLOG_VERS = "2.10";
 my $BASE_VERS = "17.0";
-my $TDMS_VERS = "22.0.0";
+my $TDMS_VERS = "23.0.0";
 my $NICURL_VERS = "21.3.0";
+
+# Values for LabVIEW 2022
+#my $YEAR_VERS = "2022";
+#my $LVLONG_VERS = "22.5.0";
+#my $LONG_VERS = "22.3.0";
+#my $SHORT_VERS = "22.3";
+#my $RTLOG_VERS = "2.10";
+#my $BASE_VERS = "17.0";
+#my $TDMS_VERS = "22.0.0";
+#my $NICURL_VERS = "21.3.0";
 
 # Values for LabVIEW 2021
 #my $YEAR_VERS = "2021";
@@ -103,7 +113,7 @@ if ($TOPDIR =~ m,/ni/*$,) {
 	$rtmainIPKSub = getNewestFile($TOPDIR, "linuxpkg/feeds/ipk/ni-l/ni-linux-rt-main/$LVLONG_VERS") . "/inline";
 }
 
-print "Package folders:\n\t$lvIPKSub\n\t$rtmainIPKSub\n" if ($opt_v && $lvIPKSub);
+print "Package folders:\n\t$TOPDIR/$lvIPKSub\n\t$TOPDIR/$rtmainIPKSub\n" if ($opt_v && $lvIPKSub);
 
 die "$0 should be run from meta-labview directory\n" if (!-f "$MetaLVRoot/conf/layer.conf" || !-d "$MetaLVRoot/../meta-labview");
 
@@ -116,10 +126,11 @@ my @PKG = (
 		'summary' => "LabVIEW embedded run-time engine",
 		'homepage' => "http://ni.com/labview",
 		'ipk' => [
-			<$lvIPKSub/ni-labview-realtime_$LONG_VERS.*_cortexa9-vfpv3.ipk>, # replaces LabVIEW/*
-			<$lvIPKSub/libnicpuinfo_$LONG_VERS.*_cortexa9-vfpv3.ipk>,
-			<$lvIPKSub/ni-rtlog_$RTLOG_VERS.*_cortexa9-vfpv3.ipk>,
-			<$rtmainIPKSub/ni-tdms_$LONG_VERS.*_cortexa9-vfpv3.ipk>,
+			<$lvIPKSub/ni-labview-realtime_$LONG_VERS*_cortexa9-vfpv3.ipk>, # replaces LabVIEW/*
+			<$lvIPKSub/libnicpuinfo_$LONG_VERS*_cortexa9-vfpv3.ipk>,
+			<$lvIPKSub/libni-emb11_$LONG_VERS*_cortexa9-vfpv3.ipk>,
+			<$lvIPKSub/ni-rtlog_$RTLOG_VERS*_cortexa9-vfpv3.ipk>,
+			<$rtmainIPKSub/ni-tdms_$LONG_VERS*_cortexa9-vfpv3.ipk>,
 		],
 		'cdf' => [ # CDFs only used for release years <= 2020
 			"LabVIEW/$YEAR_VERS/LabVIEW-linux-$ARCH.cdf",
@@ -141,10 +152,10 @@ my @PKG = (
 		'summary' => "NI-VISA driver",
 		'homepage' => "http://ni.com/visa",
 		'ipk' => [
-			<$rtmainIPKSub/libvisa_$LVLONG_VERS.*_cortexa9-vfpv3.ipk>,
-			<$rtmainIPKSub/libvisa-data_$LVLONG_VERS.*_all.ipk>,
-			<$rtmainIPKSub/ni-visa-passport-serial_$LVLONG_VERS.*_cortexa9-vfpv3.ipk>,
-			<$rtmainIPKSub/ni-visa-errors_$LVLONG_VERS.*_all.ipk>,
+			<$rtmainIPKSub/libvisa_*_cortexa9-vfpv3.ipk>,
+			<$rtmainIPKSub/libvisa-data_*_all.ipk>,
+			<$rtmainIPKSub/ni-visa-passport-serial_*_cortexa9-vfpv3.ipk>,
+			<$rtmainIPKSub/ni-visa-errors_*_all.ipk>,
 		],
 	  	'cdf' => [
 			"NI-VISA/$SHORT_VERS/installLinuxArm.cdf",
@@ -158,10 +169,10 @@ my @PKG = (
 		'summary' => "NI-LabVIEW web support libraries",
 		'homepage' => "http://ni.com/labview",
 		'ipk' => [
-			<$lvIPKSub/ni-labview-http-client_$LONG_VERS.*_cortexa9-vfpv3.ipk>,
-			<$lvIPKSub/ni-labview-smtp-client_$LONG_VERS.*_cortexa9-vfpv3.ipk>,
-			<$lvIPKSub/ni-labview-webdav-client_$LONG_VERS.*_cortexa9-vfpv3.ipk>,
-			<$rtmainIPKSub/nicurl_$NICURL_VERS.*_cortexa9-vfpv3.ipk>, # Link /usr/local/natinst/share/nicurl/ca-bundle.crt -> /etc/natinst/nissl/ca-bundle.crt now created as hard-link to host file in .deb installer
+			<$lvIPKSub/ni-labview-http-client_$LONG_VERS*_cortexa9-vfpv3.ipk>,
+			<$lvIPKSub/ni-labview-smtp-client_$LONG_VERS*_cortexa9-vfpv3.ipk>,
+			<$lvIPKSub/ni-labview-webdav-client_$LONG_VERS*_cortexa9-vfpv3.ipk>,
+			<$rtmainIPKSub/nicurl_$NICURL_VERS*_cortexa9-vfpv3.ipk>, # Link /usr/local/natinst/share/nicurl/ca-bundle.crt -> /etc/natinst/nissl/ca-bundle.crt now created as hard-link to host file in .deb installer
 			<$rtmainIPKSub/ni-ca-certs_*_all.ipk>, # has link /etc/natinst/nissl/ca-bundle.crt -> /etc/ssl/certs/ca-certificates.crt
 			<$rtmainIPKSub/nissl_*_cortexa9-vfpv3.ipk>,
 			<$rtmainIPKSub/ni-traceengine_*_cortexa9-vfpv3.ipk>,
@@ -186,10 +197,10 @@ my @PKG = (
 		'depends' => 'lv-web-support libcap',
 		'vers' => $LONG_VERS,
 	  	'ipk' => [
-			<$rtmainIPKSub/ni-system-webserver_$LONG_VERS.*_cortexa9-vfpv3.ipk>,
-			<$rtmainIPKSub/ni-webservices-webserver-support_$LONG_VERS.*_cortexa9-vfpv3.ipk>,
-			<$rtmainIPKSub/ni-webserver-libs_$LONG_VERS.*_cortexa9-vfpv3.ipk>,
-			<$rtmainIPKSub/ni-ssl-webserver-support_$LONG_VERS.*_cortexa9-vfpv3.ipk>,
+			<$rtmainIPKSub/ni-system-webserver_$LONG_VERS*_cortexa9-vfpv3.ipk>,
+			<$rtmainIPKSub/ni-webservices-webserver-support_$LONG_VERS*_cortexa9-vfpv3.ipk>,
+			<$rtmainIPKSub/ni-webserver-libs_$LONG_VERS*_cortexa9-vfpv3.ipk>,
+			<$rtmainIPKSub/ni-ssl-webserver-support_$LONG_VERS*_cortexa9-vfpv3.ipk>,
 		],
 	  	'cdf' => [
 			"System_webserver/$SHORT_VERS/Linux/$ARCH_S/NISystemWebServer-linux-$ARCH_S.cdf",
