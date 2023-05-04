@@ -1,0 +1,14 @@
+d4064aaed7470de0f6b1eb960042abee396692db  ./recipes-devtools/visa/visa_23.1.0/armv7-a/usr/local/natinst/share/errors/Korean/VISA.err
+fdce0961f3455fa643fbb67697962f226cef128d  ./recipes-devtools/visa/visa_23.1.0/armv7-a/usr/local/natinst/share/errors/Japanese/VISA.err
+3f09ecf6ca0562ef1cc8626fa2d951cd79bc5807  ./recipes-devtools/visa/visa_23.1.0/armv7-a/usr/local/natinst/share/errors/English/VISA.err
+e07f5b54edf0bd0b15355ed9369150e3f7a8892a  ./recipes-devtools/visa/visa_23.1.0/armv7-a/usr/lib/arm-linux-gnueabi/ivivisa/implementations.d/C32EDE22-0AFA-4E09-B3B5-F25715B3157B.ini
+9c980655fbc0589d595697dfaf2aa420bc1e397c  ./recipes-devtools/visa/visa_23.1.0/armv7-a/usr/lib/arm-linux-gnueabi/libvisa.so.22.5.0
+libvisa.so.22.5.0 <- ./recipes-devtools/visa/visa_23.1.0/armv7-a/usr/lib/arm-linux-gnueabi/libvisa.so
+6a24219007726c9c026bcf60a583c7adc914f36f  ./recipes-devtools/visa/visa_23.1.0/armv7-a/usr/lib/arm-linux-gnueabi/ni-visa/libniviasrl.so
+15b6153d41b5d097d96802391ac395dcb06f5675  ./recipes-devtools/visa/visa_23.1.0/armv7-a/usr/share/doc/ni-visa-errors/NOTICES
+63d91632cc74df5a661fc4b2c43363583c97feca  ./recipes-devtools/visa/visa_23.1.0/armv7-a/usr/share/doc/ni-visa-passport-serial/NOTICES
+15b6153d41b5d097d96802391ac395dcb06f5675  ./recipes-devtools/visa/visa_23.1.0/armv7-a/usr/share/doc/libvisa/NOTICES
+5b4843891affc82399b5dc42e6cbcfe36962508a  ./recipes-devtools/visa/visa_23.1.0/armv7-a/usr/share/ni-resetniconfig/nivisa-files.ini
+c1e70c70d10d7099fb759f4eda700714d17e5654  ./recipes-devtools/visa/visa_23.1.0/armv7-a/etc/ld.so.conf.d/libvisa-arm-linux-gnueabi.conf
+1beaf424c9069883501969fc39cfc903f06e613a  ./recipes-devtools/visa/visa_23.1.0/armv7-a/etc/ni-visa/passports.d/serial.ini
+5f3c1a58196e9631d16c6084d86c79ac40a066c4  ./recipes-devtools/visa/visa_23.1.0/armv7-a/etc/ni-visa/visaconf.ini
