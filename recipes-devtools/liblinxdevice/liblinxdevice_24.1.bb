@@ -5,9 +5,9 @@ SECTION = "libs"
 DEPENDS = ""
 LIC_FILES_CHKSUM = "file://${WORKDIR}/EULA.txt;md5=5cdc480f6b6d05b53790a682a9ed9ed9"
 
-PV = "20.0-git${SRCPV}"
+PV = "24.1-git${SRCPV}"
 
-SRC_URI = "git://github.com/MakerHub/LINX.git;protocol=https;branch=20.0;md5sum=2145582e5bc9d72462c5dffc5ecadba0 \
+SRC_URI = "git://github.com/MakerHub/LINX.git;protocol=https;branch=main;md5sum=2145582e5bc9d72462c5dffc5ecadba0 \
     https://raw.githubusercontent.com/MakerHub/LINX/20.0/EULA.txt;branch=20.0;md5sum=5cdc480f6b6d05b53790a682a9ed9ed9"
 
 #SRC_URI = "git:///home/user/dev/LINX;protocol=file;branch=20.0"  # example of local git ref
@@ -36,8 +36,11 @@ do_install_append(){
 
         install -m 0755 ${S}../core/examples/Beagle_Bone_Black_Tcp/bin/beagleBoneBlackTcp.out ${D}/usr/bin/linxtcpserver-bb
         install -m 0755 ${S}../core/examples/Beagle_Bone_Black_Configurable/bin/beagleBoneBlackConfigurable.out ${D}/usr/bin/linxioserver-bb
-        install -m 0755 ${S}../core/examples/RaspberryPi_2_B_Serial/bin/raspberryPi2BSerial.out ${D}/usr/bin/linxserialserver-rpi
-        install -m 0755 ${S}../core/examples/RaspberryPi_2_B_Tcp/bin/raspberryPi2BTcp.out ${D}/usr/bin/linxtcpserver-rpi
-        install -m 0755 ${S}../core/examples/RaspberryPi_2_B_Configurable/bin/raspberryPi2BConfigurable.out ${D}/usr/bin/linxioserver-rpi
+        install -m 0755 ${S}../core/examples/RaspberryPi_2_B_Serial/bin/raspberryPi2BSerial.out ${D}/usr/bin/linxserialserver-rpi2
+        install -m 0755 ${S}../core/examples/RaspberryPi_2_B_Tcp/bin/raspberryPi2BTcp.out ${D}/usr/bin/linxtcpserver-rpi2
+        install -m 0755 ${S}../core/examples/RaspberryPi_2_B_Configurable/bin/raspberryPi2BConfigurable.out ${D}/usr/bin/linxioserver-rpi2
+        install -m 0755 ${S}../core/examples/RaspberryPi_5_Serial/bin/raspberryPi5Serial.out ${D}/usr/bin/linxserialserver-rpi5
+        install -m 0755 ${S}../core/examples/RaspberryPi_5_Tcp/bin/raspberryPi5Tcp.out ${D}/usr/bin/linxtcpserver-rpi5
+        install -m 0755 ${S}../core/examples/RaspberryPi_5_Configurable/bin/raspberryPi5Configurable.out ${D}/usr/bin/linxioserver-rpi5
 }
 
