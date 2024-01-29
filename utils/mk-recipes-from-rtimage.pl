@@ -16,45 +16,44 @@ use warnings;
 use File::Basename;
 use File::stat;
 
-my $YEAR_VERS = "2023";
-my $LVLONG_VERS = "23.0.0";
-my $LONG_VERS = "23.1.0";
+my $YEAR_VERS = "2024";
+my $LVLONG_VERS = "24.0.0";
+my $LONG_VERS = "24.1.0";
+my $RTLOG_VERS = $LONG_VERS;
+my $NICURL_VERS = $LVLONG_VERS;
 
-my $SHORT_VERS = "23.1";
-my $RTLOG_VERS = "2.10";
-my $BASE_VERS = "17.0";
-my $TDMS_VERS = "23.0.0";
-my $NICURL_VERS = "21.3.0";
+# Values for LabVIEW 2023
+#my $YEAR_VERS = "2023";
+#my $LVLONG_VERS = "23.0.0";
+#my $LONG_VERS = "23.1.0";
+#my $RTLOG_VERS = "2.10";
+#my $NICURL_VERS = "21.3.0";
 
 # Values for LabVIEW 2022
 #my $YEAR_VERS = "2022";
 #my $LVLONG_VERS = "22.5.0";
 #my $LONG_VERS = "22.3.0";
-#my $SHORT_VERS = "22.3";
 #my $RTLOG_VERS = "2.10";
-#my $BASE_VERS = "17.0";
-#my $TDMS_VERS = "22.0.0";
 #my $NICURL_VERS = "21.3.0";
 
 # Values for LabVIEW 2021
 #my $YEAR_VERS = "2021";
 #my $LVLONG_VERS = "21.0.0";
 #my $LONG_VERS = "21.0.0";
-#my $SHORT_VERS = "21.0";
 #my $RTLOG_VERS = "2.10";
-#my $BASE_VERS = "17.0";
-#my $TDMS_VERS = "21.0.0";
 #my $NICURL_VERS = "21.0.0";
 
 # Values for LabVIEW 2020
 #my $YEAR_VERS = "2020";
 #my $LVLONG_VERS = "20.0.0";
 #my $LONG_VERS = "20.0.0";
-#my $SHORT_VERS = "20.0";
 #my $RTLOG_VERS = "2.9";
-#my $BASE_VERS = "17.0";
-#my $TDMS_VERS = "19.0.0";
 #my $NICURL_VERS = "20.0.0";
+
+# These variables are only used for CDF-based builds, 2020 and prior
+my $SHORT_VERS = "20.0";
+my $BASE_VERS = "17.0";
+my $TDMS_VERS = "19.0.0";
 
 # Values for LabVIEW 2019 SP1
 #my $YEAR_VERS = "2019";
@@ -67,6 +66,7 @@ my $NICURL_VERS = "21.3.0";
 #my $NICURL_VERS = "19.0.0";
 
 my $useIPKs = ($YEAR_VERS ge "2021");
+
 my $BASEIMAGETAR_FOR_CERTFILE = "Base/$BASE_VERS/762F/base.tar";
 
 my $ARCH = "armv7-a";   # or "x64"
@@ -101,7 +101,7 @@ if (defined($arg)) {
 	chomp($FIXDIR = $arg) if (defined($arg = shift));
 	die "Can't access $FIXDIR\n" if ($FIXDIR && !-d $FIXDIR);
 } else {
-	die "Usage: $0 [-x] [-v] <RT_Images_dir>\n -x : actually extract files\n -v : verbose output\n";
+	die "Usage: $0 [-x] [-v] <RT_Images_dir> [LV_repo_for_fixup]\n -x : actually extract files\n -v : verbose output\n";
 }
 
 
@@ -576,13 +576,14 @@ EOF
 sub getNewestFile {
 	my ($top, $subdir) = @_;
 	opendir(my $dir_fh, $top."/".$subdir);
-	my ($prevFile, $prevTime, $file, $fileTime, $newestFile);
+	my ($file, $fileTime, $newestFile, $newestTime);
 	while (my $file = readdir $dir_fh) {
-    		if ($file !~ /^\./) {
+        if ($file !~ /^\./) {
 			my $fileTime = stat("$top/$subdir/$file");
-			$newestFile = $file if (!$prevFile || $fileTime->mtime > $prevTime->mtime);
-			$prevFile = $file;
-			$prevTime = $fileTime;
+			if (!$newestFile || $fileTime->mtime > $newestTime->mtime) {
+				$newestFile = $file;
+				$newestTime = $fileTime;
+			}
 		}
 	}
 	closedir $dir_fh;
