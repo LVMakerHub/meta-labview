@@ -7,10 +7,12 @@ LIC_FILES_CHKSUM = "file://${WORKDIR}/EULA.txt;md5=5cdc480f6b6d05b53790a682a9ed9
 
 PV = "24.1-git${SRCPV}"
 
-SRC_URI = "git://github.com/MakerHub/LINX.git;protocol=https;branch=main;md5sum=2145582e5bc9d72462c5dffc5ecadba0 \
+SRC_URI = "git://github.com/MakerHub/LINX.git;protocol=https;branch=main \
     https://raw.githubusercontent.com/MakerHub/LINX/20.0/EULA.txt;branch=20.0;md5sum=5cdc480f6b6d05b53790a682a9ed9ed9"
 
-#SRC_URI = "git:///home/user/dev/LINX;protocol=file;branch=20.0"  # example of local git ref
+# Example of local git ref:
+#SRC_URI = "git:///home/user/dev/LINX;protocol=file;branch=build_fixes \
+#    https://raw.githubusercontent.com/MakerHub/LINX/20.0/EULA.txt;branch=20.0;md5sum=5cdc480f6b6d05b53790a682a9ed9ed9"
 
 SRCREV = "${AUTOREV}"
 S = "${WORKDIR}/git/LabVIEW/vi.lib/MakerHub/LINX/Firmware/Source/make/"
