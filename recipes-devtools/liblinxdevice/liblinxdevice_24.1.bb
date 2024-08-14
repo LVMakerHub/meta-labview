@@ -41,8 +41,5 @@ do_install_append(){
         install -m 0755 ${S}../core/examples/RaspberryPi_2_B_Serial/bin/raspberryPi2BSerial.out ${D}/usr/bin/linxserialserver-rpi2
         install -m 0755 ${S}../core/examples/RaspberryPi_2_B_Tcp/bin/raspberryPi2BTcp.out ${D}/usr/bin/linxtcpserver-rpi2
         install -m 0755 ${S}../core/examples/RaspberryPi_2_B_Configurable/bin/raspberryPi2BConfigurable.out ${D}/usr/bin/linxioserver-rpi2
-        install -m 0755 ${S}../core/examples/RaspberryPi_5_Serial/bin/raspberryPi5Serial.out ${D}/usr/bin/linxserialserver-rpi5
-        install -m 0755 ${S}../core/examples/RaspberryPi_5_Tcp/bin/raspberryPi5Tcp.out ${D}/usr/bin/linxtcpserver-rpi5
-        install -m 0755 ${S}../core/examples/RaspberryPi_5_Configurable/bin/raspberryPi5Configurable.out ${D}/usr/bin/linxioserver-rpi5
 }
 
