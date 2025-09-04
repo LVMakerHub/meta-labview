@@ -1,0 +1,93 @@
+/usr/local/natinst/labview/liblvrt.so <- ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/lib64/liblvrtdark.so.25.0
+/usr/local/natinst/labview/libNILVRuntimeManager.so <- ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/lib64/libNILVRuntimeManager.so
+/usr/local/natinst/labview/liblvrt.so <- ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/lib64/liblvrt.so.25.0
+/usr/local/natinst/labview/liblvrt.so <- ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/lib64/liblvrtdark.so.25.1
+liblvpidtkt.so.17 <- ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/lib/liblvpidtkt.so
+liblvpidtkt.so.17.0.0 <- ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/lib/liblvpidtkt.so.17
+d22e326deb6fb04c0f5a5ed12e7e82640707ea92  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/lib/liblvpidtkt.so.17.0.0
+libni_rtlog.so.25.1.0 <- ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/lib/libni_rtlog.so.25
+493ae805345361b666cedd50f2c51a08265997f1  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/lib/libni_emb.so.25.1.0
+1547de41c95ad625929d80d0fdc289a46153929e  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/lib/libni_rtlog.so.25.1.0
+libni_emb.so.25.1.0 <- ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/lib/libni_emb.so.25
+libni_rtlog.so.25 <- ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/lib/libni_rtlog.so
+libni_emb.so.25 <- ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/lib/libni_emb.so
+d8512b60eb2cefa9391f8fd529ffda869a491509  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/etc/init.d/nilvrt
+12cef3bcec1fa2e5f00a2547920d93f462f26f2d  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/etc/init.d/lvrt-wrapper
+fa146e9a9cd053550a7b7667094e47028713b539  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/etc/init.d/lvrt-daemon
+7e0f8953594a440bd177c209c044858436cebec9  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/labview/libNILVRuntimeManager.so.25.1.0
+705c00794a4311baf6256ff0a923826a3af8116f  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/labview/liblvalarms.so.25.1.0
+liblvalarms.so.25.1.0 <- ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/labview/liblvalarms.so
+liblvrt.so.25 <- ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/labview/liblvrt.so
+libNILVRuntimeManager.so.25 <- ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/labview/libNILVRuntimeManager.so
+liblvrt.so.25.1 <- ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/labview/liblvrt.so.25.0
+91584cde06648baa1e4285e6ceb4dd4c1834ef8a  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/labview/lvrt
+libniCPULib.so.25 <- ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/labview/libniCPULib.so
+libniCPULib.so.25.1.0 <- ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/labview/libniCPULib.so.25
+liblvalarms.so.25.1.0 <- ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/labview/liblvalarms.so.9
+5f1cd625453281794c309cd8f56e51ff68682cef  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/labview/liblvrt.so.25.1.0
+/usr/local/natinst/share/NIWebServer/libappweb.so <- ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/labview/libappweb.so
+d586eeada3dceee7a57b526856d890b0574395c7  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/labview/lvanlys.so
+4c1e597277e6e960426f7332ba8585af8d342949  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/labview/lviosrg.so
+5eba422d53b266ae2cc7bae464ea536e4478f929  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/labview/libniCPULib.so.25.1.0
+8b5961e6b377bd2a865ddd5ae5d24236d947af0e  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/labview/english/rtapp.rsc
+d72e32c91bc543f40535e550e3ce3393b265ce8c  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/labview/lvblas.so
+libNILVRuntimeManager.so.25.1 <- ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/labview/libNILVRuntimeManager.so.25
+liblvalarms.so.25.1.0 <- ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/labview/liblvalarms.so.25
+a03f6d1b9cd8b4c61cf4e3d001ce58c9ac14baf2  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/labview/errors/English/reports.err
+0daf759b23bdecc134d0b11e6eb5caccd4060d67  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/labview/errors/English/measure.err
+49b01b4090b8edce5f6b4baafb6a3d46546c46cb  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/labview/errors/English/Services.err
+f8b14452280d1e46945b9fb26be8dc0c3f82e0c6  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/labview/errors/English/labview.err
+45f65f038c2edc5b0380364780a5aac610a8b288  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/labview/errors/English/analysis.err
+0d4abc161a625acd6e46a3519578f8985992378c  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/labview/lvaskpass
+liblvrt.so.25.1 <- ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/labview/liblvrt.so.25
+libNILVRuntimeManager.so.25.1 <- ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/labview/libNILVRuntimeManager.so.25.0
+libNILVRuntimeManager.so.25.1.0 <- ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/labview/libNILVRuntimeManager.so.25.1
+liblvrt.so.25.1.0 <- ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/labview/liblvrt.so.25.1
+2f12f5c670d2ae3f858d3efa470064938277f221  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/local/natinst/bin/ni-opkg-search
+4425cad4353b6304714640f75521b93da1174fdd  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/lib/locale/L1/LC_NAME
+b3c05728f57838b252b7aa1d5bdf4e5853a761b9  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/lib/locale/L1/LC_MESSAGES/SYS_LC_MESSAGES
+e29b77540b814dea7ad72c1f948be41fc80aeea5  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/lib/locale/L1/LC_ADDRESS
+f0dad6d35af71b2b3d48632942310c018fe74a3c  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/lib/locale/L1/LC_MONETARY
+f6e105bbb74d012b35bc52a3f95da28ed60614a8  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/lib/locale/L1/LC_COLLATE
+2af8e0c178e01ecf720e055bddb29f3b300e46d5  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/lib/locale/L1/LC_TELEPHONE
+0f84f6dddc28ac2a28687c9eb79cc064f7053fab  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/lib/locale/L1/LC_MEASUREMENT
+a679b2c70c39ade35208b03cb6babef4818ce9c0  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/lib/locale/L1/LC_IDENTIFICATION
+34948c970ba6163c41da1dd9b56f94236727e4c1  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/lib/locale/L1/LC_NUMERIC
+0d835e5a23c6517b227ecfc988d71a97e4046e77  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/lib/locale/L1/LC_TIME
+c480cbcba0e90961e3b38216631197608ded931b  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/lib/locale/L1/LC_CTYPE
+a523a0d5fc351a68d989832d4725a3c53aad1eef  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/lib/locale/L1/LC_PAPER
+libtdms.so.25 <- ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/lib/libtdms.so
+95015ef55788cb8cbcce17413f7488021a47494d  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/lib/libtdms.so.25.1.0
+15b6153d41b5d097d96802391ac395dcb06f5675  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/share/doc/ni-labview-realtime/NOTICES
+15b6153d41b5d097d96802391ac395dcb06f5675  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/share/doc/ni-rtlog/NOTICES
+15b6153d41b5d097d96802391ac395dcb06f5675  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/share/doc/ni-tdms/NOTICES
+15b6153d41b5d097d96802391ac395dcb06f5675  ./recipes-devtools/labview/labview_25.1.0/armv7-a/usr/share/doc/libnicpuinfo/NOTICES
+6d90b0abcc1b4b6455b23353c07cb29c7b61c532  ./recipes-devtools/labview/labview_25.1.0/armv7-a/var/local/natinst/labview/www/www.css
+ec8a3a65d5d04f39758698c512446d370c020ae3  ./recipes-devtools/labview/labview_25.1.0/armv7-a/var/local/natinst/labview/www/vis.htm
+5f4a4c1600f9251228db2fb7837fad2458b25331  ./recipes-devtools/labview/labview_25.1.0/armv7-a/var/local/natinst/labview/www/webtool.htm
+408b66bc90dc9f8777398c08e522414a496bea17  ./recipes-devtools/labview/labview_25.1.0/armv7-a/var/local/natinst/labview/www/docs.htm
+7bd03e37ff2a1aa261bb3ab9b8f540b8d77206dd  ./recipes-devtools/labview/labview_25.1.0/armv7-a/var/local/natinst/labview/www/favicon.ico
+2bd93a351b7f28a094a2baf7e3b98d9625874e94  ./recipes-devtools/labview/labview_25.1.0/armv7-a/var/local/natinst/labview/www/images/up.gif
+7dd49a0af3ece54b0b0a3256cb75bb0d73807114  ./recipes-devtools/labview/labview_25.1.0/armv7-a/var/local/natinst/labview/www/images/lvwebsrv.gif
+6ab1d2bcdbe49d477552534adf190da365b95c6a  ./recipes-devtools/labview/labview_25.1.0/armv7-a/var/local/natinst/labview/www/images/panldiag.gif
+444a1053975452e90c77d7072363c15a3aa2a128  ./recipes-devtools/labview/labview_25.1.0/armv7-a/var/local/natinst/labview/www/images/prevd.gif
+19cc846cce3b49df91e7306c20268205297179d4  ./recipes-devtools/labview/labview_25.1.0/armv7-a/var/local/natinst/labview/www/images/nextd.gif
+c54e8cd4e3f2945e048fa868ed768030fe8efbc8  ./recipes-devtools/labview/labview_25.1.0/armv7-a/var/local/natinst/labview/www/images/top.gif
+bd3498626ff4a856afbee18d66345c3613d8abaf  ./recipes-devtools/labview/labview_25.1.0/armv7-a/var/local/natinst/labview/www/images/home.gif
+ec33701fe8cd92b98ba6b6a31390b016d4a1bba5  ./recipes-devtools/labview/labview_25.1.0/armv7-a/var/local/natinst/labview/www/images/next.gif
+6f92227b3a4a95da1283c9c9dde186cd9e1ef678  ./recipes-devtools/labview/labview_25.1.0/armv7-a/var/local/natinst/labview/www/images/homed.gif
+bde975405bbfd44d9240d9452a65baf9281e2b63  ./recipes-devtools/labview/labview_25.1.0/armv7-a/var/local/natinst/labview/www/images/prev.gif
+19487e841e7d6b062358a193ee351ca8fb6efcb0  ./recipes-devtools/labview/labview_25.1.0/armv7-a/var/local/natinst/labview/www/images/panel.gif
+ace7d329e3a4d1a6bd5ecfb8423861c3fafd5ebf  ./recipes-devtools/labview/labview_25.1.0/armv7-a/var/local/natinst/labview/www/rtchart.htm
+26d4c092f09399446cd5bb3e224588e6729f102d  ./recipes-devtools/labview/labview_25.1.0/armv7-a/var/local/natinst/labview/www/examples.htm
+da39a3ee5e6b4b0d3255bfef95601890afd80709  ./recipes-devtools/labview/labview_25.1.0/armv7-a/var/local/natinst/labview/www/beyond.htm
+af913f173c6d27fd1ac7370a4f9dcc097860613a  ./recipes-devtools/labview/labview_25.1.0/armv7-a/var/local/natinst/labview/www/services.htm
+da39a3ee5e6b4b0d3255bfef95601890afd80709  ./recipes-devtools/labview/labview_25.1.0/armv7-a/var/local/natinst/labview/www/overview.htm
+fb4018c00a8c9e3067ac1c154af21addbdc5d4ac  ./recipes-devtools/labview/labview_25.1.0/armv7-a/var/local/natinst/labview/www/index.htm
+3934ac46a4c7bf1d49d36ca4cf3930871172eb2b  ./recipes-devtools/labview/labview_25.1.0/armv7-a/etc/ld.so.conf.d/ni-tdms-lib.conf
+b3b487db547177b0c2d8ee38a5e6cd3efe6f7e36  ./recipes-devtools/labview/labview_25.1.0/armv7-a/etc/natinst/labview.dir
+5daf446d772790fddca736ecce04cc4e7bf5a5ee  ./recipes-devtools/labview/labview_25.1.0/armv7-a/etc/natinst/share/lvrt.conf
+e663b0383d177017ab3bdc7f1b3b1298811c3c0d  ./recipes-devtools/labview/labview_25.1.0/armv7-a/etc/logrotate.d/nilvrterr.conf
+/usr/local/natinst/etc/init.d/nilvrt <- ./recipes-devtools/labview/labview_25.1.0/armv7-a/etc/init.d/nilvrt
+/usr/local/natinst/etc/init.d/lvrt-wrapper <- ./recipes-devtools/labview/labview_25.1.0/armv7-a/etc/init.d/lvrt-wrapper
+/usr/local/natinst/etc/init.d/lvrt-daemon <- ./recipes-devtools/labview/labview_25.1.0/armv7-a/etc/init.d/lvrt-daemon

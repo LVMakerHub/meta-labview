@@ -16,11 +16,18 @@ use warnings;
 use File::Basename;
 use File::stat;
 
-my $YEAR_VERS = "2024";
-my $LVLONG_VERS = "24.0.0";
-my $LONG_VERS = "24.1.0";
+my $YEAR_VERS = "2025";
+my $LVLONG_VERS = "25.0.0";
+my $LONG_VERS = "25.1.0";
 my $RTLOG_VERS = $LONG_VERS;
 my $NICURL_VERS = $LVLONG_VERS;
+
+# Values for LabVIEW 2024
+#my $YEAR_VERS = "2024";
+#my $LVLONG_VERS = "24.0.0";
+#my $LONG_VERS = "24.1.0";
+#my $RTLOG_VERS = $LONG_VERS;
+#my $NICURL_VERS = $LVLONG_VERS;
 
 # Values for LabVIEW 2023
 #my $YEAR_VERS = "2023";
@@ -105,12 +112,14 @@ if (defined($arg)) {
 }
 
 
-my $lvIPKSub;
-my $rtmainIPKSub;
+my $lvIPKSub = "";
+my $rtmainIPKSub = "";
 
 if ($TOPDIR =~ m,/ni/*$,) {
 	$lvIPKSub = getNewestFile($TOPDIR, "linuxpkg/feeds/ipk/ni-l/ni-linux-rt-lv$YEAR_VERS/$LVLONG_VERS") . "/inline";
 	$rtmainIPKSub = getNewestFile($TOPDIR, "linuxpkg/feeds/ipk/ni-l/ni-linux-rt-main/$LVLONG_VERS") . "/inline";
+} else {
+    die "$TOPDIR should contain final 'ni' component\n";
 }
 
 print "Package folders:\n\t$TOPDIR/$lvIPKSub\n\t$TOPDIR/$rtmainIPKSub\n" if ($opt_v && $lvIPKSub);
@@ -175,6 +184,7 @@ my @PKG = (
 			<$rtmainIPKSub/nicurl_$NICURL_VERS*_cortexa9-vfpv3.ipk>, # Link /usr/local/natinst/share/nicurl/ca-bundle.crt -> /etc/natinst/nissl/ca-bundle.crt now created as hard-link to host file in .deb installer
 			<$rtmainIPKSub/ni-ca-certs_*_all.ipk>, # has link /etc/natinst/nissl/ca-bundle.crt -> /etc/ssl/certs/ca-certificates.crt
 			<$rtmainIPKSub/nissl_*_cortexa9-vfpv3.ipk>,
+			<$rtmainIPKSub/ni-openssl3-libs_*_cortexa9-vfpv3.ipk>,
 			<$rtmainIPKSub/ni-traceengine_*_cortexa9-vfpv3.ipk>,
 		],
 		'cdf' => [
@@ -575,7 +585,7 @@ EOF
 
 sub getNewestFile {
 	my ($top, $subdir) = @_;
-	opendir(my $dir_fh, $top."/".$subdir);
+	opendir(my $dir_fh, $top."/".$subdir) || die "Can't open $top/$subdir\n";
 	my ($file, $fileTime, $newestFile, $newestTime);
 	while (my $file = readdir $dir_fh) {
         if ($file !~ /^\./) {
@@ -587,5 +597,7 @@ sub getNewestFile {
 		}
 	}
 	closedir $dir_fh;
-	return $subdir."/".$newestFile;
+	my $ret = $subdir."/".$newestFile;
+    # print "getNewestFile $ret\n";
+    return $ret
 }
