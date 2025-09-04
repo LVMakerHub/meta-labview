@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+
+<HEAD>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=iso-8859-1">
+<LINK rel=STYLESHEET href="www.css" Type="text/css">
+
+    <META NAME="Author" Content="Stepan Riha">
+    <TITLE>LabVIEW Web Server Examples</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF">
+
+<P><SCRIPT LANGUAGE="JavaScript">
+<!--
+function PrintURL(url){
+    urlArr = document.URL.match(/^(http:\/\/[^\/]+\/)/i);
+    prefix = urlArr ? urlArr[0] : '';
+    document.write('<TT>' + prefix + url + '</TT>');
+    }
+//-->	</SCRIPT></P>
+<P><A NAME="top"></A> 
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+    <TR>
+	<TD><IMG SRC="images/lvwebsrv.gif" WIDTH="318" HEIGHT="44" ALIGN="BOTTOM" ALT="LabVIEW Web Server"
+	    BORDER="0"></TD>
+	<TD>
+	    <P ALIGN="RIGHT"><A HREF="webtool.htm"><IMG SRC="images/prev.gif" WIDTH="29" HEIGHT="30"
+	    ALIGN="BOTTOM" BORDER="0"></A><A HREF="index.htm"><IMG SRC="images/home.gif" WIDTH="26"
+	    HEIGHT="30" ALIGN="BOTTOM" BORDER="0"></A><IMG SRC="images/nextd.gif" WIDTH="29"
+	    HEIGHT="30" ALIGN="BOTTOM" BORDER="0">
+	</TD>
+    </TR>
+</TABLE>
+</P>
+<H2>Examples</H2>
+<P><SCRIPT LANGUAGE="JavaScript">
+<!--
+url = document.URL;
+
+if(!url.match(/^http:/i)){
+    errorMsg = "<FONT color=red>"
++ '<B>Note: </B>In order to view the examples, you must retrieve this page from the LabVIEW Web Server.<P>'
++ '<OL TYPE="1" START="1">\n'
++ '	<LI>Make sure that the LabVIEW Web Server is enabled (in the <strong>Options</strong> dialog box).\n'
++ '	<LI><A HREF=\"http://localhost/examples.htm\"><B>Reload this example page from the LabVIEW web server.</B></A><BR>\n'
++ '		If the LabVIEW Web Server is not using TCP/IP port 80, enter the following URL into your browser\'s address field '
++ '		(replacing <B>port</B> with the port number that the LabVIEW Web Server is using): '
++ '		<TT>http://localhost:<em>port</em>/examples.htm</TT>.\n'
++ '</OL>\n'
++ '</FONT>';
+
+    document.write(errorMsg);
+    }
+//-->	</SCRIPT>
+The following examples use the <B>Real-Time Chart VI</B> example located
+in the <TT>examples/general/graphs/charts.llb</TT>. Open and run the
+VI before proceeding with the examples.</P>
+
+<NOSCRIPT><B>Important!</B> The examples work only if you have retrieved this page
+directly from the LabVIEW Web Server. The URL in your browser's Address field should begin with '<TT>http://</TT>'.<BR>
+
+If the URL does not begin with '<TT>http://</TT>', do the following:
+<OL TYPE="1" START="1">
+    <LI>Make sure that the LabVIEW Web Server is enabled (in the <strong>Options</strong> dialog box).
+    <LI><A HREF=\"http://localhost/examples.htm"><B>Reload this example page from the LabVIEW Web Server.</B></A><BR>
+	If the LabVIEW Web Server is not using TCP/IP port 80, enter the following URL into your browser's Address field
+	(replacing <B>port</B> with the port number that the LabVIEW Web Server is using): '
+	<TT>http://localhost:<em>port</em>/examples.htm</TT>.
+</OL>
+</NOSCRIPT>
+<H3>Panel Image of a VI</H3>
+<P>The following link opens a window that displays the
+<A HREF=".snap?Real-Time%20Chart.vi" target="LabVIEW Examples">panel image</A> of Real-Time
+Chart VI as specified by the following URL:<BLOCKQUOTE>
+<SCRIPT LANGUAGE="JavaScript"><!--
+PrintURL("<B>.snap?Real-Time%20Chart.vi</B>");
+//--></A></SCRIPT><NOSCRIPT><TT><B>.snap?Real-Time%20Chart.vi</B></TT></NOSCRIPT></BLOCKQUOTE>
+
+Notice that the URL replaced the space character in the VI name with &quot;<TT>%20</TT>&quot;. Click the <B>Refresh</B> button in your browser to obtain an updated image of the
+VI. If the VI is not open, the server returns a &quot;File Not Found&quot; error
+document.</P>
+<H3>Panel Animation of a VI</H3>
+<P>The following link opens a window that displays the
+<A HREF=".monitor?Real-Time%20Chart.vi" target="LabVIEW Examples">panel image animation</A>
+of the Real-Time Chart VI using the following URL: <BLOCKQUOTE>
+<SCRIPT LANGUAGE="JavaScript"><!--
+PrintURL(".monitor?Real-Time%20Chart.vi");
+//--></SCRIPT><NOSCRIPT><TT><B>.monitor?Real-Time%20Chart.vi</B></TT></NOSCRIPT>
+</BLOCKQUOTE>
+<H3>Web Document with Panel Image</H3>
+<P>The following link opens a window that displays a <A HREF="rtchart.htm" target="LabVIEW Examples">web
+document with an embedded image</A> of the Real-Time Chart VI.
+<P>You can use the
+<A HREF="webtool.htm">Web Document Tool</A> to create Web pages with embedded panel images.
+<P>
+
+<HR>
+<TABLE BORDER="0" WIDTH="100%">
+    <TR>
+	<TD WIDTH="50%">&copy; National Instruments</TD>
+	<TD WIDTH="50%">
+	    <P ALIGN="RIGHT"><A HREF="#top"><IMG SRC="images/top.gif" WIDTH="29" HEIGHT="30"
+	    ALIGN="BOTTOM" BORDER="0"></A><A HREF="webtool.htm"><IMG SRC="images/prev.gif" WIDTH="29"
+	    HEIGHT="30" ALIGN="BOTTOM" BORDER="0"></A><A HREF="index.htm"><IMG SRC="images/home.gif"
+	    WIDTH="26" HEIGHT="30" ALIGN="BOTTOM" BORDER="0"></A><IMG SRC="images/nextd.gif"
+	    WIDTH="29" HEIGHT="30" ALIGN="BOTTOM" BORDER="0">
+	</TD>
+    </TR>
+</TABLE>
+</BODY>
+
+</HTML>
