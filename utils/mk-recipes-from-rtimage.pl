@@ -16,11 +16,33 @@ use warnings;
 use File::Basename;
 use File::stat;
 
-my $YEAR_VERS = "2025";
-my $LVLONG_VERS = "25.0.0";
-my $LONG_VERS = "25.1.0";
+my $YEAR_VERS = "2026";
+my $LVLONG_VERS = "26.0.0";
+my $LONG_VERS = "26.1.0";
 my $RTLOG_VERS = $LONG_VERS;
 my $NICURL_VERS = $LVLONG_VERS;
+my $useTestFeed = 0;
+
+my $origLONG_VERS = $LONG_VERS;
+
+my ($rtlvSub, $rtmainSub);
+if ($useTestFeed) {
+    $rtlvSub = "linuxpkg/feeds/ipk/ni-t/ni-test-labview-realtime/$LONG_VERS";
+    $rtmainSub = "linuxpkg/feeds/ipk/ni-t/ni-test-labview-realtime/$LONG_VERS";
+    $LONG_VERS = "*";
+    $RTLOG_VERS = "*";
+    $NICURL_VERS = "*";
+} else {
+    $rtlvSub = "linuxpkg/feeds/ipk/ni-l/ni-linux-rt-lv$YEAR_VERS/$LVLONG_VERS";
+    $rtmainSub = "linuxpkg/feeds/ipk/ni-l/ni-linux-rt-main/$LVLONG_VERS";
+}
+
+# Values for LabVIEW 2025
+#my $YEAR_VERS = "2025";
+#my $LVLONG_VERS = "25.0.0";
+#my $LONG_VERS = "25.1.0";
+#my $RTLOG_VERS = $LONG_VERS;
+#my $NICURL_VERS = $LVLONG_VERS;
 
 # Values for LabVIEW 2024
 #my $YEAR_VERS = "2024";
@@ -116,8 +138,8 @@ my $lvIPKSub = "";
 my $rtmainIPKSub = "";
 
 if ($TOPDIR =~ m,/ni/*$,) {
-	$lvIPKSub = getNewestFile($TOPDIR, "linuxpkg/feeds/ipk/ni-l/ni-linux-rt-lv$YEAR_VERS/$LVLONG_VERS") . "/inline";
-	$rtmainIPKSub = getNewestFile($TOPDIR, "linuxpkg/feeds/ipk/ni-l/ni-linux-rt-main/$LVLONG_VERS") . "/inline";
+	$lvIPKSub = getNewestFile($TOPDIR, "$rtlvSub") . "/inline";
+	$rtmainIPKSub = getNewestFile($TOPDIR, "$rtmainSub") . "/inline";
 } else {
     die "$TOPDIR should contain final 'ni' component\n";
 }
@@ -246,7 +268,7 @@ foreach my $ref (@PKG) {
 	my $summary = $$ref{'summary'};
 	my $homepage = $$ref{'homepage'};
 	my $depends = $$ref{'depends'};
-	my $pkgv = $pkg . "_" . $LONG_VERS;
+	my $pkgv = $pkg . "_" . $origLONG_VERS;
 	my $ldConfAdd = $$ref{'ldconfAdd'};
 	$ldConfAdd = $$ref{'ldconfAdd_CDFOnly'} if (!defined($ldConfAdd) && !$useIPKs);
 	my $initScript = $$ref{'initScript'};
@@ -403,6 +425,9 @@ foreach my $ref (@PKG) {
 			close F;
 		}
 	}
+
+    $LONG_VERS = $origLONG_VERS;
+
 	if ($opt_x) {
 		open (O, ">$pkgDistBase/LICENSE");
 		print O <<'EOF';
